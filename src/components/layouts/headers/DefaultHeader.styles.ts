@@ -9,6 +9,9 @@ export const Inner = styled.div`
 	max-width: 1200px;
 	margin: auto;
 	background-color: ${globalColor.primary_dp3};
+	border: 2px solid ${globalColor.primary_dp4};
+	border-top: none;
+	border-radius: 0 0 7px 7px;
 `;
 export const InnerHeader = styled.div`
 	display: flex;

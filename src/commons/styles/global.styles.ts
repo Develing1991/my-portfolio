@@ -68,6 +68,7 @@ export const globalStyles = css`
     height: 6000px;
     /* color: #212121; */
     font-size: 14px;
+    /* background-color: #BBBFCA; */
   }
   a {
   text-decoration: none;
