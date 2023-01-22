@@ -7,7 +7,7 @@ interface ButtonProps {
 type IButtonProps = Partial<ButtonProps>;
 
 export const Button = styled.button`
-	border: 2px solid ${globalColor.primary_dp1};
+	border: 1px solid ${globalColor.primary_dp1};
 	padding: 7px 10px;
 	border-radius: 4px;
 	background-color: ${({ reverse }: IButtonProps) => (reverse ? globalColor.primary_dp4 : globalColor.primary_dp1)};

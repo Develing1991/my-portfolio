@@ -27,11 +27,11 @@ export default function DefaultHeader() {
 							</S.Menu>
 						</S.HeaderLeft>
 						<S.HeaderRight>
+							<Button reverse>로그인</Button>
+							<Button>회원가입</Button>
 							<S.BasketDiv>
 								<S.BasketIcon />
 							</S.BasketDiv>
-							<Button>로그인</Button>
-							<Button reverse>회원가입</Button>
 						</S.HeaderRight>
 					</S.InnerHeader>
 				</S.Inner>

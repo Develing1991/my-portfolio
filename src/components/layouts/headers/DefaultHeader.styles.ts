@@ -80,12 +80,12 @@ export const BasketDiv = styled.div`
 	cursor: pointer;
 	&:hover {
 		transition: all 0.2s ease-in;
-		transform: scale(1.1);
+		transform: scale(1.15);
 	}
 `;
 export const BasketIcon = styled(ShoppingCartCheckoutIcon)`
-	width: 25px;
-	height: 25px;
+	width: 23px;
+	height: 23px;
 	color: ${globalColor.primary_dp2};
 	position: absolute;
 	top: 0;
