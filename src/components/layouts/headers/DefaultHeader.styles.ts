@@ -3,6 +3,8 @@ import { globalColor } from '@/src/commons/styles/color.styles';
 import { globalFontSize } from '@/src/commons/styles/font.styles';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import StarIcon from '@mui/icons-material/Star';
+import { Button } from '../../commons/Button';
+import MenuIcon from '@mui/icons-material/Menu';
 
 export const Header = styled.header``;
 export const Inner = styled.div`
@@ -18,11 +20,21 @@ export const InnerHeader = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	padding: 5px 0;
+	position: relative;
+	@media screen and (max-width: 800px) {
+		flex-direction: column;
+		padding: 0 10px 10px 10px;
+	}
 `;
 
 export const HeaderLeft = styled.div`
 	display: flex;
 	align-items: center;
+	@media screen and (max-width: 800px) {
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+	}
 `;
 
 export const LogoDiv = styled.div``;
@@ -34,11 +46,22 @@ export const LogoIcon = styled(StarIcon)`
 	color: orange;
 	cursor: pointer;
 	margin-left: 10px;
+	@media screen and (max-width: 800px) {
+		width: 30px;
+		height: 30px;
+		margin: 5px 0 5px 0;
+	}
 `;
 
 export const Menu = styled.ul`
 	display: flex;
 	margin-left: 15px;
+	@media screen and (max-width: 800px) {
+		flex-direction: column;
+		margin: 0;
+		padding: 0;
+		display: ${({ show }: { show: boolean }) => (show ? 'block' : 'none')};
+	}
 `;
 
 export const MenuItem = styled.li`
@@ -55,6 +78,17 @@ export const MenuItem = styled.li`
 		color: ${globalColor.white};
 		border: 2px solid ${globalColor.white};
 	}
+	@media screen and (max-width: 800px) {
+		padding: 0px;
+		text-align: center;
+		margin: 0 0 5px 0;
+		&:first-child {
+			margin-top: 5px;
+		}
+		&:last-child {
+			margin: 0px;
+		}
+	}
 `;
 export const MenuItemText = styled.a`
 	padding: 8px;
@@ -64,6 +98,9 @@ export const MenuItemText = styled.a`
 		color: ${globalColor.white};
 		border: 2px solid ${globalColor.white};
 	}
+	@media screen and (max-width: 800px) {
+		display: block;
+	}
 `;
 
 // right
@@ -72,7 +109,17 @@ export const HeaderRight = styled.div`
 	align-items: center;
 	padding: 0 25px;
 	gap: 25px;
+	@media screen and (max-width: 800px) {
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+		padding: 0;
+		margin-top: 5px;
+		gap: 10px;
+		display: ${({ show }: { show: boolean }) => (show ? 'block' : 'none')};
+	}
 `;
+
 export const BasketDiv = styled.div`
 	width: 40px;
 	height: 40px;
@@ -85,6 +132,9 @@ export const BasketDiv = styled.div`
 		transition: all 0.2s ease-in;
 		transform: scale(1.15);
 	}
+	@media screen and (max-width: 800px) {
+		display: none;
+	}
 `;
 export const BasketIcon = styled(ShoppingCartCheckoutIcon)`
 	width: 23px;
@@ -96,4 +146,22 @@ export const BasketIcon = styled(ShoppingCartCheckoutIcon)`
 	left: 0;
 	right: 0;
 	margin: auto;
+`;
+
+export const CustomButton = styled(Button)`
+	@media screen and (max-width: 800px) {
+		width: 100%;
+		display: block;
+		margin: 10px 0;
+	}
+`;
+
+export const ToggleButton = styled(MenuIcon)`
+	position: absolute;
+	display: none;
+	top: 8px;
+	right: 15px;
+	@media screen and (max-width: 800px) {
+		display: block;
+	}
 `;
