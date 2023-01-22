@@ -31,6 +31,7 @@ export const HeaderLeft = styled.div`
 		flex-direction: column;
 		align-items: stretch;
 		width: 100%;
+		margin-bottom: 15px;
 	}
 `;
 
@@ -107,11 +108,12 @@ export const HeaderRight = styled.div`
 	padding: 0 25px;
 	gap: 25px;
 	@media screen and (max-width: 800px) {
+		border-top: 2px dashed ${globalColor.white};
 		flex-direction: column;
 		align-items: stretch;
 		width: 100%;
 		padding: 0;
-		margin-top: 5px;
+		padding-top: 5px;
 		gap: 10px;
 		display: ${({ show }: { show: boolean }) => (show ? 'block' : 'none')};
 	}
