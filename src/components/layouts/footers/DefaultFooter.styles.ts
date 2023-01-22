@@ -14,6 +14,9 @@ export const InnerFooter = styled.div`
 	border: 2px solid ${globalColor.primary_dp4};
 	border-bottom: none;
 	border-radius: 7px 7px 0 0;
+	@media screen and (max-width: 320px) {
+		padding: 10px;
+	}
 `;
 export const FooterTop = styled.div`
 	border-bottom: 2px solid ${globalColor.primary_dp4};
@@ -77,6 +80,9 @@ export const ButtonGroup = styled.div`
 	margin-top: 20px;
 	display: flex;
 	gap: 10px;
+	@media screen and (max-width: 320px) {
+		flex-direction: column;
+	}
 `;
 
 export const AddressDiv = styled.div`
