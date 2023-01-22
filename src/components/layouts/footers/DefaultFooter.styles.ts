@@ -20,6 +20,19 @@ export const FooterTop = styled.div`
 `;
 export const TermsMenu = styled.ul`
 	display: flex;
+	@media screen and (max-width: 480px) {
+		flex-direction: column;
+		& li {
+			padding: 10px 0;
+		}
+		& li:last-child {
+			margin-bottom: 10px;
+		}
+		& li:hover {
+			transform: none;
+			color: white;
+		}
+	}
 `;
 export const TermsMenuItem = styled.li`
 	padding: 20px 5px;
@@ -42,10 +55,18 @@ export const FooterBottom = styled.div`
 	align-items: center;
 	gap: 10px;
 	line-height: 1.4;
+	@media screen and (max-width: 800px) {
+		flex-direction: column;
+		margin-top: 10px;
+	}
 `;
 export const CallCenterDiv = styled.div`
 	flex-basis: 30%;
 	padding: 10px;
+	@media screen and (max-width: 800px) {
+		width: 100%;
+		padding: 10px 0;
+	}
 `;
 export const CallNumberText = styled.p`
 	font-size: ${globalFontSize.large};

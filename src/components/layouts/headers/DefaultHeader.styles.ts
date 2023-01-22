@@ -20,7 +20,7 @@ export const InnerHeader = styled.div`
 	border-radius: 0 0 7px 7px;
 	@media screen and (max-width: 800px) {
 		flex-direction: column;
-		padding: 0 10px 10px 10px;
+		padding: 0 10px 0 10px;
 	}
 `;
 
