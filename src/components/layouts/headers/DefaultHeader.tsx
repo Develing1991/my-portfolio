@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as S from './DefaultHeader.styles';
+import { Inner } from '@/src/commons/styles/global.styles';
 
 export default function DefaultHeader() {
 	const [show, setShow] = useState(false);
@@ -9,7 +10,7 @@ export default function DefaultHeader() {
 	return (
 		<>
 			<header>
-				<S.Inner>
+				<Inner>
 					<S.InnerHeader>
 						<S.HeaderLeft>
 							<S.LogoDiv>
@@ -43,7 +44,7 @@ export default function DefaultHeader() {
 						{/* 토글버튼 */}
 						<S.ToggleButton onClick={toggle} />
 					</S.InnerHeader>
-				</S.Inner>
+				</Inner>
 			</header>
 		</>
 	);

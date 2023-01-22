@@ -7,20 +7,17 @@ import { Button } from '../../commons/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 
 export const Header = styled.header``;
-export const Inner = styled.div`
-	max-width: 1200px;
-	margin: auto;
-	background-color: ${globalColor.primary_dp3};
-	border: 2px solid ${globalColor.primary_dp4};
-	border-top: none;
-	border-radius: 0 0 7px 7px;
-`;
+
 export const InnerHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 5px 0;
 	position: relative;
+	background-color: ${globalColor.primary_dp3};
+	border: 2px solid ${globalColor.primary_dp4};
+	border-top: none;
+	border-radius: 0 0 7px 7px;
 	@media screen and (max-width: 800px) {
 		flex-direction: column;
 		padding: 0 10px 10px 10px;

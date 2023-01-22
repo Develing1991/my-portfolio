@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const globalStyles = css`
   /* Reset.css */
@@ -65,10 +66,8 @@ export const globalStyles = css`
     cursor: default;
     word-break: keep-all;
     /* line-height: 1.2; */
-    height: 6000px;
-    /* color: #212121; */
+    /* height: 6000px; */
     font-size: 14px;
-    /* background-color: #BBBFCA; */
   }
   a {
   text-decoration: none;
@@ -84,6 +83,11 @@ export const globalStyles = css`
     margin: 0;
     padding: 0;
   }
-  /* COMMON CSS */
+  
 
+`;
+/* COMMON CSS styled */
+export const Inner = styled.div`
+	max-width: 1200px;
+	margin: auto;
 `;
