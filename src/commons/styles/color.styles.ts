@@ -2,6 +2,8 @@ type IglobaColor = Record<string, string>;
 export const globalColor: IglobaColor = {
 	white: '#ffffff',
 	black: '#000000',
+	orange: '#feb546',
+	blue: '#73aace',
 	// primary:'#29434e',
 
 	primary_dp1: '#F4F4F2', // display or depth

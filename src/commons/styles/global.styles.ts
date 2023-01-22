@@ -64,7 +64,7 @@ export const globalStyles = css`
     font-family: 'Roboto', sans-serif;
     cursor: default;
     word-break: keep-all;
-    line-height: 1.2;
+    /* line-height: 1.2; */
     height: 6000px;
     /* color: #212121; */
     font-size: 14px;
@@ -80,6 +80,8 @@ export const globalStyles = css`
     cursor: pointer;
     border: none;
     outline: none;
+    margin: 0;
+    padding: 0;
   }
   /* COMMON CSS */
 
