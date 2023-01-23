@@ -7,7 +7,7 @@ export const globalColor: IglobaColor = {
 	// primary:'#29434e',
 
 	primary_dp1: '#F4F4F2', // display or depth
-	primary_dp2: '#E8E8E8',
+	primary_dp2: '#ebe9ef',
 	primary_dp3: '#BBBFCA',
 	primary_dp4: '#495464'
 

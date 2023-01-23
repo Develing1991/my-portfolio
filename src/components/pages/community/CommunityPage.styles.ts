@@ -85,12 +85,11 @@ export const AreaContent = styled.article`
 	padding: 20px 0 0 40px;
 `;
 export const Card = styled.div`
-	border: 1px solid red;
-	background-color: #bbbfca;
-	padding: 20px 20px 10px 20px;
-	border: 2px solid ${globalColor.primary_dp4};
+	padding: 30px 30px 10px 30px;
+	background-color: ${globalColor.primary_dp2};
+
 	margin-bottom: 30px;
-	border-radius: 10px;
+	border-radius: 4px;
 	cursor: pointer;
 
 	line-height: 1.4;
@@ -99,11 +98,6 @@ export const Card = styled.div`
 
 	display: flex;
 	justify-content: space-between;
-
-	&:hover {
-		transition: 0.3s;
-		transform: scale(1.02);
-	}
 `;
 export const CardLeft = styled.div``;
 export const CardLeftTitle = styled.p`
@@ -112,7 +106,6 @@ export const CardLeftTitle = styled.p`
 `;
 export const CardLeftContents = styled.p`
 	margin-bottom: 30px;
-	// 2줄 ...적용
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
@@ -125,18 +118,19 @@ export const CardLeftIconDiv = styled.div`
 	gap: 5px;
 `;
 
-export const CardLeftLikeIcon = styled(ThumbUpOffAltIcon)``;
-export const LikeCount = styled.span`
+export const CardLeftLikeIcon = styled(ThumbUpOffAltIcon)`
+	width: 20px;
+	height: 20px;
+`;
+export const CounteText = styled.span`
 	align-self: flex-end;
-	padding: 2px 10px;
-	border-radius: 10px;
-	margin-top: 5px;
 	font-size: ${globalFontSize.small};
-	background-color: ${globalColor.primary_dp4};
-	color: white;
+	color: ${globalColor.primary_dp4};
 	font-weight: bold;
 `;
 export const CardLeftCommentIcon = styled(MessageIcon)`
+	width: 20px;
+	height: 20px;
 	margin-left: 20px;
 `;
 
