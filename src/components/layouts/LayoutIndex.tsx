@@ -2,6 +2,7 @@ import React from 'react';
 import HeadIndex from '../head/HeadIndex';
 import DefaultFooter from './footers/DefaultFooter';
 import DefaultHeader from './headers/DefaultHeader';
+import DefaultMain from './mains/DefaultMain';
 
 export default function LayoutIndex({ children }: { children: JSX.Element }) {
 	return (
@@ -13,7 +14,7 @@ export default function LayoutIndex({ children }: { children: JSX.Element }) {
 			{/* body layout 영역 */}
 			<>
 				<DefaultHeader />
-				{children}
+				<DefaultMain>{children}</DefaultMain>
 				<DefaultFooter />
 			</>
 		</>
