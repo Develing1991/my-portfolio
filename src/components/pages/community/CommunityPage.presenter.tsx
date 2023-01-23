@@ -17,7 +17,7 @@ export default function CommunityPagePresenter() {
 						<S.AreaCompositionDiv>
 							<S.CompositionGroup>
 								<S.CompositionButton reverse>글쓰기</S.CompositionButton>
-								<S.CompositionInput keyword={keyword} onChangeInput={onChangeInput} />
+								<S.CompositionInput width="80%" keyword={keyword} onChangeInput={onChangeInput} />
 							</S.CompositionGroup>
 						</S.AreaCompositionDiv>
 					</S.SectionInner>
@@ -25,40 +25,63 @@ export default function CommunityPagePresenter() {
 			</section>
 			<section>
 				<Inner>
-					<nav>
-						<ul>
-							<li>
-								<a href="">궁금해요</a>
-							</li>
-							<li>
-								<a href="">자유주제</a>
-							</li>
-							<li>
-								<a href="">프로젝트</a>
-							</li>
-							<li>
-								<a href="">중고거래</a>
-							</li>
-						</ul>
-					</nav>
-					<article>
-						<div className="boardcard">
-							<div className="left">
-								<p className="title">제목</p>
-								<p className="contents">내용</p>
-								<div className="icons">
-									<span>좋아요</span>
-									<span>댓글</span>
-								</div>
-							</div>
-							<div className="right">
-								<div className="boardimage">
-									<img src="" alt="" />
-								</div>
-								<p className="timesago">52분전</p>
-							</div>
-						</div>
-					</article>
+					<S.SectionInner2>
+						<S.Navigation>
+							<S.NaviMenu>
+								<S.NaviMenuItem>
+									<S.NaviMenuItemText>궁금해요</S.NaviMenuItemText>
+								</S.NaviMenuItem>
+								<S.NaviMenuItem>
+									<S.NaviMenuItemText>자유주제</S.NaviMenuItemText>
+								</S.NaviMenuItem>
+								<S.NaviMenuItem>
+									<S.NaviMenuItemText>프로젝트</S.NaviMenuItemText>
+								</S.NaviMenuItem>
+								<S.NaviMenuItem>
+									<S.NaviMenuItemText>기타</S.NaviMenuItemText>
+								</S.NaviMenuItem>
+							</S.NaviMenu>
+						</S.Navigation>
+						<S.AreaContent>
+							<S.Card>
+								<S.CardLeft>
+									<S.CardLeftTitle>통신판매중개자로서 통신판매의</S.CardLeftTitle>
+									<S.CardLeftContents>
+										(주)브레이브모바일은 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한 의무와 책임은 거래당사자에게 있습니다.
+										(주)브레이브모바일은 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한 의무와 책임은 거래당사자에게 있습니다.
+									</S.CardLeftContents>
+									<S.CardLeftIconDiv>
+										<S.CardLeftLikeIcon />
+										<S.LikeCount>31</S.LikeCount>
+										<S.CardLeftCommentIcon />
+										<S.LikeCount>1220</S.LikeCount>
+									</S.CardLeftIconDiv>
+								</S.CardLeft>
+								<S.CardRight>
+									<S.CardRightImageDiv>
+										<S.CardRightImage src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162303132447303472.jpeg?gif=1&w=640&h=640&c=c&webp=1" />
+									</S.CardRightImageDiv>
+									<S.CardRightTime>52분전</S.CardRightTime>
+								</S.CardRight>
+							</S.Card>
+							<S.Card className="boardcard">
+								<S.CardLeft className="left">
+									<S.CardLeftTitle className="title">제목</S.CardLeftTitle>
+									<S.CardLeftContents className="contents">내용</S.CardLeftContents>
+									<S.CardLeftIconDiv className="icons">
+										<span>좋아요</span>
+										<span>댓글</span>
+									</S.CardLeftIconDiv>
+								</S.CardLeft>
+								<S.CardRight className="right">
+									<S.CardRightImageDiv className="boardimage">
+										<S.CardRightImage src="" alt="" />
+									</S.CardRightImageDiv>
+									<S.CardRightTime className="timesago">52분전</S.CardRightTime>
+								</S.CardRight>
+							</S.Card>
+						</S.AreaContent>
+					</S.SectionInner2>
 				</Inner>
 			</section>
 		</>

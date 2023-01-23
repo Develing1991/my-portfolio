@@ -22,7 +22,7 @@ export default function Input01({ width, keyword = '', onChangeInput }: InputPro
 }
 
 export const CustomInput = styled.input`
-	border: 2px solid ${globalColor.primary_dp4};
+	border: 1px solid ${globalColor.primary_dp4};
 	font-size: ${globalFontSize.large};
 	color: ${globalColor.primary_dp4};
 	font-weight: 700;

@@ -4,6 +4,7 @@ import DefaultFooter from './footers/DefaultFooter';
 import DefaultHeader from './headers/DefaultHeader';
 import DefaultMain from './mains/DefaultMain';
 
+/* border-radius: 4px; */
 export default function LayoutIndex({ children }: { children: JSX.Element }) {
 	return (
 		<>
