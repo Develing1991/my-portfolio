@@ -83,7 +83,9 @@ export const globalStyles = css`
     margin: 0;
     padding: 0;
   }
-  
+  input {
+    outline: none;
+  }
 
 `;
 /* COMMON CSS styled */
