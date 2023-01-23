@@ -21,6 +21,9 @@ export const InnerHeader = styled.div`
 	@media screen and (max-width: 800px) {
 		flex-direction: column;
 		padding: 0 10px 0 10px;
+		/* position: fixed;
+		width: 100%;
+		z-index: 9; */
 	}
 `;
 
@@ -31,7 +34,6 @@ export const HeaderLeft = styled.div`
 		flex-direction: column;
 		align-items: stretch;
 		width: 100%;
-		margin-bottom: 15px;
 	}
 `;
 
@@ -84,7 +86,7 @@ export const MenuItem = styled.li`
 			margin-top: 5px;
 		}
 		&:last-child {
-			margin: 0px;
+			margin: 0 0 15px 0;
 		}
 	}
 `;
@@ -158,8 +160,11 @@ export const CustomButton = styled(Button)`
 export const ToggleButton = styled(MenuIcon)`
 	position: absolute;
 	display: none;
-	top: 8px;
+	top: 5px;
 	right: 15px;
+	width: 30px;
+	height: 30px;
+	color: ${globalColor.primary_dp4};
 	@media screen and (max-width: 800px) {
 		display: block;
 	}
