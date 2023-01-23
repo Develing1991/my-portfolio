@@ -34,10 +34,17 @@ export const CustomInput = styled.input`
 		background-color: ${globalColor.primary_dp3};
 		color: ${globalColor.white};
 	}
+	@media screen and (max-width: 480px) {
+		padding: 10px 30px;
+		font-size: ${globalFontSize.small};
+	}
 `;
 export const InputCover = styled.div`
 	position: relative;
 	width: ${({ width }: { width: string }) => width};
+	@media screen and (max-width: 480px) {
+		width: 100%;
+	}
 `;
 
 export const CustomSearchIcon = styled(SearchIcon)`
@@ -50,6 +57,10 @@ export const CustomSearchIcon = styled(SearchIcon)`
 	bottom: 0;
 	margin: auto;
 	cursor: pointer;
+	@media screen and (max-width: 480px) {
+		width: 20px;
+		height: 20px;
+	}
 `;
 export const CustomCloseIcon = styled(CloseIcon)`
 	width: 25px;
@@ -62,4 +73,8 @@ export const CustomCloseIcon = styled(CloseIcon)`
 	bottom: 0;
 	margin: auto;
 	cursor: pointer;
+	@media screen and (max-width: 480px) {
+		width: 20px;
+		height: 20px;
+	}
 `;

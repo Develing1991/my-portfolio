@@ -16,6 +16,7 @@ export const InnerFooter = styled.div`
 	border-radius: 7px 7px 0 0;
 	@media screen and (max-width: 320px) {
 		padding: 10px;
+		word-break: break-all;
 	}
 `;
 export const FooterTop = styled.div`
@@ -50,6 +51,9 @@ export const TermsMenuItem = styled.li`
 `;
 export const TermsMenuItemText = styled.a`
 	font-size: ${globalFontSize.regular};
+	@media screen and (max-width: 480px) {
+		font-size: ${globalFontSize.regular};
+	}
 `;
 
 export const FooterBottom = styled.div`
@@ -74,6 +78,9 @@ export const CallCenterDiv = styled.div`
 export const CallNumberText = styled.p`
 	font-size: ${globalFontSize.large};
 	margin-bottom: 15px;
+	@media screen and (max-width: 480px) {
+		font-size: ${globalFontSize.regular};
+	}
 `;
 export const UseTimeText = styled.p``;
 export const ButtonGroup = styled.div`
@@ -94,6 +101,9 @@ export const AddresDivText = styled.p`
 
 export const AlertText = styled(AddresDivText)`
 	margin-bottom: 20px;
+	@media screen and (max-width: 480px) {
+		font-size: ${globalFontSize.small};
+	}
 `;
 export const AddressText = styled(AddresDivText)``;
 export const BizNumerText = styled(AddresDivText)``;
