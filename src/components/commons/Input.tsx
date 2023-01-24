@@ -1,4 +1,3 @@
-import { globalColor } from '@/src/commons/styles/color.styles';
 import { globalFontSize } from '@/src/commons/styles/font.styles';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
@@ -22,17 +21,17 @@ export default function Input01({ width, keyword = '', onChangeInput }: InputPro
 }
 
 export const CustomInput = styled.input`
-	border: 1px solid ${globalColor.primary_dp4};
+	border: 1px solid var(--color-primary-dp4);
 	font-size: ${globalFontSize.large};
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 	font-weight: 700;
 	padding: 10px 40px;
 	border-radius: 4px;
 	width: 100%;
 
 	&:focus {
-		background-color: ${globalColor.primary_dp3};
-		color: ${globalColor.white};
+		background-color: var(--color-primary-dp3);
+		color: var(--color-white);
 	}
 	@media screen and (max-width: 480px) {
 		padding: 10px 30px;
@@ -50,7 +49,7 @@ export const InputCover = styled.div`
 export const CustomSearchIcon = styled(SearchIcon)`
 	width: 25px;
 	height: 25px;
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 	position: absolute;
 	left: 10px;
 	top: 0;
@@ -66,7 +65,7 @@ export const CustomCloseIcon = styled(CloseIcon)`
 	width: 25px;
 	height: 25px;
 	display: ${({ showclose }: { showclose: string }) => showclose};
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 	position: absolute;
 	right: 10px;
 	top: 0;

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { globalColor } from '@/src/commons/styles/color.styles';
 import { globalFontSize } from '@/src/commons/styles/font.styles';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import StarIcon from '@mui/icons-material/Star';
@@ -14,8 +13,8 @@ export const InnerHeader = styled.div`
 	align-items: center;
 	padding: 5px 0;
 	position: relative;
-	background-color: ${globalColor.primary_dp3};
-	border: 2px solid ${globalColor.primary_dp4};
+	background-color: var(--color-primary-dp3);
+	border: 2px solid var(--color-primary-dp4);
 	border-top: none;
 	border-radius: 0 0 7px 7px;
 	@media screen and (max-width: 800px) {
@@ -69,14 +68,14 @@ export const MenuItem = styled.li`
 	margin-right: 5px;
 	font-size: ${globalFontSize.large};
 	font-weight: 700;
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 	cursor: pointer;
 	&:last-child {
 		margin-right: 0;
 	}
 	&:hover a {
-		color: ${globalColor.white};
-		border: 2px solid ${globalColor.white};
+		color: var(--color-white);
+		border: 2px solid var(--color-white);
 	}
 	@media screen and (max-width: 800px) {
 		padding: 0px;
@@ -95,8 +94,8 @@ export const MenuItemText = styled.a`
 	border-radius: 4px;
 	border: 2px solid transparent;
 	&.active {
-		color: ${globalColor.white};
-		border: 2px solid ${globalColor.white};
+		color: var(--color-white);
+		border: 2px solid var(--color-white);
 	}
 	@media screen and (max-width: 800px) {
 		display: block;
@@ -110,7 +109,7 @@ export const HeaderRight = styled.div`
 	padding: 0 25px;
 	gap: 25px;
 	@media screen and (max-width: 800px) {
-		border-top: 2px dashed ${globalColor.white};
+		border-top: 2px dashed var(--color-white);
 		flex-direction: column;
 		align-items: stretch;
 		width: 100%;
@@ -125,7 +124,7 @@ export const BasketDiv = styled.div`
 	width: 40px;
 	height: 40px;
 	margin-right: 10px;
-	background-color: ${globalColor.primary_dp4};
+	background-color: var(--color-primary-dp4);
 	border-radius: 50%;
 	position: relative;
 	cursor: pointer;
@@ -140,7 +139,7 @@ export const BasketDiv = styled.div`
 export const BasketIcon = styled(ShoppingCartCheckoutIcon)`
 	width: 23px;
 	height: 23px;
-	color: ${globalColor.primary_dp2};
+	color: var(--color-primary-dp2);
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -164,7 +163,7 @@ export const ToggleButton = styled(MenuIcon)`
 	right: 15px;
 	width: 30px;
 	height: 30px;
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 	@media screen and (max-width: 800px) {
 		display: block;
 	}

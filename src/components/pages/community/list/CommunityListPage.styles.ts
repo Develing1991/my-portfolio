@@ -1,4 +1,3 @@
-import { globalColor } from '@/src/commons/styles/color.styles';
 import { globalFontSize } from '@/src/commons/styles/font.styles';
 import styled from '@emotion/styled';
 import { ButtonHover } from '@/src/components/commons/Button';
@@ -29,7 +28,7 @@ export const AreaTitleDiv = styled.div`
 export const AreaTitle = styled.h1`
 	font-weight: 700;
 	font-size: ${globalFontSize.xxlarge};
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 	@media screen and (max-width: 480px) {
 		font-size: ${globalFontSize.xlarge};
 	}
@@ -56,8 +55,8 @@ export const CompositionGroup = styled.div`
 export const CompositionButton = styled(ButtonHover)`
 	width: 100px;
 	&:hover {
-		background-color: ${globalColor.white};
-		border-color: ${globalColor.primary_dp4};
+		background-color: var(--color-white);
+		border-color: var(--color-primary-dp4);
 	}
 	@media screen and (max-width: 480px) {
 		font-size: ${globalFontSize.small};
@@ -99,7 +98,7 @@ export const NaviMenu = styled.ul`
 		&::-webkit-scrollbar {
 			/* width: 10px; */
 			height: 10px;
-			background-color: ${globalColor.primary_dp3};
+			background-color: var(--color-primary-dp3);
 		}
 	}
 	@media screen and (max-width: 480px) {
@@ -109,9 +108,9 @@ export const NaviMenu = styled.ul`
 	}
 `;
 export const NaviMenuItem = styled.li`
-	border: 2px solid ${globalColor.primary_dp3};
+	border: 2px solid var(--color-primary-dp3);
 	cursor: pointer;
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 	font-size: ${globalFontSize.large};
 	font-weight: bold;
 
@@ -122,9 +121,9 @@ export const NaviMenuItem = styled.li`
 		margin-bottom: 0;
 	}
 	&:hover {
-		color: ${globalColor.white};
-		background-color: ${globalColor.primary_dp3};
-		border-color: ${globalColor.primary_dp4};
+		color: var(--color-white);
+		background-color: var(--color-primary-dp3);
+		border-color: var(--color-primary-dp4);
 	}
 	@media screen and (max-width: 800px) {
 		margin: 0;
@@ -149,7 +148,7 @@ export const AreaContent = styled.article`
 `;
 export const Card = styled.div`
 	padding: 30px 30px 10px 30px;
-	background-color: ${globalColor.primary_dp2};
+	background-color: var(--color-primary-dp2);
 
 	margin-bottom: 30px;
 	border-radius: 4px;
@@ -157,7 +156,7 @@ export const Card = styled.div`
 
 	line-height: 1.4;
 	font-size: ${globalFontSize.medium};
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 
 	display: flex;
 	justify-content: space-between;
@@ -197,7 +196,7 @@ export const CardLeftLikeIcon = styled(ThumbUpOffAltIcon)`
 export const CounteText = styled.span`
 	align-self: flex-end;
 	font-size: ${globalFontSize.small};
-	color: ${globalColor.primary_dp4};
+	color: var(--color-primary-dp4);
 	font-weight: bold;
 	@media screen and (max-width: 480px) {
 		font-size: ${globalFontSize.xsmall};
@@ -220,7 +219,7 @@ export const CardRightImageDiv = styled.div`
 	height: 60px;
 	margin-top: 10px;
 	border-radius: 4px;
-	border: 1px solid ${globalColor.primary_dp4};
+	border: 1px solid var(--color-primary-dp4);
 	background-color: black;
 	overflow: hidden;
 `;

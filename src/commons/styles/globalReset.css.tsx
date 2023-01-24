@@ -1,12 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { red } from '@mui/material/colors';
 
-export const globalStyles = css`
-  /* Reset.css */
-  /* http://meyerweb.com/eric/tools/css/reset/
-    v5.0.1 | 20191019
-    License: none (public domain)
+export const globalReset = css`
+	/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
   */
 
   html, body, div, span, applet, object, iframe,
@@ -57,38 +55,48 @@ export const globalStyles = css`
     border-spacing: 0;
   }
 
-  /* Custom Grobal CSS */
-	* {
-		
-    box-sizing: border-box;
-	}
-  body {
-    font-family: 'Roboto', sans-serif;
-    cursor: default;
-    word-break: keep-all;
-    
-    /* line-height: 1.2; */
-    /* height: 6000px; */
-    font-size: 14px;
-  }
-  a {
-  text-decoration: none;
-  }
-  img {
-    vertical-align: top;
-  }
-  button {
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    margin: 0;
-    padding: 0;
-  }
-  input {
-    outline: none;
-  }
+	
   
+  /******************
+  
+  * Custom Reset CSS *
+
+  ******************/
+
+	* {
+		box-sizing: border-box;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	img {
+		vertical-align: top;
+	}
+
+	button {
+		background-color: transparent;
+		cursor: pointer;
+		border: none;
+		outline: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	input {
+		outline: none;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		cursor: default;
+		word-break: keep-all;
+
+		/* line-height: 1.2; */
+		/* height: 6000px; */
+		font-size: 14px;
+	}
 `;
 
 /* COMMON CSS styled */

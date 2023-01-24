@@ -1,17 +1,16 @@
 import styled from '@emotion/styled';
-import { globalColor } from '@/src/commons/styles/color.styles';
 import { globalFontSize } from '@/src/commons/styles/font.styles';
 
 import { ButtonHover } from '../../commons/Button';
 
 export const Footer = styled.footer``;
 export const InnerFooter = styled.div`
-	background-color: ${globalColor.primary_dp3};
-	color: ${globalColor.primary_dp4};
+	background-color: var(--color-primary-dp3);
+	color: var(--color-primary-dp4);
 	font-weight: 700;
 	padding: 10px 20px;
 
-	border: 2px solid ${globalColor.primary_dp4};
+	border: 2px solid var(--color-primary-dp4);
 	border-bottom: none;
 	border-radius: 7px 7px 0 0;
 	@media screen and (max-width: 320px) {
@@ -20,7 +19,7 @@ export const InnerFooter = styled.div`
 	}
 `;
 export const FooterTop = styled.div`
-	border-bottom: 2px solid ${globalColor.primary_dp4};
+	border-bottom: 2px solid var(--color-primary-dp4);
 `;
 export const TermsMenu = styled.ul`
 	display: flex;

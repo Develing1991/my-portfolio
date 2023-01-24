@@ -1,5 +1,5 @@
 import * as S from '@/src/components/pages/community/new/CommunityNewPage.styles';
-import { Inner } from '@/src/commons/styles/global.styles';
+import { Inner } from '@/src/commons/styles/globalReset.css';
 import { useState, useEffect, SyntheticEvent, MouseEvent } from 'react';
 import SelectBasic01 from '@/src/components/commons/selects/SelectBasic01';
 

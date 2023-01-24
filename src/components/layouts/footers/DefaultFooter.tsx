@@ -1,4 +1,4 @@
-import { Inner } from '@/src/commons/styles/global.styles';
+import { Inner } from '@/src/commons/styles/globalReset.css';
 
 import * as S from './DefaultFooter.styles';
 export default function DefaultFooter() {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as S from './DefaultHeader.styles';
-import { Inner } from '@/src/commons/styles/global.styles';
+import { Inner } from '@/src/commons/styles/globalReset.css';
 
 export default function DefaultHeader() {
 	const [show, setShow] = useState(false);
