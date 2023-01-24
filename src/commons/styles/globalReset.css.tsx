@@ -92,6 +92,15 @@ export const globalReset = css`
 		cursor: default;
 		word-break: keep-all;
 
+    @media screen and (max-width: 190px) {
+      word-break: break-all;
+    }
+    @media screen and (max-width: 70px) {
+      & * { // 최후 축소전 압축하기 ..이거는 고민 좀...
+        padding: 0 !important;
+        margin:  0 !important;
+      }
+    }
 		/* line-height: 1.2; */
 		/* height: 6000px; */
 		/* font-size: 14px; */

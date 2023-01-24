@@ -15,7 +15,6 @@ export const InnerFooter = styled.div`
 	border-radius: 7px 7px 0 0;
 	@media screen and (max-width: 320px) {
 		padding: 10px;
-		word-break: break-all;
 	}
 `;
 
@@ -25,9 +24,9 @@ export const FooterTop = styled.div`
 
 export const TermsMenu = styled.ul`
 	display: flex;
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 520px) {
 		flex-direction: column;
-		& li {
+		/* & li {
 			padding: 10px 0;
 		}
 		& li:last-child {
@@ -36,7 +35,7 @@ export const TermsMenu = styled.ul`
 		& li:hover {
 			transform: none;
 			color: white;
-		}
+		} */
 	}
 `;
 
@@ -50,12 +49,22 @@ export const TermsMenuItem = styled.li`
 	&:last-child {
 		margin-right: 0;
 	}
+	@media screen and (max-width: 520px) {
+		padding: 5px 0;
+		&:last-child {
+			margin-bottom: 10px;
+		}
+		&:hover {
+			transform: none;
+			color: white;
+		}
+	}
 `;
 
 export const TermsMenuItemText = styled.a`
 	font-size: var(--font-medium);
-	@media screen and (max-width: 480px) {
-		font-size: var(--font-medium);
+	@media screen and (max-width: 520px) {
+		font-size: var(--font-small);
 	}
 `;
 
@@ -69,6 +78,9 @@ export const FooterBottom = styled.div`
 		flex-direction: column;
 		margin-top: 10px;
 	}
+	@media screen and (max-width: 520px) {
+		margin-top: 0px;
+	}
 `;
 
 export const CallCenterDiv = styled.div`
@@ -77,15 +89,13 @@ export const CallCenterDiv = styled.div`
 	@media screen and (max-width: 800px) {
 		width: 100%;
 		padding: 10px 0;
+		font-size: var(--font-small);
 	}
 `;
 
 export const CallNumberText = styled.p`
 	font-size: var(--font-large);
 	margin-bottom: 15px;
-	@media screen and (max-width: 480px) {
-		font-size: var(--font-medium);
-	}
 `;
 
 export const UseTimeText = styled.p``;
@@ -105,7 +115,7 @@ export const AddressDiv = styled.div`
 
 export const AddresDivText = styled.p`
 	margin-bottom: 5px;
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 520px) {
 		font-size: var(--font-small);
 	}
 `;
