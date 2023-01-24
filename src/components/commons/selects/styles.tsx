@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
-export const SelectBasic = styled.button`
+/* Select - start */
+export const SelectStyled = styled.button`
 	width: 100%;
 	height: 40px;
 	position: relative;
@@ -11,7 +12,7 @@ export const SelectBasic = styled.button`
 	color: var(--color-primary-dp4);
 `;
 
-export const SelectBasicOptionGroup = styled.ul`
+export const SelectOptionGroup = styled.ul`
 	max-width: 1200px;
 	position: absolute;
 	top: 39px;
@@ -20,18 +21,28 @@ export const SelectBasicOptionGroup = styled.ul`
 	background-color: white;
 	z-index: 9;
 
-	border: 1px solid var(--color-primary-dp4);
 	border-radius: 4px;
-	margin-top: 2px;
+	display: flex;
 
-	padding: 5px;
-	/* display: flex; */
-	display: ${({ isShow }: { isShow: boolean }) => (isShow ? 'flex' : 'none')};
+	margin: 0;
+	padding: 0;
+	border: 1px solid transparent;
+	overflow: hidden;
+	max-height: 0;
+
+	&.show {
+		transition: all 0.2s ease-in-out;
+		max-height: 500px;
+		margin-top: 2px;
+		padding: 5px;
+		border-color: var(--color-primary-dp4);
+	}
+
 	flex-direction: column;
 	gap: 5px;
 `;
 
-export const SelectBasicOption = styled.li`
+export const SelectOption = styled.li`
 	padding: 10px;
 	border-radius: 4px;
 	background-color: var(--color-primary-dp2);
@@ -41,3 +52,5 @@ export const SelectBasicOption = styled.li`
 		background-color: var(--color-primary-dp4);
 	}
 `;
+
+/* Select - end */

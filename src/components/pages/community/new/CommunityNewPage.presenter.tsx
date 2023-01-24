@@ -1,6 +1,6 @@
 import * as S from '@/src/components/pages/community/new/CommunityNewPage.styles';
 import { useState, useEffect, SyntheticEvent, MouseEvent } from 'react';
-import SelectBasic01 from '@/src/components/commons/selects/SelectBasic01';
+import SelectBasic01 from '@/src/components/commons/selects/Select';
 
 export default function CommunityNewPagePresenter() {
 	const onSubmitForm = (event: SyntheticEvent<HTMLFormElement>) => {
