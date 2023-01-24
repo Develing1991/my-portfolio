@@ -98,9 +98,3 @@ export const globalReset = css`
 		/* font-size: 14px; */
 	}
 `;
-
-/* COMMON CSS styled */
-export const Inner = styled.div`
-	max-width: 1200px;
-	margin: auto;
-`;

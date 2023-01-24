@@ -1,5 +1,5 @@
 import * as S from '@/src/components/pages/community/list/CommunityListPage.styles';
-import { Inner } from '@/src/commons/styles/globalReset.css';
+import { Inner } from '@/src/commons/styles/globalStyled.styled';
 import { ChangeEvent, useState } from 'react';
 export default function CommunityPagePresenter() {
 	const [keyword, setKeyword] = useState('');
