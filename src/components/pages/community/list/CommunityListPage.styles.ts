@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import MessageIcon from '@mui/icons-material/Message';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';

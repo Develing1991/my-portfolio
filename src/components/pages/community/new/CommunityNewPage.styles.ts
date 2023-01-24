@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-
 import { Button } from '@/src/components/commons/buttons/Button';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
 import Input01 from '@/src/components/commons/Input';

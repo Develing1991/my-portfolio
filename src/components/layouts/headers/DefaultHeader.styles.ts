@@ -4,7 +4,7 @@ import { Inner } from '@/src/commons/styles/globalStyled.styled';
 import StarIcon from '@mui/icons-material/Star';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import { HoverButton } from '../../commons/buttons/HoverButton';
+import { HoverButton } from '@/src/components/commons/buttons/HoverButton';
 
 export const Header = styled.header``;
 
