@@ -1,5 +1,4 @@
 import * as S from '@/src/components/pages/community/new/CommunityNewPage.styles';
-import { Inner } from '@/src/commons/styles/globalStyled.styled';
 import { useState, useEffect, SyntheticEvent, MouseEvent } from 'react';
 import SelectBasic01 from '@/src/components/commons/selects/SelectBasic01';
 
@@ -27,7 +26,7 @@ export default function CommunityNewPagePresenter() {
 
 	return (
 		<section>
-			<Inner>
+			<S.InnerForm>
 				<S.BoardForm onSubmit={onSubmitForm}>
 					<S.SubjectDiv className="subject">
 						<div style={{ width: '20%' }}>
@@ -48,7 +47,7 @@ export default function CommunityNewPagePresenter() {
 						<S.RegisterButton reverse>등록</S.RegisterButton>
 					</S.ButtonGroupDiv>
 				</S.BoardForm>
-			</Inner>
+			</S.InnerForm>
 		</section>
 	);
 }

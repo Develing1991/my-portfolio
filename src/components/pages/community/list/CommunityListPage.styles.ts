@@ -3,9 +3,11 @@ import { ButtonHover } from '@/src/components/commons/Button';
 import Input01 from '@/src/components/commons/Input';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import MessageIcon from '@mui/icons-material/Message';
+import { Inner } from '@/src/commons/styles/globalStyled.styled';
 
 /* TOP */
 export const SectionInner = styled.div`
+	${Inner}
 	display: flex;
 	padding-top: 100px;
 	align-items: center;
@@ -18,12 +20,14 @@ export const SectionInner = styled.div`
 		word-break: break-all;
 	}
 `;
+
 export const AreaTitleDiv = styled.div`
 	flex-basis: 20%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 `;
+
 export const AreaTitle = styled.h1`
 	font-weight: 700;
 	font-size: var(--font-xxlarge);
@@ -42,6 +46,7 @@ export const AreaCompositionDiv = styled.div`
 		padding: 0;
 	}
 `;
+
 export const CompositionGroup = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -51,6 +56,7 @@ export const CompositionGroup = styled.div`
 		gap: 15px;
 	}
 `;
+
 export const CompositionButton = styled(ButtonHover)`
 	width: 100px;
 	&:hover {
@@ -68,6 +74,7 @@ export const CompositionInput = styled(Input01)``;
 
 /* CONTENT */
 export const SectionInner2 = styled.div`
+	${Inner}
 	display: flex;
 	padding-top: 50px;
 	align-items: flex-start;
@@ -86,6 +93,7 @@ export const Navigation = styled.nav`
 		width: 100%;
 	}
 `;
+
 export const NaviMenu = styled.ul`
 	padding: 10px 10px 10px 0;
 	margin-top: 10px;
@@ -106,13 +114,13 @@ export const NaviMenu = styled.ul`
 		}
 	}
 `;
+
 export const NaviMenuItem = styled.li`
 	border: 2px solid var(--color-primary-dp3);
 	cursor: pointer;
 	color: var(--color-primary-dp4);
 	font-size: var(--font-large);
 	font-weight: bold;
-
 	border-radius: 4px;
 	padding: 20px 40px;
 	margin-bottom: 10px;
@@ -135,6 +143,7 @@ export const NaviMenuItem = styled.li`
 		font-size: var(--font-small);
 	}
 `;
+
 export const NaviMenuItemText = styled.a``;
 
 export const AreaContent = styled.article`
@@ -145,18 +154,16 @@ export const AreaContent = styled.article`
 		word-break: break-all;
 	}
 `;
+
 export const Card = styled.div`
 	padding: 30px 30px 10px 30px;
 	background-color: var(--color-primary-dp2);
-
 	margin-bottom: 30px;
 	border-radius: 4px;
 	cursor: pointer;
-
 	line-height: 1.4;
 	font-size: var(--font-medium);
 	color: var(--color-primary-dp4);
-
 	display: flex;
 	justify-content: space-between;
 	@media screen and (max-width: 800px) {
@@ -166,11 +173,14 @@ export const Card = styled.div`
 		padding: 15px 10px;
 	}
 `;
+
 export const CardLeft = styled.div``;
+
 export const CardLeftTitle = styled.p`
 	font-weight: 700;
 	margin-bottom: 10px;
 `;
+
 export const CardLeftContents = styled.p`
 	margin-bottom: 30px;
 	overflow: hidden;
@@ -179,6 +189,7 @@ export const CardLeftContents = styled.p`
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 `;
+
 export const CardLeftIconDiv = styled.div`
 	display: flex;
 	align-items: center;
@@ -192,6 +203,7 @@ export const CardLeftLikeIcon = styled(ThumbUpOffAltIcon)`
 	width: 20px;
 	height: 20px;
 `;
+
 export const CounteText = styled.span`
 	align-self: flex-end;
 	font-size: var(--font-small);
@@ -201,6 +213,7 @@ export const CounteText = styled.span`
 		font-size: var(--font-xsmall);
 	}
 `;
+
 export const CardLeftCommentIcon = styled(MessageIcon)`
 	width: 20px;
 	height: 20px;
@@ -213,6 +226,7 @@ export const CardRight = styled.div`
 		display: none;
 	}
 `;
+
 export const CardRightImageDiv = styled.div`
 	width: 60px;
 	height: 60px;
@@ -222,6 +236,7 @@ export const CardRightImageDiv = styled.div`
 	background-color: black;
 	overflow: hidden;
 `;
+
 export const CardRightImage = styled.img`
 	width: 100%;
 	height: 100%;

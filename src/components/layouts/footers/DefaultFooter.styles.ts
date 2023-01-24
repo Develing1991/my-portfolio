@@ -1,13 +1,15 @@
 import styled from '@emotion/styled';
 import { ButtonHover } from '../../commons/Button';
+import { Inner } from '@/src/commons/styles/globalStyled.styled';
 
 export const Footer = styled.footer``;
+
 export const InnerFooter = styled.div`
+	${Inner}
 	background-color: var(--color-primary-dp3);
 	color: var(--color-primary-dp4);
 	font-weight: 700;
 	padding: 10px 20px;
-
 	border: 2px solid var(--color-primary-dp4);
 	border-bottom: none;
 	border-radius: 7px 7px 0 0;
@@ -16,9 +18,11 @@ export const InnerFooter = styled.div`
 		word-break: break-all;
 	}
 `;
+
 export const FooterTop = styled.div`
 	border-bottom: 2px solid var(--color-primary-dp4);
 `;
+
 export const TermsMenu = styled.ul`
 	display: flex;
 	@media screen and (max-width: 480px) {
@@ -35,6 +39,7 @@ export const TermsMenu = styled.ul`
 		}
 	}
 `;
+
 export const TermsMenuItem = styled.li`
 	padding: 20px 5px;
 	margin-right: 10px;
@@ -46,6 +51,7 @@ export const TermsMenuItem = styled.li`
 		margin-right: 0;
 	}
 `;
+
 export const TermsMenuItemText = styled.a`
 	font-size: var(--font-medium);
 	@media screen and (max-width: 480px) {
@@ -64,6 +70,7 @@ export const FooterBottom = styled.div`
 		margin-top: 10px;
 	}
 `;
+
 export const CallCenterDiv = styled.div`
 	flex-basis: 30%;
 	padding: 10px;
@@ -72,6 +79,7 @@ export const CallCenterDiv = styled.div`
 		padding: 10px 0;
 	}
 `;
+
 export const CallNumberText = styled.p`
 	font-size: var(--font-large);
 	margin-bottom: 15px;
@@ -79,7 +87,9 @@ export const CallNumberText = styled.p`
 		font-size: var(--font-medium);
 	}
 `;
+
 export const UseTimeText = styled.p``;
+
 export const ButtonGroup = styled.div`
 	margin-top: 20px;
 	display: flex;
@@ -92,6 +102,7 @@ export const ButtonGroup = styled.div`
 export const AddressDiv = styled.div`
 	flex-basis: 70%;
 `;
+
 export const AddresDivText = styled.p`
 	margin-bottom: 5px;
 	@media screen and (max-width: 480px) {
@@ -102,9 +113,13 @@ export const AddresDivText = styled.p`
 export const AlertText = styled(AddresDivText)`
 	margin-bottom: 20px;
 `;
+
 export const AddressText = styled(AddresDivText)``;
+
 export const BizNumerText = styled(AddresDivText)``;
+
 export const CallCenterText = styled(AddresDivText)``;
+
 export const CopyRightText = styled(AddresDivText)``;
 
 export const CustomButton = styled(ButtonHover)`

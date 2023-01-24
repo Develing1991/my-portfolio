@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
 export const globalReset = css`
 	/* http://meyerweb.com/eric/tools/css/reset/

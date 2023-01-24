@@ -3,10 +3,12 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import StarIcon from '@mui/icons-material/Star';
 import { ButtonHover } from '../../commons/Button';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Inner } from '@/src/commons/styles/globalStyled.styled';
 
 export const Header = styled.header``;
 
 export const InnerHeader = styled.div`
+	${Inner}
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -39,8 +41,7 @@ export const HeaderLeft = styled.div`
 export const LogoDiv = styled.div``;
 
 export const LogoIcon = styled(StarIcon)`
-	width: 70px;
-	height: 70px;
+	font-size: 70px;
 	display: block;
 	color: orange;
 	cursor: pointer;
@@ -89,6 +90,7 @@ export const MenuItem = styled.li`
 		}
 	}
 `;
+
 export const MenuItemText = styled.a`
 	padding: 8px;
 	border-radius: 4px;
@@ -136,6 +138,7 @@ export const BasketDiv = styled.div`
 		display: none;
 	}
 `;
+
 export const BasketIcon = styled(ShoppingCartCheckoutIcon)`
 	width: 23px;
 	height: 23px;
