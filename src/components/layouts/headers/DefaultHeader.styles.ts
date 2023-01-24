@@ -3,7 +3,7 @@ import { globalColor } from '@/src/commons/styles/color.styles';
 import { globalFontSize } from '@/src/commons/styles/font.styles';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import StarIcon from '@mui/icons-material/Star';
-import { Button } from '../../commons/Button';
+import { ButtonHover } from '../../commons/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 
 export const Header = styled.header``;
@@ -149,7 +149,7 @@ export const BasketIcon = styled(ShoppingCartCheckoutIcon)`
 	margin: auto;
 `;
 
-export const CustomButton = styled(Button)`
+export const CustomButton = styled(ButtonHover)`
 	@media screen and (max-width: 800px) {
 		width: 100%;
 		display: block;

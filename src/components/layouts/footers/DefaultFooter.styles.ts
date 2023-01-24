@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { globalColor } from '@/src/commons/styles/color.styles';
 import { globalFontSize } from '@/src/commons/styles/font.styles';
 
-import { Button } from '../../commons/Button';
+import { ButtonHover } from '../../commons/Button';
 
 export const Footer = styled.footer``;
 export const InnerFooter = styled.div`
@@ -109,11 +109,11 @@ export const AddressText = styled(AddresDivText)``;
 export const BizNumerText = styled(AddresDivText)``;
 export const CallCenterText = styled(AddresDivText)``;
 export const CopyRightText = styled(AddresDivText)``;
-export const Mb = styled(Button)`
+export const Mb = styled(ButtonHover)`
 	width: 100%;
 `;
 
-export const CustomButton = styled(Button)`
+export const CustomButton = styled(ButtonHover)`
 	font-size: ${globalFontSize.regular};
 	width: 100%;
 `;

@@ -1,5 +1,5 @@
-import CommunityPageContainer from '@/src/components/pages/community/CommunityPage.container';
+import CommunityListPageContainer from '@/src/components/pages/community/list/CommunityListPage.container';
 
-export default function CommunityPage() {
-	return <CommunityPageContainer />;
+export default function CommunityListPage() {
+	return <CommunityListPageContainer />;
 }

@@ -7,7 +7,7 @@ interface ButtonProps {
 }
 type IButtonProps = Partial<ButtonProps>;
 
-export const Button = styled.button`
+export const ButtonBasic = styled.button`
 	display: ${({ hide = false }) => (hide ? 'none' : 'block')};
 	border: 1px solid ${globalColor.primary_dp1};
 	padding: 7px 10px;
@@ -16,6 +16,9 @@ export const Button = styled.button`
 	color: ${({ reverse }: IButtonProps) => (reverse ? globalColor.primary_dp1 : globalColor.primary_dp4)};
 	font-size: ${globalFontSize.medium};
 	font-weight: 700;
+`;
+
+export const ButtonHover = styled(ButtonBasic)`
 	&:hover {
 		transition: 0.3s;
 		background-color: ${({ reverse }: IButtonProps) => (reverse ? globalColor.primary_dp1 : globalColor.primary_dp4)};

@@ -1,4 +1,4 @@
-import * as S from './CommunityPage.styles';
+import * as S from '@/src/components/pages/community/list/CommunityListPage.styles';
 import { Inner } from '@/src/commons/styles/global.styles';
 import { ChangeEvent, useState } from 'react';
 export default function CommunityPagePresenter() {

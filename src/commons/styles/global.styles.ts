@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { red } from '@mui/material/colors';
 
 export const globalStyles = css`
   /* Reset.css */
@@ -87,8 +88,9 @@ export const globalStyles = css`
   input {
     outline: none;
   }
-
+  
 `;
+
 /* COMMON CSS styled */
 export const Inner = styled.div`
 	max-width: 1200px;

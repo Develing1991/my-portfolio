@@ -1,8 +1,8 @@
 import { globalColor } from '@/src/commons/styles/color.styles';
 import { globalFontSize } from '@/src/commons/styles/font.styles';
 import styled from '@emotion/styled';
-import { Button } from '../../commons/Button';
-import Input01 from '../../commons/Input';
+import { ButtonHover } from '@/src/components/commons/Button';
+import Input01 from '@/src/components/commons/Input';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import MessageIcon from '@mui/icons-material/Message';
 
@@ -53,7 +53,7 @@ export const CompositionGroup = styled.div`
 		gap: 15px;
 	}
 `;
-export const CompositionButton = styled(Button)`
+export const CompositionButton = styled(ButtonHover)`
 	width: 100px;
 	&:hover {
 		background-color: ${globalColor.white};
