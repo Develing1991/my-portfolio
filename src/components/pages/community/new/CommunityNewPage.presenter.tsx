@@ -1,6 +1,7 @@
 import * as S from '@/src/components/pages/community/new/CommunityNewPage.styles';
 import { useState, useEffect, SyntheticEvent, MouseEvent } from 'react';
 import SelectBasic01 from '@/src/components/commons/selects/Select';
+import { Input } from '@/src/components/commons/inputs/Input';
 
 export default function CommunityNewPagePresenter() {
 	const onSubmitForm = (event: SyntheticEvent<HTMLFormElement>) => {
@@ -29,19 +30,25 @@ export default function CommunityNewPagePresenter() {
 			<S.InnerForm>
 				<S.BoardForm onSubmit={onSubmitForm}>
 					<S.SubjectDiv className="subject">
-						<div style={{ width: '20%' }}>
-							<SelectBasic01 title={title} onClickSelectOption={onClickSelectOption} onClickSelect={onClickSelect} isShow={show} opts={['궁금해요', '자유주제', '프로젝트', '기타']} />
-						</div>
+						<SelectBasic01 title={title} onClickSelectOption={onClickSelectOption} onClickSelect={onClickSelect} isShow={show} opts={['궁금해요', '자유주제', '프로젝트', '기타']} />
 					</S.SubjectDiv>
 					<S.TitleDiv className="title">
-						<S.TitleInput type="text" />
+						<Input />
 					</S.TitleDiv>
 					<S.ContentDiv className="content">
 						<S.ContentTextArea name="" id="" cols="30" rows="10" />
 					</S.ContentDiv>
-					<S.UploadImageDiv className="uploadzone" />
+					<S.UploadImageDiv className="uploadzone" title="여기에 사진을 올려주세요">
+						<S.UploadArea>
+							<S.PlusIcon />
+						</S.UploadArea>
+						{/* <S.PlusIcon /> */}
+					</S.UploadImageDiv>
 					<S.PrevImageDiv className="previewImage">
-						<S.PrevImageItem />
+						<S.PrevImageItem>
+							<S.PrevImage src="https://cdn4.buysellads.net/uu/1/127419/1670532177-Stock.jpg" />
+							<S.CloseBadge />
+						</S.PrevImageItem>
 					</S.PrevImageDiv>
 					<S.ButtonGroupDiv className="btn">
 						<S.RegisterButton reverse>등록</S.RegisterButton>

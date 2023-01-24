@@ -86,6 +86,11 @@ export const globalReset = css`
 	input {
 		outline: none;
 	}
+	textarea {
+		outline: none;
+    border: none;
+    resize: none;
+	}
 
 	body {
 		font-family: 'Roboto', sans-serif;
