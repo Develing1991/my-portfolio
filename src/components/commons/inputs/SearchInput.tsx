@@ -2,42 +2,29 @@ import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from '@emotion/styled';
 import { ChangeEvent } from 'react';
+import { InputStyled } from './Input';
 
+// Component
+export default function SearchInput({ width, keyword = '', onChangeInput }: InputProps) {
+	return (
+		<SeachInputDiv width={!width ? '100%' : width}>
+			<PrependIcon />
+			<SearchInputStyled onChange={onChangeInput} />
+			<AppendIcon showclose={keyword.length > 0 ? 'block' : 'none'} />
+		</SeachInputDiv>
+	);
+}
+
+// Type
 interface InputProps {
 	width?: string;
 	keyword?: string;
 	onChangeInput?: (event: ChangeEvent<HTMLInputElement>) => void;
+	// keyfress enter도 추가해야함
 }
 
-export default function Input01({ width, keyword = '', onChangeInput }: InputProps) {
-	return (
-		<InputCover width={!width ? '100%' : width}>
-			<CustomSearchIcon />
-			<CustomInput onChange={onChangeInput} />
-			<CustomCloseIcon showclose={keyword.length > 0 ? 'block' : 'none'} />
-		</InputCover>
-	);
-}
-
-export const CustomInput = styled.input`
-	border: 1px solid var(--color-primary-dp4);
-	font-size: var(--font-large);
-	color: var(--color-primary-dp4);
-	font-weight: 700;
-	padding: 10px 40px;
-	border-radius: 4px;
-	width: 100%;
-
-	&:focus {
-		background-color: var(--color-primary-dp3);
-		color: var(--color-white);
-	}
-	@media screen and (max-width: 480px) {
-		padding: 10px 30px;
-		font-size: var(--font-small);
-	}
-`;
-export const InputCover = styled.div`
+// Styled Component
+export const SeachInputDiv = styled.div`
 	position: relative;
 	width: ${({ width }: { width: string }) => width};
 	@media screen and (max-width: 480px) {
@@ -45,7 +32,15 @@ export const InputCover = styled.div`
 	}
 `;
 
-export const CustomSearchIcon = styled(SearchIcon)`
+export const SearchInputStyled = styled(InputStyled)`
+	font-weight: 700;
+	padding: 10px 40px;
+	@media screen and (max-width: 480px) {
+		padding: 10px 30px;
+	}
+`;
+
+export const PrependIcon = styled(SearchIcon)`
 	width: 25px;
 	height: 25px;
 	color: var(--color-primary-dp4);
@@ -60,7 +55,8 @@ export const CustomSearchIcon = styled(SearchIcon)`
 		height: 20px;
 	}
 `;
-export const CustomCloseIcon = styled(CloseIcon)`
+
+export const AppendIcon = styled(CloseIcon)`
 	width: 25px;
 	height: 25px;
 	display: ${({ showclose }: { showclose: string }) => showclose};

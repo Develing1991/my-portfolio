@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import * as S from './DefaultHeader.styles';
-import { Inner } from '@/src/commons/styles/globalStyled.styled';
 
 export default function DefaultHeader() {
-	const [show, setShow] = useState(false);
+	const [hide, setHide] = useState(true);
 	const toggle = () => {
-		setShow((prev) => !prev);
+		setHide((prev) => !prev);
 	};
 	return (
 		<>
@@ -15,7 +14,7 @@ export default function DefaultHeader() {
 						<S.LogoDiv>
 							<S.LogoIcon />
 						</S.LogoDiv>
-						<S.Menu show={show}>
+						<S.Menu className={hide ? 'hide' : ''}>
 							<S.MenuItem>
 								<S.MenuItemText className="active">커뮤니티</S.MenuItemText>
 							</S.MenuItem>
@@ -30,7 +29,7 @@ export default function DefaultHeader() {
 							</S.MenuItem>
 						</S.Menu>
 					</S.HeaderLeft>
-					<S.HeaderRight show={show}>
+					<S.HeaderRight className={hide ? 'hide' : ''}>
 						<S.CustomButton reverse>로그인</S.CustomButton>
 						<S.CustomButton>회원가입</S.CustomButton>
 						<S.CustomButton reverse hide>
@@ -40,8 +39,8 @@ export default function DefaultHeader() {
 							<S.BasketIcon />
 						</S.BasketDiv>
 					</S.HeaderRight>
-					{/* 토글버튼 */}
-					<S.ToggleButton onClick={toggle} />
+					{/* 토글 */}
+					<S.ToggleIcon onClick={toggle} />
 				</S.InnerHeader>
 			</header>
 		</>

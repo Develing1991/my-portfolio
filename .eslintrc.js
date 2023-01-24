@@ -27,6 +27,7 @@ module.exports = {
 		'@typescript-eslint/triple-slash-reference': 'off', // 추가 ///<reference /> 삼중 슬래시 지시자  규칙 제외
 		'@typescript-eslint/restrict-template-expressions': 'off',
 		'@typescript-eslint/no-floating-promises': 'off',
-		'react/display-name': 'off' // 이름없는 함수 eslint체크 제외 (hoc 사용해서)
+		'react/display-name': 'off', // 이름없는 함수 eslint체크 제외 (hoc 사용해서)
+		'react/no-unknown-property': ['error', { ignore: ['css'] }]
 	}
 };

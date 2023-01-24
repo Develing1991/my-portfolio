@@ -1,0 +1,32 @@
+import { ChangeEvent } from 'react';
+import styled from '@emotion/styled';
+
+// Component
+export default function Input({ onChangeInput }: InputProps) {
+	return <InputStyled type="text" onChange={onChangeInput} />;
+}
+
+// Type
+interface InputProps {
+	onChangeInput?: (event: ChangeEvent<HTMLInputElement>) => void;
+	// keyfress enter도 추가해야함
+}
+
+// Styled Component
+export const InputStyled = styled.input`
+	border: 1px solid var(--color-primary-dp4);
+	font-size: var(--font-large);
+	color: var(--color-primary-dp4);
+	font-weight: 400;
+	padding: 10px;
+	border-radius: 4px;
+	width: 100%;
+
+	&:focus {
+		background-color: var(--color-primary-dp3);
+		color: var(--color-white);
+	}
+	@media screen and (max-width: 480px) {
+		font-size: var(--font-small);
+	}
+`;

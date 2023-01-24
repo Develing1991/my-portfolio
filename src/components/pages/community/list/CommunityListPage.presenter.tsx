@@ -1,3 +1,4 @@
+import SearchInput from '@/src/components/commons/inputs/SearchInput';
 import * as S from '@/src/components/pages/community/list/CommunityListPage.styles';
 
 import { ChangeEvent, useState } from 'react';
@@ -8,21 +9,21 @@ export default function CommunityPagePresenter() {
 	};
 	return (
 		<>
-			<section>
-				<S.SectionInner>
+			<aside>
+				<S.AsideInner>
 					<S.AreaTitleDiv>
 						<S.AreaTitle>커뮤니티</S.AreaTitle>
 					</S.AreaTitleDiv>
 					<S.AreaCompositionDiv>
 						<S.CompositionGroup>
 							<S.CompositionButton reverse>글쓰기</S.CompositionButton>
-							<S.CompositionInput width="80%" keyword={keyword} onChangeInput={onChangeInput} />
+							<SearchInput width="80%" keyword={keyword} onChangeInput={onChangeInput} />
 						</S.CompositionGroup>
 					</S.AreaCompositionDiv>
-				</S.SectionInner>
-			</section>
+				</S.AsideInner>
+			</aside>
 			<section>
-				<S.SectionInner2>
+				<S.SectionInner>
 					<S.Navigation>
 						<S.NaviMenu>
 							<S.NaviMenuItem>
@@ -62,7 +63,7 @@ export default function CommunityPagePresenter() {
 							</S.CardRight>
 						</S.Card>
 					</S.AreaContent>
-				</S.SectionInner2>
+				</S.SectionInner>
 			</section>
 		</>
 	);

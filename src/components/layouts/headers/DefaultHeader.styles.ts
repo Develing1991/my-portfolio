@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import StarIcon from '@mui/icons-material/Star';
-import { ButtonHover } from '../../commons/Button';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
+import { ButtonHover } from '../../commons/Button';
+import StarIcon from '@mui/icons-material/Star';
+import MenuIcon from '@mui/icons-material/Menu';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 export const Header = styled.header``;
 
@@ -60,7 +60,9 @@ export const Menu = styled.ul`
 		flex-direction: column;
 		margin: 0;
 		padding: 0;
-		display: ${({ show }: { show: boolean }) => (show ? 'block' : 'none')};
+		&.hide {
+			display: none;
+		}
 	}
 `;
 
@@ -118,7 +120,9 @@ export const HeaderRight = styled.div`
 		padding: 0;
 		padding-top: 5px;
 		gap: 10px;
-		display: ${({ show }: { show: boolean }) => (show ? 'block' : 'none')};
+		&.hide {
+			display: none;
+		}
 	}
 `;
 
@@ -159,7 +163,7 @@ export const CustomButton = styled(ButtonHover)`
 	}
 `;
 
-export const ToggleButton = styled(MenuIcon)`
+export const ToggleIcon = styled(MenuIcon)`
 	position: absolute;
 	display: none;
 	top: 5px;

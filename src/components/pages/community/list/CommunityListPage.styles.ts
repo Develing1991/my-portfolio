@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
 import { ButtonHover } from '@/src/components/commons/Button';
-import Input01 from '@/src/components/commons/Input';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import MessageIcon from '@mui/icons-material/Message';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
 
 /* TOP */
-export const SectionInner = styled.div`
+export const AsideInner = styled.div`
 	${Inner}
 	display: flex;
 	padding-top: 100px;
@@ -70,10 +69,10 @@ export const CompositionButton = styled(ButtonHover)`
 `;
 
 // SearchIcon
-export const CompositionInput = styled(Input01)``;
+// export const CompositionInput = styled(Input01)``;
 
 /* CONTENT */
-export const SectionInner2 = styled.div`
+export const SectionInner = styled.div`
 	${Inner}
 	display: flex;
 	padding-top: 50px;
