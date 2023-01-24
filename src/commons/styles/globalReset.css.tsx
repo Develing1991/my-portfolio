@@ -95,7 +95,7 @@ export const globalReset = css`
 
 		/* line-height: 1.2; */
 		/* height: 6000px; */
-		font-size: 14px;
+		/* font-size: 14px; */
 	}
 `;
 

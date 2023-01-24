@@ -1,4 +1,3 @@
-import { globalFontSize } from '@/src/commons/styles/font.styles';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from '@emotion/styled';
@@ -22,7 +21,7 @@ export default function Input01({ width, keyword = '', onChangeInput }: InputPro
 
 export const CustomInput = styled.input`
 	border: 1px solid var(--color-primary-dp4);
-	font-size: ${globalFontSize.large};
+	font-size: var(--font-large);
 	color: var(--color-primary-dp4);
 	font-weight: 700;
 	padding: 10px 40px;
@@ -35,7 +34,7 @@ export const CustomInput = styled.input`
 	}
 	@media screen and (max-width: 480px) {
 		padding: 10px 30px;
-		font-size: ${globalFontSize.small};
+		font-size: var(--font-small);
 	}
 `;
 export const InputCover = styled.div`

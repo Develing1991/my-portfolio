@@ -1,4 +1,3 @@
-import { globalFontSize } from '@/src/commons/styles/font.styles';
 import styled from '@emotion/styled';
 
 export const SelectBasic = styled.button`
@@ -8,7 +7,7 @@ export const SelectBasic = styled.button`
 	border: 1px solid var(--color-primary-dp4);
 	border-radius: 4px;
 	font-weight: 700;
-	font-size: ${globalFontSize.medium};
+	font-size: var(--font-medium);
 	color: var(--color-primary-dp4);
 `;
 

@@ -1,4 +1,3 @@
-import { globalFontSize } from '@/src/commons/styles/font.styles';
 import styled from '@emotion/styled';
 interface ButtonProps {
 	reverse: boolean;
@@ -13,7 +12,7 @@ export const ButtonBasic = styled.button`
 	border-radius: 4px;
 	background-color: ${({ reverse }: IButtonProps) => (reverse ? `var(--color-primary-dp4)` : `var(--color-primary-dp1)`)};
 	color: ${({ reverse }: IButtonProps) => (reverse ? `var(--color-primary-dp1)` : `var(--color-primary-dp4)`)};
-	font-size: ${globalFontSize.medium};
+	font-size: var(--font-medium);
 	font-weight: 700;
 `;
 

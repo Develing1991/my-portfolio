@@ -1,4 +1,3 @@
-import { globalFontSize } from '@/src/commons/styles/font.styles';
 import styled from '@emotion/styled';
 import { ButtonHover } from '@/src/components/commons/Button';
 import Input01 from '@/src/components/commons/Input';
@@ -27,10 +26,10 @@ export const AreaTitleDiv = styled.div`
 `;
 export const AreaTitle = styled.h1`
 	font-weight: 700;
-	font-size: ${globalFontSize.xxlarge};
+	font-size: var(--font-xxlarge);
 	color: var(--color-primary-dp4);
 	@media screen and (max-width: 480px) {
-		font-size: ${globalFontSize.xlarge};
+		font-size: var(--font-xlarge);
 	}
 `;
 
@@ -59,7 +58,7 @@ export const CompositionButton = styled(ButtonHover)`
 		border-color: var(--color-primary-dp4);
 	}
 	@media screen and (max-width: 480px) {
-		font-size: ${globalFontSize.small};
+		font-size: var(--font-small);
 		width: 80px;
 	}
 `;
@@ -111,7 +110,7 @@ export const NaviMenuItem = styled.li`
 	border: 2px solid var(--color-primary-dp3);
 	cursor: pointer;
 	color: var(--color-primary-dp4);
-	font-size: ${globalFontSize.large};
+	font-size: var(--font-large);
 	font-weight: bold;
 
 	border-radius: 4px;
@@ -128,12 +127,12 @@ export const NaviMenuItem = styled.li`
 	@media screen and (max-width: 800px) {
 		margin: 0;
 		padding: 10px 20px;
-		font-size: ${globalFontSize.medium};
+		font-size: var(--font-medium);
 	}
 	@media screen and (max-width: 480px) {
 		margin: 0;
 		padding: 5px 15px;
-		font-size: ${globalFontSize.small};
+		font-size: var(--font-small);
 	}
 `;
 export const NaviMenuItemText = styled.a``;
@@ -155,13 +154,13 @@ export const Card = styled.div`
 	cursor: pointer;
 
 	line-height: 1.4;
-	font-size: ${globalFontSize.medium};
+	font-size: var(--font-medium);
 	color: var(--color-primary-dp4);
 
 	display: flex;
 	justify-content: space-between;
 	@media screen and (max-width: 800px) {
-		font-size: ${globalFontSize.small};
+		font-size: var(--font-small);
 	}
 	@media screen and (max-width: 480px) {
 		padding: 15px 10px;
@@ -195,11 +194,11 @@ export const CardLeftLikeIcon = styled(ThumbUpOffAltIcon)`
 `;
 export const CounteText = styled.span`
 	align-self: flex-end;
-	font-size: ${globalFontSize.small};
+	font-size: var(--font-small);
 	color: var(--color-primary-dp4);
 	font-weight: bold;
 	@media screen and (max-width: 480px) {
-		font-size: ${globalFontSize.xsmall};
+		font-size: var(--font-xsmall);
 	}
 `;
 export const CardLeftCommentIcon = styled(MessageIcon)`

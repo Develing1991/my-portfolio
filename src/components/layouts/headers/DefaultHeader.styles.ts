@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { globalFontSize } from '@/src/commons/styles/font.styles';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import StarIcon from '@mui/icons-material/Star';
 import { ButtonHover } from '../../commons/Button';
@@ -13,6 +12,7 @@ export const InnerHeader = styled.div`
 	align-items: center;
 	padding: 5px 0;
 	position: relative;
+	color: var(--color-white);
 	background-color: var(--color-primary-dp3);
 	border: 2px solid var(--color-primary-dp4);
 	border-top: none;
@@ -66,7 +66,7 @@ export const Menu = styled.ul`
 export const MenuItem = styled.li`
 	padding: 25px 5px;
 	margin-right: 5px;
-	font-size: ${globalFontSize.large};
+	font-size: var(--font-large);
 	font-weight: 700;
 	color: var(--color-primary-dp4);
 	cursor: pointer;

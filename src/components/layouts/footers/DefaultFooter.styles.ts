@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-import { globalFontSize } from '@/src/commons/styles/font.styles';
-
 import { ButtonHover } from '../../commons/Button';
 
 export const Footer = styled.footer``;
@@ -49,9 +47,9 @@ export const TermsMenuItem = styled.li`
 	}
 `;
 export const TermsMenuItemText = styled.a`
-	font-size: ${globalFontSize.regular};
+	font-size: var(--font-medium);
 	@media screen and (max-width: 480px) {
-		font-size: ${globalFontSize.regular};
+		font-size: var(--font-medium);
 	}
 `;
 
@@ -75,10 +73,10 @@ export const CallCenterDiv = styled.div`
 	}
 `;
 export const CallNumberText = styled.p`
-	font-size: ${globalFontSize.large};
+	font-size: var(--font-large);
 	margin-bottom: 15px;
 	@media screen and (max-width: 480px) {
-		font-size: ${globalFontSize.regular};
+		font-size: var(--font-medium);
 	}
 `;
 export const UseTimeText = styled.p``;
@@ -96,23 +94,20 @@ export const AddressDiv = styled.div`
 `;
 export const AddresDivText = styled.p`
 	margin-bottom: 5px;
+	@media screen and (max-width: 480px) {
+		font-size: var(--font-small);
+	}
 `;
 
 export const AlertText = styled(AddresDivText)`
 	margin-bottom: 20px;
-	@media screen and (max-width: 480px) {
-		font-size: ${globalFontSize.small};
-	}
 `;
 export const AddressText = styled(AddresDivText)``;
 export const BizNumerText = styled(AddresDivText)``;
 export const CallCenterText = styled(AddresDivText)``;
 export const CopyRightText = styled(AddresDivText)``;
-export const Mb = styled(ButtonHover)`
-	width: 100%;
-`;
 
 export const CustomButton = styled(ButtonHover)`
-	font-size: ${globalFontSize.regular};
+	font-size: var(--font-medium);
 	width: 100%;
 `;

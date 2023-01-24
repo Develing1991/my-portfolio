@@ -1,4 +1,3 @@
-import { globalFontSize } from '@/src/commons/styles/font.styles';
 import styled from '@emotion/styled';
 import { ButtonBasic } from '@/src/components/commons/Button';
 import Input01 from '@/src/components/commons/Input';
@@ -13,42 +12,6 @@ export const BoardForm = styled.form`
 `;
 
 export const SubjectDiv = styled.div``;
-export const SubjectSelect = styled.button`
-	width: 200px;
-	height: 40px;
-	position: relative;
-	border: 1px solid var(--color-primary-dp4);
-	border-radius: 4px;
-	font-weight: 700;
-	font-size: ${globalFontSize.medium};
-`;
-export const SubjectSelectOptionGroup = styled.ul`
-	position: absolute;
-	top: 39px;
-	left: -1px;
-	width: 101%;
-	background-color: white;
-	z-index: 9;
-
-	border: 1px solid var(--color-primary-dp4);
-	border-radius: 4px;
-	margin-top: 2px;
-
-	padding: 5px;
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-`;
-export const SubjectSelectOption = styled.li`
-	padding: 10px;
-	border-radius: 4px;
-	background-color: var(--color-primary-dp2);
-	color: var(--color-primary-dp4);
-	&:hover {
-		color: var(--color-white);
-		background-color: var(--color-primary-dp4);
-	}
-`;
 
 export const TitleDiv = styled.div``;
 export const TitleInput = styled.input`

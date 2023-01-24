@@ -15,11 +15,11 @@ export const globalVariables = css`
 		--color-primary-dp4: #495464;
 
 		/* font */
-		--font-xxlarge: 'xx-large'; // 34px
-		--font-xlarge: 'x-large'; // 24px
-		--font-large: 'large'; // 18px
-		--font-medium: 'medium'; // 16px
-		--font-small: 'small'; // 14px
-		--font-xsmall: 'x-small'; // 10px
+		--font-xxlarge: 32px; // 32px
+		--font-xlarge: 24px; // 24px
+		--font-large: 18px; // 18px
+		--font-medium: 16px; // 16px
+		--font-small: 14px; // 14px
+		--font-xsmall: 10px; // 10px
 	}
 `;
