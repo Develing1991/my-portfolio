@@ -1,19 +1,6 @@
-import { ChangeEvent } from 'react';
 import styled from '@emotion/styled';
 
-// Component
-export default function Input({ onChangeInput }: InputProps) {
-	return <InputStyled type="text" onChange={onChangeInput} />;
-}
-
-// Type
-interface InputProps {
-	onChangeInput?: (event: ChangeEvent<HTMLInputElement>) => void;
-	// keyfress enter도 추가해야함
-}
-
-// Styled Component
-export const InputStyled = styled.input`
+export const Input = styled.input`
 	border: 1px solid var(--color-primary-dp4);
 	font-size: var(--font-large);
 	color: var(--color-primary-dp4);

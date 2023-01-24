@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import { ButtonHover } from '../../commons/Button';
+
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
+import { HoverButton } from '../../commons/buttons/HoverButton';
 
 export const Footer = styled.footer``;
 
@@ -122,7 +123,7 @@ export const CallCenterText = styled(AddresDivText)``;
 
 export const CopyRightText = styled(AddresDivText)``;
 
-export const CustomButton = styled(ButtonHover)`
+export const CustomButton = styled(HoverButton)`
 	font-size: var(--font-medium);
 	width: 100%;
 `;

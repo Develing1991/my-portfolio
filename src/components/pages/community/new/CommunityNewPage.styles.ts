@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { ButtonBasic } from '@/src/components/commons/Button';
+
+import { Button } from '@/src/components/commons/buttons/Button';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
 import Input01 from '@/src/components/commons/Input';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -43,4 +44,4 @@ export const PrevImageItem = styled.img``;
 
 export const ButtonGroupDiv = styled.div``;
 
-export const RegisterButton = styled(ButtonBasic)``;
+export const RegisterButton = styled(Button)``;

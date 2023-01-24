@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
-import { ButtonHover } from '../../commons/Button';
+
 import StarIcon from '@mui/icons-material/Star';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import { HoverButton } from '../../commons/buttons/HoverButton';
 
 export const Header = styled.header``;
 
@@ -155,7 +156,7 @@ export const BasketIcon = styled(ShoppingCartCheckoutIcon)`
 	margin: auto;
 `;
 
-export const CustomButton = styled(ButtonHover)`
+export const CustomButton = styled(HoverButton)`
 	@media screen and (max-width: 800px) {
 		width: 100%;
 		display: block;

@@ -2,7 +2,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from '@emotion/styled';
 import { ChangeEvent } from 'react';
-import { InputStyled } from './Input';
+import { Input } from './Input';
 
 // Component
 export default function SearchInput({ width, keyword = '', onChangeInput }: InputProps) {
@@ -32,7 +32,7 @@ export const SeachInputDiv = styled.div`
 	}
 `;
 
-export const SearchInputStyled = styled(InputStyled)`
+export const SearchInputStyled = styled(Input)`
 	font-weight: 700;
 	padding: 10px 40px;
 	@media screen and (max-width: 480px) {

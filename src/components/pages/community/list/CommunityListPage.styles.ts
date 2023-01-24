@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
-import { ButtonHover } from '@/src/components/commons/Button';
+
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import MessageIcon from '@mui/icons-material/Message';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
+import { HoverButton } from '@/src/components/commons/buttons/HoverButton';
 
 /* TOP */
 export const AsideInner = styled.div`
@@ -56,7 +57,7 @@ export const CompositionGroup = styled.div`
 	}
 `;
 
-export const CompositionButton = styled(ButtonHover)`
+export const CompositionButton = styled(HoverButton)`
 	width: 100px;
 	&:hover {
 		background-color: var(--color-white);
