@@ -120,13 +120,41 @@ export const PostActions = styled.div`
 `;
 
 export const MoreActionWrapper = styled.div`
+	position: relative;
 	.more-icon {
 		cursor: pointer;
 		font-size: 30px;
 	}
 	ul {
+		position: absolute;
+		top: 40px;
+		right: 15px;
+		padding: 10px 0;
+		border: 1px solid var(--color-primary-dp3);
+		border-radius: 4px;
+		background-color: var(--color-white);
+		font-weight: 700;
+		z-index: 8;
 	}
 	ul li {
+		/* border: 1px solid; */
+		padding: 10px 30px;
+		/* margin-bottom: 10px; */
+		cursor: pointer;
+		position: relative;
+	}
+	ul li:hover::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		opacity: 0.1;
+	}
+	ul li:last-child {
+		color: red;
 	}
 `;
 
@@ -264,9 +292,6 @@ export const CommentItem = styled.li`
 	border-bottom: 2px solid var(--color-primary-dp3);
 	margin-bottom: 10px;
 	padding: 30px;
-	.more-icon {
-		font-size: 20px;
-	}
 	@media screen and (max-width: 380px) {
 		padding: 20px 10px;
 	}
@@ -334,11 +359,44 @@ export const CommentReact = styled.div`
 	}
 
 	.right {
+		position: relative;
 		.more-icon {
 			font-size: var(--font-xlarge);
 			vertical-align: bottom;
 			margin-right: 10px;
 			cursor: pointer;
+		}
+
+		ul {
+			position: absolute;
+			top: -115px;
+			right: 20px;
+			padding: 10px 0;
+			border: 1px solid var(--color-primary-dp3);
+			border-radius: 4px;
+			background-color: var(--color-white);
+			font-weight: 700;
+			z-index: 8;
+		}
+		ul li {
+			/* border: 1px solid; */
+			padding: 10px 30px;
+			/* margin-bottom: 10px; */
+			cursor: pointer;
+			position: relative;
+		}
+		ul li:hover::after {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			opacity: 0.1;
+		}
+		ul li:last-child {
+			color: red;
 		}
 	}
 `;

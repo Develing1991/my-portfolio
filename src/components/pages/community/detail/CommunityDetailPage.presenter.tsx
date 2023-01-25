@@ -33,10 +33,10 @@ export default function CommunityDetailPagePresenter() {
 							<S.ShareLinkIcon className="link-icon" titleAccess="공유버튼 아이콘" />
 							<S.MoreActionWrapper>
 								<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
-								<ul style={{ display: 'none' }}>
-									<li>수정하기</li>
-									<li>삭제하기</li>
-									<li>신고하기</li>
+								<ul>
+									<li>수정</li>
+									<li>삭제</li>
+									<li>신고</li>
 								</ul>
 							</S.MoreActionWrapper>
 						</S.PostActions>
@@ -93,6 +93,11 @@ export default function CommunityDetailPagePresenter() {
 								</div>
 								<div className="right">
 									<S.MoreActionIcon className="more-icon" />
+									<ul>
+										<li>수정</li>
+										<li>삭제</li>
+										<li>신고</li>
+									</ul>
 								</div>
 							</S.CommentReact>
 						</S.CommentItem>
@@ -119,6 +124,11 @@ export default function CommunityDetailPagePresenter() {
 								</div>
 								<div className="right">
 									<S.MoreActionIcon className="more-icon" />
+									<ul>
+										<li>수정</li>
+										<li>삭제</li>
+										<li>신고</li>
+									</ul>
 								</div>
 							</S.CommentReact>
 						</S.CommentItem>
