@@ -20,7 +20,7 @@ export default function CommunityDetailPagePresenter() {
 					<S.PostTitle>제목</S.PostTitle>
 					<S.WriterInfoWrapper>
 						<div className="image__wrapper">
-							<img src="" alt="유저 프로필 이미지" />
+							<img src="https://cdn4.buysellads.net/uu/1/127419/1670532177-Stock.jpg" alt="유저 프로필 이미지" />
 						</div>
 						<S.PostInfo>
 							<div className="info__name">김길동</div>

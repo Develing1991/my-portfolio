@@ -16,6 +16,12 @@ export const ShareLinkIcon = styled(LinkIcon)``;
 export const SectionInner = styled.div`
 	${Inner}
 	padding: 0 80px;
+	@media screen and (max-width: 800px) {
+		padding: 0 30px;
+	}
+	@media screen and (max-width: 380px) {
+		padding: 0 20px;
+	}
 `;
 /* PostHeaderContainer */
 export const PostHeaderContainer = styled.div`
@@ -57,16 +63,17 @@ export const WriterInfoWrapper = styled.div`
 	display: flex;
 	gap: 20px;
 	align-items: center;
-
+	@media screen and (max-width: 200px) {
+		flex-direction: column;
+	}
 	.image__wrapper {
 		width: 50px;
 		height: 50px;
-		background-color: black;
 		border-radius: 4px;
 		overflow: hidden;
 	}
 	.image__wrapper img {
-		width: 100%;
+		max-width: 100%;
 		height: 100%;
 	}
 `;
@@ -75,6 +82,7 @@ export const PostInfo = styled.div`
 	font-size: var(--font-small);
 	color: var(--color-primary-dp4);
 	line-height: 1.5;
+
 	flex: 1;
 	.info__name {
 		color: var(--color-purple);
@@ -83,12 +91,18 @@ export const PostInfo = styled.div`
 	.info__etc {
 		display: flex;
 		gap: 10px;
+		@media screen and (max-width: 280px) {
+			flex-direction: column;
+		}
 	}
 `;
 
 export const PostActions = styled.div`
 	display: flex;
 	gap: 20px;
+	@media screen and (max-width: 520px) {
+		flex-direction: column;
+	}
 	.link-icon {
 		cursor: pointer;
 		font-size: 30px;
@@ -120,13 +134,20 @@ export const PostBodyContainer = styled.div`
 export const Contents = styled.div``;
 export const ContentsImageArea = styled.div`
 	.image__wrapper {
+		border-radius: 4px;
+		overflow: hidden;
 	}
-	img {
+	.image__wrapper img {
+		max-width: 100%;
+		height: 100%;
 	}
 `;
 export const ContentsHashArea = styled.ul`
 	display: flex;
 	gap: 20px;
+	@media screen and (max-width: 280px) {
+		flex-direction: column;
+	}
 	li {
 		padding: 10px;
 		cursor: pointer;
@@ -141,7 +162,9 @@ export const ContentsReactArea = styled.div`
 	display: flex;
 	gap: 40px;
 	font-size: var(--font-small);
-
+	@media screen and (max-width: 280px) {
+		flex-direction: column;
+	}
 	.like {
 		.like-icon {
 			font-size: var(--font-large);
@@ -170,15 +193,25 @@ export const CommentWrite = styled.div`
 	border-radius: 4px;
 	padding: 30px 20px;
 	margin-top: 80px;
+	@media screen and (max-width: 420px) {
+		gap: 20px;
+	}
+	@media screen and (max-width: 280px) {
+		flex-direction: column;
+		padding: 10px;
+	}
 `;
 export const ContentTextArea = styled.textarea`
 	/* width: 100%; */
 	flex-basis: 90%;
 	height: 100px;
+	width: 100%;
 	border: 2px solid var(--color-primary-dp2);
 	border-radius: 4px;
-
 	padding: 20px 10px;
+	@media screen and (max-width: 800px) {
+		flex-basis: 80%;
+	}
 
 	&:focus {
 		background-color: var(--color-primary-dp1);
@@ -186,7 +219,7 @@ export const ContentTextArea = styled.textarea`
 `;
 
 export const CommentRegButton = styled(Button)`
-	flex-basis: 10%;
+	flex-basis: 20%;
 	height: 100%;
 	padding: 15px 0;
 	background-color: var(--color-primary-dp4);
@@ -194,6 +227,12 @@ export const CommentRegButton = styled(Button)`
 	overflow: hidden;
 	color: white;
 	position: relative;
+	@media screen and (max-width: 800px) {
+		flex-basis: 30%;
+	}
+	@media screen and (max-width: 280px) {
+		width: 80%;
+	}
 	&:hover {
 		&::after {
 			content: '';
@@ -224,7 +263,10 @@ export const CommentUser = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 20px;
-
+	@media screen and (max-width: 280px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 	.image__wrapper {
 		width: 50px;
 		height: 50px;
@@ -232,7 +274,7 @@ export const CommentUser = styled.div`
 		overflow: hidden;
 	}
 	.image__wrapper img {
-		width: 100%;
+		max-width: 100%;
 		height: 100%;
 	}
 	.name {
@@ -251,11 +293,15 @@ export const CommentContent = styled.p`
 export const CommentReact = styled.div`
 	display: flex;
 	justify-content: space-between;
+
 	.left {
 		display: flex;
 		gap: 40px;
 		font-size: var(--font-small);
-
+		@media screen and (max-width: 280px) {
+			flex-direction: column;
+			gap: 10px;
+		}
 		.like {
 			.like-icon {
 				font-size: var(--font-large);
