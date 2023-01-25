@@ -8,11 +8,11 @@ export const InnerForm = styled.div`
 `;
 
 export const BoardForm = styled.form`
-	margin-top: 50px;
+	margin-top: 80px;
 	padding: 0 30px;
 	display: flex;
 	flex-direction: column;
-	gap: 25px;
+	gap: 30px;
 `;
 
 export const SubjectDiv = styled.div`
@@ -110,7 +110,7 @@ export const PrevImage = styled.img`
 export const ButtonGroupDiv = styled.div`
 	display: flex;
 	justify-content: center;
-	margin-top: 30px;
+	margin-top: 50px;
 `;
 
 export const RegisterButton = styled(Button)`

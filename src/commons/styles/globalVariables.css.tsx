@@ -8,6 +8,7 @@ export const globalVariables = css`
 		--color-black: #000000;
 		--color-orange: #feb546;
 		--color-blue: #73aace;
+		--color-purple: #3d1766;
 
 		--color-primary-dp1: #f4f4f2;
 		--color-primary-dp2: #ebe9ef;

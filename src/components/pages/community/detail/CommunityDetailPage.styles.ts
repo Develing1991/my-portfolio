@@ -1,0 +1,285 @@
+import { Inner } from '@/src/commons/styles/globalStyled.styled';
+import styled from '@emotion/styled';
+// import ShareIcon from '@mui/icons-material/Share';
+import LinkIcon from '@mui/icons-material/Link';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import MessageIcon from '@mui/icons-material/Message';
+import { Button } from '@/src/components/commons/buttons/Button';
+export const LikeIcon = styled(ThumbUpOffAltIcon)``;
+export const CommentIcon = styled(MessageIcon)``;
+export const BreadcrumbsIcon = styled(KeyboardArrowRightIcon)``;
+export const MoreActionIcon = styled(MoreVertIcon)``;
+export const ShareLinkIcon = styled(LinkIcon)``;
+
+export const SectionInner = styled.div`
+	${Inner}
+	padding: 0 80px;
+`;
+/* PostHeaderContainer */
+export const PostHeaderContainer = styled.div`
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+`;
+export const Breadcrumbs = styled.ul`
+	display: flex;
+	font-size: var(--font-small);
+
+	li {
+		display: flex;
+		position: relative;
+		align-items: center;
+		padding: 5px 0;
+		cursor: pointer;
+
+		a {
+			color: var(--color-blue);
+		}
+		.arrow {
+			font-size: var(--font-medium);
+			margin: 0 10px;
+		}
+		&:last-child .arrow {
+			display: none;
+		}
+	}
+`;
+export const PostTitle = styled.h1`
+	font-size: var(--font-xlarge);
+	font-weight: 700;
+	color: var(--color-primary-dp4);
+`;
+
+export const WriterInfoWrapper = styled.div`
+	display: flex;
+	gap: 20px;
+	align-items: center;
+
+	.image__wrapper {
+		width: 50px;
+		height: 50px;
+		background-color: black;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+	.image__wrapper img {
+		width: 100%;
+		height: 100%;
+	}
+`;
+
+export const PostInfo = styled.div`
+	font-size: var(--font-small);
+	color: var(--color-primary-dp4);
+	line-height: 1.5;
+	flex: 1;
+	.info__name {
+		color: var(--color-purple);
+		font-weight: 700;
+	}
+	.info__etc {
+		display: flex;
+		gap: 10px;
+	}
+`;
+
+export const PostActions = styled.div`
+	display: flex;
+	gap: 20px;
+	.link-icon {
+		cursor: pointer;
+		font-size: 30px;
+	}
+`;
+
+export const MoreActionWrapper = styled.div`
+	.more-icon {
+		cursor: pointer;
+		font-size: 30px;
+	}
+	ul {
+	}
+	ul li {
+	}
+`;
+
+/* PostBodyContainer */
+export const PostBodyContainer = styled.div`
+	margin-top: 80px;
+	border: 2px solid var(--color-primary-dp3);
+	border-radius: 4px;
+	padding: 20px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+`;
+export const Contents = styled.div``;
+export const ContentsImageArea = styled.div`
+	.image__wrapper {
+	}
+	img {
+	}
+`;
+export const ContentsHashArea = styled.ul`
+	display: flex;
+	gap: 20px;
+	li {
+		padding: 10px;
+		cursor: pointer;
+		font-weight: 700;
+		color: var(--color-purple);
+	}
+	li:hover {
+		color: var(--color-blue);
+	}
+`;
+export const ContentsReactArea = styled.div`
+	display: flex;
+	gap: 40px;
+	font-size: var(--font-small);
+
+	.like {
+		.like-icon {
+			font-size: var(--font-large);
+			vertical-align: bottom;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+	}
+	.count {
+		.comment-icon {
+			font-size: var(--font-large);
+			vertical-align: bottom;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+	}
+`;
+
+/* PostBodyContainer */
+export const PostCommentContainer = styled.div``;
+export const CommentWrite = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	border: 2px solid var(--color-primary-dp3);
+	border-radius: 4px;
+	padding: 30px 20px;
+	margin-top: 80px;
+`;
+export const ContentTextArea = styled.textarea`
+	/* width: 100%; */
+	flex-basis: 90%;
+	height: 100px;
+	border: 2px solid var(--color-primary-dp2);
+	border-radius: 4px;
+
+	padding: 20px 10px;
+
+	&:focus {
+		background-color: var(--color-primary-dp1);
+	}
+`;
+
+export const CommentRegButton = styled(Button)`
+	flex-basis: 10%;
+	height: 100%;
+	padding: 15px 0;
+	background-color: var(--color-primary-dp4);
+
+	overflow: hidden;
+	color: white;
+	position: relative;
+	&:hover {
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			opacity: 0.2;
+		}
+	}
+`;
+
+export const CommentList = styled.ul`
+	margin-top: 30px;
+`;
+export const CommentItem = styled.li`
+	border-bottom: 2px solid var(--color-primary-dp3);
+	margin-bottom: 10px;
+	padding: 30px;
+	.more-icon {
+		font-size: 20px;
+	}
+`;
+
+export const CommentUser = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 20px;
+
+	.image__wrapper {
+		width: 50px;
+		height: 50px;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+	.image__wrapper img {
+		width: 100%;
+		height: 100%;
+	}
+	.name {
+		color: var(--color-purple);
+		font-size: var(--font-small);
+		font-weight: 700;
+	}
+	.time {
+		font-size: var(--font-small);
+	}
+`;
+export const CommentContent = styled.p`
+	line-height: 1.3;
+	margin: 20px 0;
+`;
+export const CommentReact = styled.div`
+	display: flex;
+	justify-content: space-between;
+	.left {
+		display: flex;
+		gap: 40px;
+		font-size: var(--font-small);
+
+		.like {
+			.like-icon {
+				font-size: var(--font-large);
+				vertical-align: bottom;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+		}
+		.count {
+			.comment-icon {
+				font-size: var(--font-large);
+				vertical-align: bottom;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.right {
+		.more-icon {
+			font-size: var(--font-xlarge);
+			vertical-align: bottom;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+	}
+`;

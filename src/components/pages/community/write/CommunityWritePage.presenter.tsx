@@ -1,9 +1,9 @@
-import * as S from '@/src/components/pages/community/new/CommunityNewPage.styles';
+import * as S from '@/src/components/pages/community/write/CommunityWritePage.styles';
 import { useState, useEffect, SyntheticEvent, MouseEvent } from 'react';
 import SelectBasic01 from '@/src/components/commons/selects/Select';
 import { Input } from '@/src/components/commons/inputs/Input';
 
-export default function CommunityNewPagePresenter() {
+export default function CommunityWritePagePresenter() {
 	const onSubmitForm = (event: SyntheticEvent<HTMLFormElement>) => {
 		event.preventDefault();
 	};

@@ -2,7 +2,9 @@ import styled from '@emotion/styled';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
 import { HoverButton } from '@/src/components/commons/buttons/HoverButton';
 
-export const Footer = styled.footer``;
+export const Footer = styled.footer`
+	margin-top: 100px;
+`;
 
 export const InnerFooter = styled.div`
 	${Inner}

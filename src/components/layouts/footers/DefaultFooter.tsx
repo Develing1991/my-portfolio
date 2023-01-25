@@ -2,7 +2,7 @@ import * as S from './DefaultFooter.styles';
 export default function DefaultFooter() {
 	return (
 		<>
-			<footer>
+			<S.Footer>
 				<S.InnerFooter>
 					<S.FooterTop>
 						<S.TermsMenu>
@@ -41,7 +41,7 @@ export default function DefaultFooter() {
 						</S.AddressDiv>
 					</S.FooterBottom>
 				</S.InnerFooter>
-			</footer>
+			</S.Footer>
 		</>
 	);
 }
