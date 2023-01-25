@@ -69,8 +69,6 @@ export const WriterInfoWrapper = styled.div`
 	display: flex;
 	gap: 20px;
 	align-items: center;
-
-	//여기
 	padding-bottom: 30px;
 	border-bottom: 2px solid var(--color-primary-dp2);
 	@media screen and (max-width: 200px) {
@@ -81,6 +79,7 @@ export const WriterInfoWrapper = styled.div`
 		height: 50px;
 		border-radius: 4px;
 		overflow: hidden;
+		cursor: pointer;
 	}
 	.image__wrapper img {
 		max-width: 100%;
@@ -97,6 +96,7 @@ export const PostInfo = styled.div`
 	.info__name {
 		color: var(--color-purple);
 		font-weight: 700;
+		cursor: pointer;
 	}
 	.info__etc {
 		display: flex;
@@ -124,37 +124,6 @@ export const MoreActionWrapper = styled.div`
 	.more-icon {
 		cursor: pointer;
 		font-size: 30px;
-	}
-	ul {
-		position: absolute;
-		top: 40px;
-		right: 15px;
-		padding: 10px 0;
-		border: 1px solid var(--color-primary-dp3);
-		border-radius: 4px;
-		background-color: var(--color-white);
-		font-weight: 700;
-		z-index: 8;
-	}
-	ul li {
-		/* border: 1px solid; */
-		padding: 10px 30px;
-		/* margin-bottom: 10px; */
-		cursor: pointer;
-		position: relative;
-	}
-	ul li:hover::after {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: black;
-		opacity: 0.1;
-	}
-	ul li:last-child {
-		color: red;
 	}
 `;
 
@@ -310,6 +279,7 @@ export const CommentUser = styled.div`
 		height: 50px;
 		border-radius: 4px;
 		overflow: hidden;
+		cursor: pointer;
 	}
 	.image__wrapper img {
 		max-width: 100%;
@@ -319,6 +289,7 @@ export const CommentUser = styled.div`
 		color: var(--color-purple);
 		font-size: var(--font-small);
 		font-weight: 700;
+		cursor: pointer;
 	}
 	.time {
 		font-size: var(--font-small);
@@ -365,38 +336,6 @@ export const CommentReact = styled.div`
 			vertical-align: bottom;
 			margin-right: 10px;
 			cursor: pointer;
-		}
-
-		ul {
-			position: absolute;
-			top: -115px;
-			right: 20px;
-			padding: 10px 0;
-			border: 1px solid var(--color-primary-dp3);
-			border-radius: 4px;
-			background-color: var(--color-white);
-			font-weight: 700;
-			z-index: 8;
-		}
-		ul li {
-			/* border: 1px solid; */
-			padding: 10px 30px;
-			/* margin-bottom: 10px; */
-			cursor: pointer;
-			position: relative;
-		}
-		ul li:hover::after {
-			position: absolute;
-			content: '';
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: black;
-			opacity: 0.1;
-		}
-		ul li:last-child {
-			color: red;
 		}
 	}
 `;

@@ -1,7 +1,11 @@
+import DropDown from '@/src/components/commons/dropdowns/DropDown';
 import React from 'react';
 import * as S from './CommunityDetailPage.styles';
 
 export default function CommunityDetailPagePresenter() {
+	const onClick1 = () => {
+		console.log('123');
+	};
 	return (
 		<section>
 			<S.SectionInner>
@@ -32,12 +36,15 @@ export default function CommunityDetailPagePresenter() {
 						<S.PostActions>
 							<S.ShareLinkIcon className="link-icon" titleAccess="공유버튼 아이콘" />
 							<S.MoreActionWrapper>
-								<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
-								<ul>
-									<li>수정</li>
-									<li>삭제</li>
-									<li>신고</li>
-								</ul>
+								<DropDown
+									data={[
+										{ title: '수정', eventName: onClick1 },
+										{ title: '삭제', eventName: onClick1 },
+										{ title: '신고', eventName: onClick1 }
+									]}
+								>
+									<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
+								</DropDown>
 							</S.MoreActionWrapper>
 						</S.PostActions>
 					</S.WriterInfoWrapper>
@@ -92,12 +99,15 @@ export default function CommunityDetailPagePresenter() {
 									</div>
 								</div>
 								<div className="right">
-									<S.MoreActionIcon className="more-icon" />
-									<ul>
-										<li>수정</li>
-										<li>삭제</li>
-										<li>신고</li>
-									</ul>
+									<DropDown
+										data={[
+											{ title: '수정', eventName: onClick1 },
+											{ title: '삭제', eventName: onClick1 },
+											{ title: '신고', eventName: onClick1 }
+										]}
+									>
+										<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
+									</DropDown>
 								</div>
 							</S.CommentReact>
 						</S.CommentItem>
@@ -123,12 +133,15 @@ export default function CommunityDetailPagePresenter() {
 									</div>
 								</div>
 								<div className="right">
-									<S.MoreActionIcon className="more-icon" />
-									<ul>
-										<li>수정</li>
-										<li>삭제</li>
-										<li>신고</li>
-									</ul>
+									<DropDown
+										data={[
+											{ title: '수정', eventName: onClick1 },
+											{ title: '삭제', eventName: onClick1 },
+											{ title: '신고', eventName: onClick1 }
+										]}
+									>
+										<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
+									</DropDown>
 								</div>
 							</S.CommentReact>
 						</S.CommentItem>

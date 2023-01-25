@@ -23,6 +23,9 @@ export default function CommunityWritePagePresenter() {
 		window.addEventListener('click', function () {
 			setShow(() => false);
 		});
+		window.addEventListener('resize', () => {
+			setShow(() => false);
+		});
 	});
 
 	return (
