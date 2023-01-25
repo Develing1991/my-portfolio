@@ -79,7 +79,7 @@ export default function CommunityDetailPagePresenter() {
 				{/* comment */}
 				<S.PostCommentContainer>
 					<S.CommentWrite>
-						<S.ContentTextArea />
+						<S.ContentTextArea placeholder="댓글을 남겨보세요." />
 						<S.CommentRegButton>등록</S.CommentRegButton>
 					</S.CommentWrite>
 					<S.CommentList>

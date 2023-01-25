@@ -32,28 +32,28 @@ export default function CommunityWritePagePresenter() {
 		<section>
 			<S.InnerForm>
 				<S.BoardForm onSubmit={onSubmitForm}>
-					<S.SubjectDiv className="subject">
+					<S.SubjectDiv>
 						<SelectBasic01 title={title} onClickSelectOption={onClickSelectOption} onClickSelect={onClickSelect} isShow={show} opts={['궁금해요', '자유주제', '프로젝트', '기타']} />
 					</S.SubjectDiv>
-					<S.TitleDiv className="title">
-						<Input />
+					<S.TitleDiv>
+						<Input placeholder="제목을 입력해주세요." />
 					</S.TitleDiv>
-					<S.ContentDiv className="content">
-						<S.ContentTextArea name="" id="" cols="30" rows="10" />
+					<S.ContentDiv>
+						<S.ContentTextArea />
 					</S.ContentDiv>
-					<S.UploadImageDiv className="uploadzone" title="여기에 사진을 올려주세요">
+					<S.UploadImageDiv title="여기에 사진을 올려주세요">
 						<S.UploadArea>
 							<S.PlusIcon />
 						</S.UploadArea>
 						{/* <S.PlusIcon /> */}
 					</S.UploadImageDiv>
-					<S.PrevImageDiv className="previewImage">
+					<S.PrevImageDiv>
 						<S.PrevImageItem>
 							<S.PrevImage src="https://cdn4.buysellads.net/uu/1/127419/1670532177-Stock.jpg" />
 							<S.CloseBadge />
 						</S.PrevImageItem>
 					</S.PrevImageDiv>
-					<S.ButtonGroupDiv className="btn">
+					<S.ButtonGroupDiv>
 						<S.RegisterButton reverse>등록</S.RegisterButton>
 					</S.ButtonGroupDiv>
 				</S.BoardForm>

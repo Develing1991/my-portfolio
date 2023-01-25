@@ -17,7 +17,7 @@ export default function CommunityPagePresenter() {
 					<S.AreaCompositionDiv>
 						<S.CompositionGroup>
 							<S.CompositionButton reverse>글쓰기</S.CompositionButton>
-							<SearchInput width="80%" keyword={keyword} onChangeInput={onChangeInput} />
+							<SearchInput width="80%" keyword={keyword} onChangeInput={onChangeInput} placeholder="제목으로 검색해주세요." />
 						</S.CompositionGroup>
 					</S.AreaCompositionDiv>
 				</S.AsideInner>

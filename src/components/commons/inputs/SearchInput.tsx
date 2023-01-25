@@ -5,11 +5,11 @@ import { ChangeEvent } from 'react';
 import { Input } from './Input';
 
 // Component
-export default function SearchInput({ width, keyword = '', onChangeInput }: InputProps) {
+export default function SearchInput({ width, keyword = '', placeholder = '통합검색', onChangeInput }: InputProps) {
 	return (
 		<SeachInputDiv width={!width ? '100%' : width}>
 			<PrependIcon />
-			<SearchInputStyled onChange={onChangeInput} />
+			<SearchInputStyled onChange={onChangeInput} placeholder={placeholder} />
 			<AppendIcon showclose={keyword.length > 0 ? 'block' : 'none'} />
 		</SeachInputDiv>
 	);
@@ -19,6 +19,7 @@ export default function SearchInput({ width, keyword = '', onChangeInput }: Inpu
 interface InputProps {
 	width?: string;
 	keyword?: string;
+	placeholder?: string;
 	onChangeInput?: (event: ChangeEvent<HTMLInputElement>) => void;
 	// keyfress enter도 추가해야함
 }
@@ -35,6 +36,10 @@ export const SeachInputDiv = styled.div`
 export const SearchInputStyled = styled(Input)`
 	font-weight: 700;
 	padding: 10px 40px;
+	&::placeholder {
+		font-weight: 400;
+		opacity: 0.8;
+	}
 	@media screen and (max-width: 480px) {
 		padding: 10px 30px;
 	}
