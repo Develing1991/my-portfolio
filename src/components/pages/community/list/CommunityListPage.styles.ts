@@ -3,6 +3,8 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import MessageIcon from '@mui/icons-material/Message';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
 import { HoverButton } from '@/src/components/commons/buttons/HoverButton';
+import ContentPasteOffIcon from '@mui/icons-material/ContentPasteOff';
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 
 /* TOP */
 export const AsideInner = styled.div`
@@ -148,10 +150,45 @@ export const NaviMenuItemText = styled.a``;
 export const AreaContent = styled.article`
 	flex-basis: 80%;
 	padding: 20px 0 0 40px;
+	width: 100%;
 	@media screen and (max-width: 800px) {
 		padding: 30px 0px 0 0px;
 		word-break: break-all;
 	}
+`;
+
+export const PostNotExist = styled.div`
+	font-size: var(--font-xxlarge);
+	color: var(--color-primary-dp4);
+	width: 100%;
+	margin-top: 100px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+`;
+
+export const PostNotExistTop = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+`;
+
+export const PostNotExistIcon = styled(ContentPasteOffIcon)`
+	font-size: 50px;
+`;
+
+export const PostNotExistBottom = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	font-size: var(--font-xlarge);
+`;
+
+export const PostNotExistSmileIcon = styled(SentimentSatisfiedAltIcon)`
+	font-size: 50px;
 `;
 
 export const Card = styled.div`
