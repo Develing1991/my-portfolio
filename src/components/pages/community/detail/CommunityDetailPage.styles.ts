@@ -215,7 +215,8 @@ export const ContentTextArea = styled.textarea`
 	width: 100%;
 	border: 2px solid var(--color-primary-dp2);
 	border-radius: 4px;
-	padding: 20px 10px;
+	padding: 15px 10px;
+	font-size: var(--font-medium);
 	@media screen and (max-width: 800px) {
 		flex-basis: 80%;
 	}
@@ -298,6 +299,18 @@ export const CommentUser = styled.div`
 export const CommentContent = styled.p`
 	line-height: 1.3;
 	margin: 20px 0;
+`;
+export const CommentTextArea = styled.textarea`
+	margin: 20px 0;
+	height: 100px;
+	width: 100%;
+	border: 2px solid var(--color-primary-dp2);
+	border-radius: 4px;
+	padding: 15px 10px;
+	font-size: var(--font-medium);
+	&:focus {
+		background-color: var(--color-primary-dp1);
+	}
 `;
 export const CommentReact = styled.div`
 	display: flex;

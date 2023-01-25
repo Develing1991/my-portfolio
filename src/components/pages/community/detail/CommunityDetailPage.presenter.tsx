@@ -125,10 +125,7 @@ export default function CommunityDetailPagePresenter() {
 								<div className="name">리길동</div>
 								<div className="time">10분 전</div>
 							</S.CommentUser>
-							<S.CommentContent>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, perferendis obcaecati eius fugit, tempora excepturi ullam tenetur animi dignissimos a inventore. Laudantium dolorum
-								voluptatem culpa. Neque alias ipsam laborum quaerat?
-							</S.CommentContent>
+							<S.CommentTextArea defaultValue={'수정 시'} />
 							<S.CommentReact>
 								<div className="left">
 									<div className="like">
