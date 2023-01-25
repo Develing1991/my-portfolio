@@ -85,7 +85,7 @@ export const MenuItem = styled.li`
 		padding: 0px;
 		text-align: center;
 		margin: 0 0 5px 0;
-		&:first-child {
+		&:first-of-type {
 			margin-top: 5px;
 		}
 		&:last-child {

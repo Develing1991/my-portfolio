@@ -9,13 +9,19 @@ import MessageIcon from '@mui/icons-material/Message';
 import { Button } from '@/src/components/commons/buttons/Button';
 export const LikeIcon = styled(ThumbUpOffAltIcon)``;
 export const CommentIcon = styled(MessageIcon)``;
-export const BreadcrumbsIcon = styled(KeyboardArrowRightIcon)``;
 export const MoreActionIcon = styled(MoreVertIcon)``;
 export const ShareLinkIcon = styled(LinkIcon)``;
+export const BreadcrumbsIcon = styled(KeyboardArrowRightIcon)`
+	cursor: default;
+`;
 
 export const SectionInner = styled.div`
 	${Inner}
-	padding: 0 80px;
+	max-width: 800px;
+	@media screen and (max-width: 990px) {
+		max-width: fit-content;
+		padding: 0 20px;
+	}
 	@media screen and (max-width: 800px) {
 		padding: 0 30px;
 	}
@@ -63,6 +69,10 @@ export const WriterInfoWrapper = styled.div`
 	display: flex;
 	gap: 20px;
 	align-items: center;
+
+	//여기
+	padding-bottom: 30px;
+	border-bottom: 2px solid var(--color-primary-dp2);
 	@media screen and (max-width: 200px) {
 		flex-direction: column;
 	}
@@ -122,10 +132,10 @@ export const MoreActionWrapper = styled.div`
 
 /* PostBodyContainer */
 export const PostBodyContainer = styled.div`
-	margin-top: 80px;
-	border: 2px solid var(--color-primary-dp3);
+	margin-top: 40px;
 	border-radius: 4px;
-	padding: 20px;
+	padding: 20px 20px 60px 20px;
+	border-bottom: 2px solid var(--color-primary-dp2);
 
 	display: flex;
 	flex-direction: column;
@@ -189,10 +199,10 @@ export const CommentWrite = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 30px;
-	border: 2px solid var(--color-primary-dp3);
+
 	border-radius: 4px;
 	padding: 30px 20px;
-	margin-top: 80px;
+	margin-top: 50px;
 	@media screen and (max-width: 420px) {
 		gap: 20px;
 	}
@@ -256,6 +266,9 @@ export const CommentItem = styled.li`
 	padding: 30px;
 	.more-icon {
 		font-size: 20px;
+	}
+	@media screen and (max-width: 380px) {
+		padding: 20px 10px;
 	}
 `;
 
