@@ -1,13 +1,19 @@
 import DropDown from '@/src/components/commons/dropdowns/DropDown';
-import React from 'react';
+import Modal from '@/src/components/commons/modals/Modal';
+import { useState } from 'react';
 import * as S from './CommunityDetailPage.styles';
 
 export default function CommunityDetailPagePresenter() {
-	const onClick1 = () => {
-		console.log('123');
+	const [showModal, setShowModal] = useState(false);
+	const onClickDeletePost = () => {
+		setShowModal(() => true);
+	};
+	const onClick2 = () => {
+		setShowModal(() => false);
 	};
 	return (
 		<section>
+			<Modal isOpen={showModal} onClickConfirm={onClick2} isConfirm title="제목입니당." content="내용입니당" />
 			<S.SectionInner>
 				{/* header */}
 				<S.PostHeaderContainer>
@@ -38,9 +44,9 @@ export default function CommunityDetailPagePresenter() {
 							<S.MoreActionWrapper>
 								<DropDown
 									data={[
-										{ title: '수정', eventName: onClick1 },
-										{ title: '삭제', eventName: onClick1 },
-										{ title: '신고', eventName: onClick1 }
+										{ title: '수정', eventName: onClickDeletePost },
+										{ title: '삭제', eventName: onClickDeletePost },
+										{ title: '신고', eventName: onClickDeletePost }
 									]}
 								>
 									<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
@@ -101,9 +107,9 @@ export default function CommunityDetailPagePresenter() {
 								<div className="right">
 									<DropDown
 										data={[
-											{ title: '수정', eventName: onClick1 },
-											{ title: '삭제', eventName: onClick1 },
-											{ title: '신고', eventName: onClick1 }
+											{ title: '수정', eventName: onClickDeletePost },
+											{ title: '삭제', eventName: onClickDeletePost },
+											{ title: '신고', eventName: onClickDeletePost }
 										]}
 									>
 										<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
@@ -135,9 +141,9 @@ export default function CommunityDetailPagePresenter() {
 								<div className="right">
 									<DropDown
 										data={[
-											{ title: '수정', eventName: onClick1 },
-											{ title: '삭제', eventName: onClick1 },
-											{ title: '신고', eventName: onClick1 }
+											{ title: '수정', eventName: onClickDeletePost },
+											{ title: '삭제', eventName: onClickDeletePost },
+											{ title: '신고', eventName: onClickDeletePost }
 										]}
 									>
 										<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
