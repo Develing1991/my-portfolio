@@ -3,12 +3,13 @@ import * as S from '@/src/components/pages/community/list/CommunityListPage.styl
 import { ICommunityPagePresenterProps } from './CommunityListPage.types';
 import CommunityListItem from './components.presenter/CommunityListItem';
 import CommunityListItemNotExist from './components.presenter/CommunityListItemNotExist';
+import SideNavigation from './components.presenter/SideNavigation';
 
 export default function CommunityPagePresenter({ list, keyword, onChangeKeyword }: ICommunityPagePresenterProps) {
 	return (
 		<>
-			<aside>
-				<S.AsideInner>
+			<section>
+				<S.TopSectionInner>
 					<S.AreaTitleDiv>
 						<S.AreaTitle>커뮤니티</S.AreaTitle>
 					</S.AreaTitleDiv>
@@ -18,26 +19,11 @@ export default function CommunityPagePresenter({ list, keyword, onChangeKeyword 
 							<SearchInput width="80%" keyword={keyword} onChangeInput={onChangeKeyword} placeholder="제목으로 검색해주세요." />
 						</S.CompositionGroup>
 					</S.AreaCompositionDiv>
-				</S.AsideInner>
-			</aside>
+				</S.TopSectionInner>
+			</section>
 			<section>
-				<S.SectionInner>
-					<S.Navigation>
-						<S.NaviMenu>
-							<S.NaviMenuItem>
-								<S.NaviMenuItemText>궁금해요</S.NaviMenuItemText>
-							</S.NaviMenuItem>
-							<S.NaviMenuItem>
-								<S.NaviMenuItemText>자유주제</S.NaviMenuItemText>
-							</S.NaviMenuItem>
-							<S.NaviMenuItem>
-								<S.NaviMenuItemText>프로젝트</S.NaviMenuItemText>
-							</S.NaviMenuItem>
-							<S.NaviMenuItem>
-								<S.NaviMenuItemText>기타</S.NaviMenuItemText>
-							</S.NaviMenuItem>
-						</S.NaviMenu>
-					</S.Navigation>
+				<S.BottSectionInner>
+					<SideNavigation />
 					<S.AreaContent>
 						{list.length > 0 ? (
 							list.map((el) => {
@@ -47,7 +33,7 @@ export default function CommunityPagePresenter({ list, keyword, onChangeKeyword 
 							<CommunityListItemNotExist />
 						)}
 					</S.AreaContent>
-				</S.SectionInner>
+				</S.BottSectionInner>
 			</section>
 		</>
 	);

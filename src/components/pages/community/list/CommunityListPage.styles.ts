@@ -7,7 +7,7 @@ import { HoverButton } from '@/src/components/commons/buttons/HoverButton';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 
 /* TOP */
-export const AsideInner = styled.div`
+export const TopSectionInner = styled.div`
 	${Inner}
 	display: flex;
 	padding-top: 100px;
@@ -74,7 +74,7 @@ export const CompositionButton = styled(HoverButton)`
 // export const CompositionInput = styled(Input01)``;
 
 /* CONTENT */
-export const SectionInner = styled.div`
+export const BottSectionInner = styled.div`
 	${Inner}
 	display: flex;
 	padding-top: 50px;

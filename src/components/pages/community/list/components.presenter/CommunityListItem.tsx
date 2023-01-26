@@ -1,17 +1,23 @@
 import * as S from '@/src/components/pages/community/list/CommunityListPage.styles';
 import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
 import { ICommunityListItemProps } from '../CommunityListPage.types';
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
+import { useRouter } from 'next/router';
 
-export default function CommunityListItem({ el }: ICommunityListItemProps) {
+const CommunityListItem = ({ el }: ICommunityListItemProps) => {
+	const { push } = useRouter();
+
 	const time = useMemo(() => {
 		// console.log('검색결과가 바뀌면 프롭스가 바뀌니 10번 렌더링 되는데');
 		// console.log('값을 리턴하는 함수도 재 생성되서 리렌더링이');
 		// console.log('10번이 한번 더 실행되서 메모이제이션함');
 		return timeFromNow(el.createdAt);
 	}, []);
+	const onClickMove = () => {
+		push(`/community/detail/${el._id}`);
+	};
 	return (
-		<S.Card>
+		<S.Card onClick={onClickMove}>
 			<S.CardLeft>
 				<S.CardLeftTitle>{el.title}</S.CardLeftTitle>
 				<S.CardLeftContents>{el.contents}</S.CardLeftContents>
@@ -32,4 +38,5 @@ export default function CommunityListItem({ el }: ICommunityListItemProps) {
 			</S.CardRight>
 		</S.Card>
 	);
-}
+};
+export default memo(CommunityListItem);
