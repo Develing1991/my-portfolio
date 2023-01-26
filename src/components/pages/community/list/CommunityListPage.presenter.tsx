@@ -1,16 +1,10 @@
-import { IBoard } from '@/src/commons/types/generated/types';
 import SearchInput from '@/src/components/commons/inputs/SearchInput';
 import * as S from '@/src/components/pages/community/list/CommunityListPage.styles';
-
+import { ICommunityPagePresenterProps } from './CommunityListPage.types';
 import CommunityListItem from './components.presenter/CommunityListItem';
 import CommunityListItemNotExist from './components.presenter/CommunityListItemNotExist';
 
-interface IProps {
-	list: IBoard[];
-	keyword: string;
-	onChangeKeyword: (event: ChangeEvent<HTMLInputElement>) => void;
-}
-export default function CommunityPagePresenter({ list, keyword, onChangeKeyword }: IProps) {
+export default function CommunityPagePresenter({ list, keyword, onChangeKeyword }: ICommunityPagePresenterProps) {
 	return (
 		<>
 			<aside>

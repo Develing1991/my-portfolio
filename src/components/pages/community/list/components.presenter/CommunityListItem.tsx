@@ -1,11 +1,9 @@
 import * as S from '@/src/components/pages/community/list/CommunityListPage.styles';
 import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
-import { IBoard } from '@/src/commons/types/generated/types';
+import { ICommunityListItemProps } from '../CommunityListPage.types';
 import { useMemo } from 'react';
-interface ICommunityListItem {
-	el: IBoard;
-}
-export default function CommunityListItem({ el }: ICommunityListItem) {
+
+export default function CommunityListItem({ el }: ICommunityListItemProps) {
 	const time = useMemo(() => {
 		// console.log('검색결과가 바뀌면 프롭스가 바뀌니 10번 렌더링 되는데');
 		// console.log('값을 리턴하는 함수도 재 생성되서 리렌더링이');
