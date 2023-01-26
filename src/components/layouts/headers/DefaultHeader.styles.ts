@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
 
-import StarIcon from '@mui/icons-material/Star';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { HoverButton } from '@/src/components/commons/buttons/HoverButton';
@@ -41,12 +40,17 @@ export const HeaderLeft = styled.div`
 
 export const LogoDiv = styled.div``;
 
-export const LogoIcon = styled(StarIcon)`
-	font-size: 70px;
+export const LogoImage = styled.img`
+	width: 70px;
+	height: 70px;
 	display: block;
 	color: orange;
 	cursor: pointer;
 	margin-left: 10px;
+	&:hover {
+		transition: 1s;
+		transform: rotateY(180deg);
+	}
 	@media screen and (max-width: 800px) {
 		width: 30px;
 		height: 30px;

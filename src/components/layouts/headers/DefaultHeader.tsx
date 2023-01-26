@@ -18,7 +18,7 @@ export default function DefaultHeader() {
 				<S.InnerHeader>
 					<S.HeaderLeft>
 						<S.LogoDiv>
-							<S.LogoIcon />
+							<S.LogoImage src="/logo.png" alt="로고 이미지" />
 						</S.LogoDiv>
 						<S.Menu className={hide ? 'hide' : ''}>
 							<S.MenuItem>
