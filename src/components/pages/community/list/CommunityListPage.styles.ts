@@ -3,7 +3,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import MessageIcon from '@mui/icons-material/Message';
 import { Inner } from '@/src/commons/styles/globalStyled.styled';
 import { HoverButton } from '@/src/components/commons/buttons/HoverButton';
-import ContentPasteOffIcon from '@mui/icons-material/ContentPasteOff';
+
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 
 /* TOP */
@@ -173,10 +173,6 @@ export const PostNotExistTop = styled.div`
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-`;
-
-export const PostNotExistIcon = styled(ContentPasteOffIcon)`
-	font-size: 50px;
 `;
 
 export const PostNotExistBottom = styled.div`

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as S from './DefaultHeader.styles';
 
 export default function DefaultHeader() {
@@ -6,6 +6,12 @@ export default function DefaultHeader() {
 	const toggle = () => {
 		setHide((prev) => !prev);
 	};
+	useEffect(() => {
+		window.addEventListener('resize', function () {
+			setHide(() => true);
+		});
+	});
+
 	return (
 		<>
 			<header>

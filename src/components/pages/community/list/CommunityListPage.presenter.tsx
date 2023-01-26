@@ -65,12 +65,11 @@ export default function CommunityPagePresenter() {
 						{/* 목록 없을 시  */}
 						<S.PostNotExist>
 							<S.PostNotExistTop>
-								<S.PostNotExistIcon />
 								<p>게시글 목록이 없습니다.</p>
 							</S.PostNotExistTop>
 							<S.PostNotExistBottom>
-								<S.PostNotExistSmileIcon />
 								<p>새 글을 작성해 보시는 건 어떠신가요?</p>
+								<S.PostNotExistSmileIcon />
 							</S.PostNotExistBottom>
 						</S.PostNotExist>
 					</S.AreaContent>
