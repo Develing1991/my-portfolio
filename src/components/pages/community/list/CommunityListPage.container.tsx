@@ -1,10 +1,11 @@
 import CommunityPagePresenter from '@/src/components/pages/community/list/CommunityListPage.presenter';
-import { IQuery, IQueryFetchBoardArgs } from '@/src/commons/types/generated/types';
+import { IQuery, IQueryFetchBoardsArgs } from '@/src/commons/types/generated/types';
 import { gql, useQuery } from '@apollo/client';
-
+import { ChangeEvent, useState } from 'react';
+import { debounceKeyword } from '@/src/commons/utils/lodash';
 const FETCH_BOARDS = gql`
-	query fetchBoards {
-		fetchBoards {
+	query fetchBoards($page: Int, $search: String) {
+		fetchBoards(page: $page, search: $search) {
 			_id
 			writer
 			title
@@ -16,8 +17,13 @@ const FETCH_BOARDS = gql`
 	}
 `;
 export default function CommunityPageContainer() {
-	const { data } = useQuery<Pick<IQuery, 'fetchBoards'>, IQueryFetchBoardArgs>(FETCH_BOARDS);
-	console.log(data?.fetchBoards);
+	const { data, refetch } = useQuery<Pick<IQuery, 'fetchBoards'>, IQueryFetchBoardsArgs>(FETCH_BOARDS);
+	const [keyword, setKeyword] = useState('');
+	// console.log(data?.fetchBoards);
 
-	return <CommunityPagePresenter list={data?.fetchBoards ?? []} />;
+	const onChangeKeyword = (event: ChangeEvent<HTMLInputElement>) => {
+		debounceKeyword(setKeyword, refetch, event.target.value);
+	};
+
+	return <CommunityPagePresenter list={data?.fetchBoards ?? []} keyword={keyword} onChangeKeyword={onChangeKeyword} />;
 }

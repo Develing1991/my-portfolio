@@ -1,0 +1,37 @@
+import * as S from '@/src/components/pages/community/list/CommunityListPage.styles';
+import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
+import { IBoard } from '@/src/commons/types/generated/types';
+import { useMemo } from 'react';
+interface ICommunityListItem {
+	el: IBoard;
+}
+export default function CommunityListItem({ el }: ICommunityListItem) {
+	const time = useMemo(() => {
+		// console.log('검색결과가 바뀌면 프롭스가 바뀌니 10번 렌더링 되는데');
+		// console.log('값을 리턴하는 함수도 재 생성되서 리렌더링이');
+		// console.log('10번이 한번 더 실행되서 메모이제이션함');
+		return timeFromNow(el.createdAt);
+	}, []);
+	return (
+		<S.Card>
+			<S.CardLeft>
+				<S.CardLeftTitle>{el.title}</S.CardLeftTitle>
+				<S.CardLeftContents>{el.contents}</S.CardLeftContents>
+				<S.CardLeftIconDiv>
+					<S.CardLeftLikeIcon />
+					<S.CounteText>{el.likeCount}</S.CounteText>
+					<S.CardLeftCommentIcon />
+					<S.CounteText>1</S.CounteText>
+				</S.CardLeftIconDiv>
+			</S.CardLeft>
+			<S.CardRight>
+				{el.images && el.images.length > 0 && el.images[0] && (
+					<S.CardRightImageDiv>
+						<S.CardRightImage src={`https://storage.googleapis.com/${el.images[0]}`} />
+					</S.CardRightImageDiv>
+				)}
+				<S.CardRightTime>{time}</S.CardRightTime>
+			</S.CardRight>
+		</S.Card>
+	);
+}
