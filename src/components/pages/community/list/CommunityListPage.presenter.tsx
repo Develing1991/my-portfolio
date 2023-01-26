@@ -1,12 +1,20 @@
+import { IBoard } from '@/src/commons/types/generated/types';
+import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
+
 import SearchInput from '@/src/components/commons/inputs/SearchInput';
 import * as S from '@/src/components/pages/community/list/CommunityListPage.styles';
-
 import { ChangeEvent, useState } from 'react';
-export default function CommunityPagePresenter() {
+
+interface IProps {
+	list: IBoard[];
+}
+export default function CommunityPagePresenter({ list }: IProps) {
 	const [keyword, setKeyword] = useState('');
 	const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
 		setKeyword(() => event?.target.value);
 	};
+	console.log('hi');
+
 	return (
 		<>
 			<aside>
@@ -41,37 +49,43 @@ export default function CommunityPagePresenter() {
 						</S.NaviMenu>
 					</S.Navigation>
 					<S.AreaContent>
-						<S.Card>
-							<S.CardLeft>
-								<S.CardLeftTitle>통신판매 중개자로서 통신판매의</S.CardLeftTitle>
-								<S.CardLeftContents>
-									(주)브레이브 모바일은 통신판매 중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한 의무와 책임은 거래당사자에게 있습니다.
-									(주)브레이브 모바일은 통신판매 중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한 의무와 책임은 거래당사자에게 있습니다.
-								</S.CardLeftContents>
-								<S.CardLeftIconDiv>
-									<S.CardLeftLikeIcon />
-									<S.CounteText>31</S.CounteText>
-									<S.CardLeftCommentIcon />
-									<S.CounteText>1220</S.CounteText>
-								</S.CardLeftIconDiv>
-							</S.CardLeft>
-							<S.CardRight>
-								<S.CardRightImageDiv>
-									<S.CardRightImage src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162303132447303472.jpeg?gif=1&w=640&h=640&c=c&webp=1" />
-								</S.CardRightImageDiv>
-								<S.CardRightTime>52분전</S.CardRightTime>
-							</S.CardRight>
-						</S.Card>
-						{/* 목록 없을 시  */}
-						<S.PostNotExist>
-							<S.PostNotExistTop>
-								<p>게시글 목록이 없습니다.</p>
-							</S.PostNotExistTop>
-							<S.PostNotExistBottom>
-								<p>새 글을 작성해 보시는 건 어떠신가요?</p>
-								<S.PostNotExistSmileIcon />
-							</S.PostNotExistBottom>
-						</S.PostNotExist>
+						{list.length > 0 ? (
+							list.map((el) => {
+								return (
+									<S.Card key={el._id}>
+										<S.CardLeft>
+											<S.CardLeftTitle>{el.title}</S.CardLeftTitle>
+											<S.CardLeftContents>{el.contents}</S.CardLeftContents>
+											<S.CardLeftIconDiv>
+												<S.CardLeftLikeIcon />
+												<S.CounteText>{el.likeCount}</S.CounteText>
+												<S.CardLeftCommentIcon />
+												<S.CounteText>1</S.CounteText>
+											</S.CardLeftIconDiv>
+										</S.CardLeft>
+										<S.CardRight>
+											{el.images && el.images.length > 0 && el.images[0] && (
+												<S.CardRightImageDiv>
+													<S.CardRightImage src={`https://storage.googleapis.com/${el.images[0]}`} />
+												</S.CardRightImageDiv>
+											)}
+											<S.CardRightTime>{timeFromNow(el.createdAt)}</S.CardRightTime>
+										</S.CardRight>
+									</S.Card>
+								);
+							})
+						) : (
+							<S.PostNotExist>
+								{/* 목록 없을 시  */}
+								<S.PostNotExistTop>
+									<p>게시글 목록이 없습니다.</p>
+								</S.PostNotExistTop>
+								<S.PostNotExistBottom>
+									<p>새 글을 작성해 보시는 건 어떠신가요?</p>
+									<S.PostNotExistSmileIcon />
+								</S.PostNotExistBottom>
+							</S.PostNotExist>
+						)}
 					</S.AreaContent>
 				</S.SectionInner>
 			</section>

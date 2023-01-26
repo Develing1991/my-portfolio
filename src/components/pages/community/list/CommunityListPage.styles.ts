@@ -265,7 +265,7 @@ export const CardRightImageDiv = styled.div`
 	margin-top: 10px;
 	border-radius: 4px;
 	border: 1px solid var(--color-primary-dp4);
-	background-color: black;
+	background-color: var(--color-white);
 	overflow: hidden;
 `;
 
@@ -275,5 +275,5 @@ export const CardRightImage = styled.img`
 `;
 
 export const CardRightTime = styled.p`
-	margin-top: 30px;
+	margin-top: 50px;
 `;
