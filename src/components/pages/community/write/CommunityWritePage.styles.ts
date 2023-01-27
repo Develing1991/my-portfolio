@@ -5,7 +5,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
 export const InnerForm = styled.div`
 	${Inner}
-	max-width: 1100px;
+	max-width: 1000px;
 `;
 
 export const BoardForm = styled.form`

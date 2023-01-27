@@ -6,7 +6,11 @@ import { debounceKeyword } from '@/src/commons/utils/lodash';
 import { FETCH_BOARDS } from './CommunityListPage.queries';
 
 export default function CommunityPageContainer() {
-	const { data, refetch } = useQuery<Pick<IQuery, 'fetchBoards'>, IQueryFetchBoardsArgs>(FETCH_BOARDS);
+	const { data, refetch } = useQuery<Pick<IQuery, 'fetchBoards'>, IQueryFetchBoardsArgs>(FETCH_BOARDS, {
+		variables: {
+			page: 26
+		}
+	});
 	const [keyword, setKeyword] = useState('');
 	// console.log(data?.fetchBoards);
 

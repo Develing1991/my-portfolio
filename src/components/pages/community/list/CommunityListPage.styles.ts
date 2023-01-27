@@ -12,6 +12,7 @@ export const TopSectionInner = styled.div`
 	display: flex;
 	padding-top: 100px;
 	align-items: center;
+	max-width: 1000px;
 	@media screen and (max-width: 800px) {
 		padding: 100px 10px 0 10px;
 	}
@@ -79,6 +80,7 @@ export const BottSectionInner = styled.div`
 	display: flex;
 	padding-top: 50px;
 	align-items: flex-start;
+	max-width: 1000px;
 	@media screen and (max-width: 800px) {
 		flex-direction: column;
 		padding: 50px 10px 0 10px;
@@ -188,7 +190,7 @@ export const PostNotExistSmileIcon = styled(SentimentSatisfiedAltIcon)`
 `;
 
 export const Card = styled.div`
-	padding: 30px 30px 10px 30px;
+	padding: 20px;
 	background-color: var(--color-primary-dp2);
 	margin-bottom: 30px;
 	border-radius: 4px;
@@ -206,7 +208,10 @@ export const Card = styled.div`
 	}
 `;
 
-export const CardLeft = styled.div``;
+export const CardLeft = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
 
 export const CardLeftTitle = styled.p`
 	font-weight: 700;
@@ -215,6 +220,7 @@ export const CardLeftTitle = styled.p`
 
 export const CardLeftContents = styled.p`
 	margin-bottom: 30px;
+	flex: 1;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
@@ -253,7 +259,11 @@ export const CardLeftCommentIcon = styled(MessageIcon)`
 `;
 
 export const CardRight = styled.div`
-	margin: 10px 20px;
+	/* margin: 10px 20px; */
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 20px;
 	@media screen and (max-width: 480px) {
 		display: none;
 	}
@@ -275,5 +285,5 @@ export const CardRightImage = styled.img`
 `;
 
 export const CardRightTime = styled.p`
-	margin-top: 50px;
+	/* margin-top: 50px; */
 `;
