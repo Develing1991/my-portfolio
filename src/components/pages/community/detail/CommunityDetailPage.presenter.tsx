@@ -6,6 +6,8 @@ import Modal from '@/src/components/commons/modals/Modal';
 import { useState, useMemo } from 'react';
 import * as S from './CommunityDetailPage.styles';
 import { sanitize } from 'dompurify';
+import CommentList from './components.presenter/CommentList';
+
 interface ICommunityDetailPagePresenterProps {
 	board: IBoard;
 	onClickLikeBoard: () => void;
@@ -91,79 +93,7 @@ export default function CommunityDetailPagePresenter({ board, onClickLikeBoard }
 					</S.ContentsReactArea>
 				</S.PostBodyContainer>
 				{/* comment */}
-				<S.PostCommentContainer>
-					<S.CommentWrite>
-						<S.ContentTextArea placeholder="댓글을 남겨보세요." />
-						<S.CommentRegButton>등록</S.CommentRegButton>
-					</S.CommentWrite>
-					<S.CommentList>
-						<S.CommentItem>
-							<S.CommentUser>
-								<div className="image__wrapper">
-									<img src="https://cdn4.buysellads.net/uu/1/127419/1670532177-Stock.jpg" alt="유저 프로필 이미지" />
-								</div>
-								<div className="name">리길동</div>
-								<div className="time">10분 전</div>
-							</S.CommentUser>
-							<S.CommentContent>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, perferendis obcaecati eius fugit, tempora excepturi ullam tenetur animi dignissimos a inventore. Laudantium dolorum
-								voluptatem culpa. Neque alias ipsam laborum quaerat?
-							</S.CommentContent>
-							<S.CommentReact>
-								<div className="left">
-									<div className="like">
-										<S.LikeIcon className="like-icon" /> 3
-									</div>
-									<div className="count">
-										<S.CommentIcon className="comment-icon" /> 0
-									</div>
-								</div>
-								<div className="right">
-									<DropDown
-										data={[
-											{ title: '수정', eventName: onClickDeletePost },
-											{ title: '삭제', eventName: onClickDeletePost },
-											{ title: '신고', eventName: onClickDeletePost }
-										]}
-									>
-										<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
-									</DropDown>
-								</div>
-							</S.CommentReact>
-						</S.CommentItem>
-						<S.CommentItem>
-							<S.CommentUser>
-								<div className="image__wrapper">
-									<img src="https://cdn4.buysellads.net/uu/1/127419/1670532177-Stock.jpg" alt="유저 프로필 이미지" />
-								</div>
-								<div className="name">리길동</div>
-								<div className="time">10분 전</div>
-							</S.CommentUser>
-							<S.CommentTextArea defaultValue={'수정 시'} />
-							<S.CommentReact>
-								<div className="left">
-									<div className="like">
-										<S.LikeIcon className="like-icon" /> 3
-									</div>
-									<div className="count">
-										<S.CommentIcon className="comment-icon" /> 0
-									</div>
-								</div>
-								<div className="right">
-									<DropDown
-										data={[
-											{ title: '수정', eventName: onClickDeletePost },
-											{ title: '삭제', eventName: onClickDeletePost },
-											{ title: '신고', eventName: onClickDeletePost }
-										]}
-									>
-										<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
-									</DropDown>
-								</div>
-							</S.CommentReact>
-						</S.CommentItem>
-					</S.CommentList>
-				</S.PostCommentContainer>
+				<CommentList />
 			</S.SectionInner>
 		</section>
 	);

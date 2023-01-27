@@ -38,17 +38,4 @@ export const FETCH_BOARD = gql`
 	}
 `;
 
-export const FETCH_BOARD_COMMENTS = gql`
-	query fetchBoardComments($page: Int, $boardId: ID!) {
-		fetchBoardComments(page: $page, boardId: $boardId) {
-			_id
-			__typename
-			writer
-			contents
-			images
-			createdAt
-		}
-	}
-`;
-
 /* Presenter */
