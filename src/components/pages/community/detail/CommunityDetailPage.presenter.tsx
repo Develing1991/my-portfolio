@@ -27,7 +27,7 @@ export default function CommunityDetailPagePresenter({ board, onClickLikeBoard }
 		<section>
 			<Modal isOpen={showModal} onClickConfirm={onClick2} isConfirm title="제목입니당." content="내용입니당" />
 			<S.SectionInner>
-				{/* header */}
+				{/* head */}
 				<S.PostHeaderContainer>
 					<S.Breadcrumbs>
 						<li>
@@ -67,7 +67,7 @@ export default function CommunityDetailPagePresenter({ board, onClickLikeBoard }
 						</S.PostActions>
 					</S.WriterInfoWrapper>
 				</S.PostHeaderContainer>
-				{/* body */}
+				{/* contents */}
 				<S.PostBodyContainer>
 					<S.Contents dangerouslySetInnerHTML={{ __html: sanitize(board.contents) }} />
 					<S.ContentsImageArea>

@@ -13,6 +13,13 @@ function CommentItem({ commentItem }: ICommentItemProps) {
 	const [, setShowModal] = useState(false);
 	const [isEdit, setIsEdit] = useState(false);
 	const [commentContents, setCommentContents] = useState(commentItem.contents);
+	const [updateBoardComment] = useMutation<Pick<IMutation, 'updateBoardComment'>, IMutationUpdateBoardCommentArgs>(UPDATE_BOARD_COMMENT);
+	const [deleteBoardComment] = useMutation<Pick<IMutation, 'deleteBoardComment'>, IMutationDeleteBoardCommentArgs>(DELETE_BOARD_COMMENT);
+
+	const time = useMemo(() => {
+		return timeFromNow(commentItem.createdAt);
+	}, []);
+
 	const onClickDeletePost = () => {
 		setShowModal(() => true);
 	};
@@ -20,9 +27,6 @@ function CommentItem({ commentItem }: ICommentItemProps) {
 	const onClickEditAble = () => {
 		setIsEdit((prev) => !prev);
 	};
-
-	const [updateBoardComment] = useMutation<Pick<IMutation, 'updateBoardComment'>, IMutationUpdateBoardCommentArgs>(UPDATE_BOARD_COMMENT);
-	const [deleteBoardComment] = useMutation<Pick<IMutation, 'deleteBoardComment'>, IMutationDeleteBoardCommentArgs>(DELETE_BOARD_COMMENT);
 
 	const onChangeComment = (event: ChangeEvent<HTMLTextAreaElement>) => {
 		setCommentContents(event.target.value);
@@ -60,9 +64,7 @@ function CommentItem({ commentItem }: ICommentItemProps) {
 		});
 		onClickEditAble();
 	};
-	const time = useMemo(() => {
-		return timeFromNow(commentItem.createdAt);
-	}, []);
+
 	return (
 		<S.CommentItem>
 			<S.CommentUser>

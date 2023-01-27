@@ -10,7 +10,6 @@ import { keywordState } from '@/src/commons/store';
 
 export default function CommunityPageContainer() {
 	const client = useApolloClient();
-	// const [keyword, setKeyword] = useState('');
 	const [keyword, setKeyword] = useRecoilState(keywordState);
 	const { data, refetch, fetchMore } = useQuery<Pick<IQuery, 'fetchBoards'>, IQueryFetchBoardsArgs>(FETCH_BOARDS, {
 		variables: {

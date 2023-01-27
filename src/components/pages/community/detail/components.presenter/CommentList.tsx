@@ -14,6 +14,7 @@ const CommentList = () => {
 	const [comments, setComments] = useState('');
 	const [openModal, setOpenModal] = useState(false);
 	const commentsRef = useRef<HTMLTextAreaElement>(null);
+	const [createBoardComment] = useMutation<Pick<IMutation, 'createBoardComment'>, IMutationCreateBoardCommentArgs>(CREATE_BOARD_COMMENT);
 	const { data, fetchMore } = useQuery<Pick<IQuery, 'fetchBoardComments'>, IQueryFetchBoardCommentsArgs>(FETCH_BOARD_COMMENTS, {
 		variables: {
 			boardId: String(query.id)
@@ -21,7 +22,6 @@ const CommentList = () => {
 	});
 
 	const currPage = Math.ceil((data?.fetchBoardComments.length ?? 1) / 10);
-	const [createBoardComment] = useMutation<Pick<IMutation, 'createBoardComment'>, IMutationCreateBoardCommentArgs>(CREATE_BOARD_COMMENT);
 
 	const onChangeCommentText = (event: ChangeEvent<HTMLTextAreaElement>) => {
 		setComments(() => event.target.value);

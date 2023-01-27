@@ -28,11 +28,6 @@ export const SubjectDiv = styled.div`
 
 export const TitleDiv = styled.div``;
 
-// export const TitleInput = styled.input`
-// 	width: 100%;
-// 	height: 40px;
-// `;
-
 export const ContentDiv = styled.div``;
 
 export const ContentTextArea = styled.textarea`
@@ -75,6 +70,7 @@ export const UploadArea = styled(AddCircleOutlineIcon)`
 		padding: 30px 0;
 	}
 `;
+
 export const PlusIcon = styled(AddCircleOutlineIcon)`
 	height: 50%;
 	width: 50%;
