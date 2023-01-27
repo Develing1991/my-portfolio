@@ -6,9 +6,9 @@ import { debounceKeyword } from '@/src/commons/utils/lodash';
 import { FETCH_BOARDS } from './CommunityListPage.queries';
 
 export default function CommunityPageContainer() {
-	const { data, refetch } = useQuery<Pick<IQuery, 'fetchBoards'>, IQueryFetchBoardsArgs>(FETCH_BOARDS, {
+	const { data, refetch, fetchMore } = useQuery<Pick<IQuery, 'fetchBoards'>, IQueryFetchBoardsArgs>(FETCH_BOARDS, {
 		variables: {
-			page: 26
+			page: 1
 		}
 	});
 	const [keyword, setKeyword] = useState('');
@@ -18,5 +18,22 @@ export default function CommunityPageContainer() {
 		debounceKeyword(setKeyword, refetch, event.target.value);
 	};
 
-	return <CommunityPagePresenter list={data?.fetchBoards ?? []} keyword={keyword} onChangeKeyword={onChangeKeyword} />;
+	const onLoadMore = () => {
+		if (!data?.fetchBoards) return;
+		fetchMore({
+			variables: { page: Math.ceil(data?.fetchBoards.length / 10) + 1 },
+			updateQuery: (prev, { fetchMoreResult }) => {
+				if (!fetchMoreResult.fetchBoards) {
+					return {
+						fetchBoards: [...prev.fetchBoards]
+					};
+				}
+				return {
+					fetchBoards: [...prev.fetchBoards, ...fetchMoreResult.fetchBoards]
+				};
+			}
+		});
+	};
+
+	return <CommunityPagePresenter list={data?.fetchBoards ?? []} keyword={keyword} onChangeKeyword={onChangeKeyword} onLoadMore={onLoadMore} />;
 }

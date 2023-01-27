@@ -8,6 +8,7 @@ export interface ICommunityPagePresenterProps {
 	list: IBoard[];
 	keyword: string;
 	onChangeKeyword: (event: ChangeEvent<HTMLInputElement>) => void;
+	onLoadMore: () => void;
 }
 
 /* components.presenter/CommunityListItem */
