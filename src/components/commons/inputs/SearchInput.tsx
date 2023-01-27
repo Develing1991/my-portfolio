@@ -1,16 +1,16 @@
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from '@emotion/styled';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, RefObject } from 'react';
 import { Input } from './Input';
 
 // Component
-export default function SearchInput({ width, keyword = '', placeholder = '통합검색', onChangeInput }: InputProps) {
+export default function SearchInput({ width, keyword = '', placeholder = '통합검색', onChangeInput, keywordInputRef, onClickInit }: InputProps) {
 	return (
 		<SeachInputDiv width={!width ? '100%' : width}>
 			<PrependIcon />
-			<SearchInputStyled onChange={onChangeInput} placeholder={placeholder} />
-			<AppendIcon showclose={keyword.length > 0 ? 'block' : 'none'} />
+			<SearchInputStyled onChange={onChangeInput} placeholder={placeholder} ref={keywordInputRef} />
+			<AppendIcon showclose={keyword.length > 0 ? 'block' : 'none'} onClick={onClickInit} />
 		</SeachInputDiv>
 	);
 }
@@ -21,6 +21,8 @@ interface InputProps {
 	keyword?: string;
 	placeholder?: string;
 	onChangeInput?: (event: ChangeEvent<HTMLInputElement>) => void;
+	onClickInit?: () => void;
+	keywordInputRef: RefObject<HTMLInputElement>;
 	// keyfress enter도 추가해야함
 }
 

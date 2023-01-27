@@ -1,5 +1,5 @@
 import { IBoard } from '@/src/commons/types/generated/types';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, RefObject } from 'react';
 
 /* Container */
 
@@ -10,8 +10,10 @@ export interface ICommunityPagePresenterProps {
 	onChangeKeyword: (event: ChangeEvent<HTMLInputElement>) => void;
 	onPrefetchBoard: (id: string) => () => void;
 	onLoadMore: () => void;
+	onClickInit: () => void;
 	currPage: number;
 	lastPage: number;
+	keywordInputRef: RefObject<HTMLInputElement>;
 }
 
 /* components.presenter/CommunityListItem */

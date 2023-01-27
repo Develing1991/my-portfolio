@@ -8,7 +8,7 @@ import CommunityListItem from './components.presenter/CommunityListItem';
 import CommunityListItemNotExist from './components.presenter/CommunityListItemNotExist';
 import SideNavigation from './components.presenter/SideNavigation';
 
-export default function CommunityPagePresenter({ list, keyword, onChangeKeyword, onLoadMore, onPrefetchBoard, currPage, lastPage }: ICommunityPagePresenterProps) {
+export default function CommunityPagePresenter({ list, keyword, onChangeKeyword, onLoadMore, onClickInit, onPrefetchBoard, keywordInputRef, currPage, lastPage }: ICommunityPagePresenterProps) {
 	return (
 		<>
 			<section>
@@ -21,7 +21,7 @@ export default function CommunityPagePresenter({ list, keyword, onChangeKeyword,
 							<Link href={`/community/write`}>
 								<S.CompositionButton reverse>글쓰기</S.CompositionButton>
 							</Link>
-							<SearchInput width="80%" keyword={keyword} onChangeInput={onChangeKeyword} placeholder="제목으로 검색해주세요." />
+							<SearchInput width="80%" keyword={keyword} onChangeInput={onChangeKeyword} placeholder="제목으로 검색해주세요." onClickInit={onClickInit} keywordInputRef={keywordInputRef} />
 						</S.CompositionGroup>
 					</S.AreaCompositionDiv>
 				</S.TopSectionInner>
