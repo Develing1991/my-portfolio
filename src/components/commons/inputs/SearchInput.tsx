@@ -9,7 +9,7 @@ export default function SearchInput({ width, keyword = '', placeholder = '통합
 	return (
 		<SeachInputDiv width={!width ? '100%' : width}>
 			<PrependIcon />
-			<SearchInputStyled onChange={onChangeInput} placeholder={placeholder} ref={keywordInputRef} />
+			<SearchInputStyled onChange={onChangeInput} placeholder={placeholder} ref={keywordInputRef} defaultValue={keyword} />
 			<AppendIcon showclose={keyword.length > 0 ? 'block' : 'none'} onClick={onClickInit} />
 		</SeachInputDiv>
 	);

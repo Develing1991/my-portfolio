@@ -5,17 +5,20 @@ import { globalVariables } from '@/src/commons/styles/globalVariables.css';
 import ApolloSettings from '@/src/components/utils/apollo';
 
 import LayoutIndex from '@/src/components/layouts/LayoutIndex';
+import { RecoilRoot } from 'recoil';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Global styles={globalReset} />
 			<Global styles={globalVariables} />
-			<ApolloSettings>
-				<LayoutIndex>
-					<Component {...pageProps} />
-				</LayoutIndex>
-			</ApolloSettings>
+			<RecoilRoot>
+				<ApolloSettings>
+					<LayoutIndex>
+						<Component {...pageProps} />
+					</LayoutIndex>
+				</ApolloSettings>
+			</RecoilRoot>
 		</>
 	);
 }
