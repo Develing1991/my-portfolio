@@ -5,6 +5,7 @@ import DropDown from '@/src/components/commons/dropdowns/DropDown';
 import Modal from '@/src/components/commons/modals/Modal';
 import { useState, useMemo } from 'react';
 import * as S from './CommunityDetailPage.styles';
+import { sanitize } from 'dompurify';
 interface ICommunityDetailPagePresenterProps {
 	board: IBoard;
 }
@@ -65,7 +66,7 @@ export default function CommunityDetailPagePresenter({ board }: ICommunityDetail
 				</S.PostHeaderContainer>
 				{/* body */}
 				<S.PostBodyContainer>
-					<S.Contents>{board.contents}</S.Contents>
+					<S.Contents dangerouslySetInnerHTML={{ __html: sanitize(board.contents) }} />
 					<S.ContentsImageArea>
 						{board.images?.map((el, index) => {
 							return (
