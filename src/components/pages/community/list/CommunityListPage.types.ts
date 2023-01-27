@@ -8,12 +8,14 @@ export interface ICommunityPagePresenterProps {
 	list: IBoard[];
 	keyword: string;
 	onChangeKeyword: (event: ChangeEvent<HTMLInputElement>) => void;
+	onPrefetchBoard: (id: string) => () => void;
 	onLoadMore: () => void;
 }
 
 /* components.presenter/CommunityListItem */
 export interface ICommunityListItemProps {
 	el: IBoard;
+	onPrefetchBoard: (id: string) => () => void;
 }
 
 /* components.presenter/CommunityListItemNotExist */

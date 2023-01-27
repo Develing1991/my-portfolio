@@ -8,7 +8,7 @@ import CommunityListItem from './components.presenter/CommunityListItem';
 import CommunityListItemNotExist from './components.presenter/CommunityListItemNotExist';
 import SideNavigation from './components.presenter/SideNavigation';
 
-export default function CommunityPagePresenter({ list, keyword, onChangeKeyword, onLoadMore }: ICommunityPagePresenterProps) {
+export default function CommunityPagePresenter({ list, keyword, onChangeKeyword, onLoadMore, onPrefetchBoard }: ICommunityPagePresenterProps) {
 	return (
 		<>
 			<section>
@@ -33,7 +33,7 @@ export default function CommunityPagePresenter({ list, keyword, onChangeKeyword,
 						{list.length > 0 ? (
 							<InfiniteScroll pageStart={0} loadMore={onLoadMore} hasMore={true} loader={<LoadingBar key={0} />}>
 								{list.map((el) => {
-									return <CommunityListItem el={el} key={el._id} />;
+									return <CommunityListItem el={el} key={el._id} onPrefetchBoard={onPrefetchBoard} />;
 								})}
 							</InfiniteScroll>
 						) : (

@@ -1,9 +1,9 @@
 import CommunityPagePresenter from '@/src/components/pages/community/list/CommunityListPage.presenter';
 import { IQuery, IQueryFetchBoardsArgs } from '@/src/commons/types/generated/types';
-import { useQuery } from '@apollo/client';
+import { useApolloClient, useQuery } from '@apollo/client';
 import { ChangeEvent, useState } from 'react';
-import { debounceKeyword } from '@/src/commons/utils/lodash';
-import { FETCH_BOARDS } from './CommunityListPage.queries';
+import { debounceKeyword, debouncePrefetch } from '@/src/commons/utils/lodash';
+import { FETCH_BOARD, FETCH_BOARDS } from './CommunityListPage.queries';
 
 export default function CommunityPageContainer() {
 	const { data, refetch, fetchMore } = useQuery<Pick<IQuery, 'fetchBoards'>, IQueryFetchBoardsArgs>(FETCH_BOARDS, {
@@ -11,6 +11,7 @@ export default function CommunityPageContainer() {
 			page: 1
 		}
 	});
+	const client = useApolloClient();
 	const [keyword, setKeyword] = useState('');
 	// console.log(data?.fetchBoards);
 
@@ -35,5 +36,9 @@ export default function CommunityPageContainer() {
 		});
 	};
 
-	return <CommunityPagePresenter list={data?.fetchBoards ?? []} keyword={keyword} onChangeKeyword={onChangeKeyword} onLoadMore={onLoadMore} />;
+	const onPrefetchBoard = (id: string) => async () => {
+		debouncePrefetch(client, FETCH_BOARD, id);
+	};
+
+	return <CommunityPagePresenter list={data?.fetchBoards ?? []} keyword={keyword} onChangeKeyword={onChangeKeyword} onLoadMore={onLoadMore} onPrefetchBoard={onPrefetchBoard} />;
 }

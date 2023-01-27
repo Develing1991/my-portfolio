@@ -15,4 +15,30 @@ export const FETCH_BOARDS = gql`
 	}
 `;
 
+export const FETCH_BOARD = gql`
+	query fetchBoard($boardId: ID!) {
+		fetchBoard(boardId: $boardId) {
+			_id
+			writer
+			title
+			contents
+			images
+			likeCount
+			createdAt
+		}
+	}
+`;
+
+export const FETCH_BOARD_COMMENTS = gql`
+	query fetchBoardComments($page: Int, $boardId: ID!) {
+		fetchBoardComments(page: $page, boardId: $boardId) {
+			_id
+			writer
+			contents
+			images
+			createdAt
+		}
+	}
+`;
+
 /* Presenter */

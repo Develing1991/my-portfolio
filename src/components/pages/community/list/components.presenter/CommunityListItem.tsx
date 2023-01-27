@@ -4,7 +4,7 @@ import { ICommunityListItemProps } from '../CommunityListPage.types';
 import { useMemo, memo } from 'react';
 import { useRouter } from 'next/router';
 
-const CommunityListItem = ({ el }: ICommunityListItemProps) => {
+const CommunityListItem = ({ el, onPrefetchBoard }: ICommunityListItemProps) => {
 	const { push } = useRouter();
 
 	const time = useMemo(() => {
@@ -17,7 +17,7 @@ const CommunityListItem = ({ el }: ICommunityListItemProps) => {
 		push(`/community/detail/${el._id}`);
 	};
 	return (
-		<S.Card onClick={onClickMove}>
+		<S.Card onClick={onClickMove} onMouseOver={onPrefetchBoard(el._id)}>
 			<S.CardLeft>
 				<S.CardLeftTitle>{el.title}</S.CardLeftTitle>
 				<S.CardLeftContents>{el.contents}</S.CardLeftContents>
