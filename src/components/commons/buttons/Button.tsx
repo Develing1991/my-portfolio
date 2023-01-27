@@ -7,12 +7,13 @@ export const Button = styled.button`
 	border-radius: 4px;
 	background-color: ${({ reverse }: IButtonProps) => (reverse ? `var(--color-primary-dp4)` : `var(--color-primary-dp1)`)};
 	color: ${({ reverse }: IButtonProps) => (reverse ? `var(--color-primary-dp1)` : `var(--color-primary-dp4)`)};
-	font-size: var(--font-medium);
+	font-size: ${({ fontSize = '' }) => (fontSize ? `${fontSize}px` : `var(--font-medium)`)};
 	font-weight: 700;
 `;
 
 interface ButtonProps {
 	reverse: boolean;
 	hide: boolean;
+	fontSize: string;
 }
 type IButtonProps = Partial<ButtonProps>;

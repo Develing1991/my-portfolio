@@ -40,10 +40,10 @@ export const FETCH_BOARD_COMMENTS = gql`
 	query fetchBoardComments($page: Int, $boardId: ID!) {
 		fetchBoardComments(page: $page, boardId: $boardId) {
 			_id
-			__typename
 			writer
 			contents
 			createdAt
+			updatedAt
 		}
 	}
 `;
@@ -54,6 +54,7 @@ export const CREATE_BOARD_COMMENT = gql`
 			writer
 			contents
 			createdAt
+			updatedAt
 		}
 	}
 `;
@@ -64,6 +65,7 @@ export const UPDATE_BOARD_COMMENT = gql`
 			writer
 			contents
 			createdAt
+			updatedAt
 		}
 	}
 `;

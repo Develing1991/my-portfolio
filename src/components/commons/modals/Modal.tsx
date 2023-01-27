@@ -5,15 +5,16 @@ interface IModal {
 	content: string;
 	isOpen?: boolean;
 	isConfirm?: boolean;
-	onClickConfirm: () => void;
+	onClickConfirm?: () => void;
+	onClickOkayCancel?: () => void;
 }
-export default function Modal({ title, content, isOpen = false, isConfirm = false, onClickConfirm }: IModal) {
+export default function Modal({ title, content, isOpen = false, isConfirm = false, onClickConfirm, onClickOkayCancel }: IModal) {
 	return (
 		<ModalContainer className={'modal__wrapper' && isOpen ? 'open' : ''}>
 			<div className="modal">
 				<div className="header">
 					<div className="title">{title}</div>
-					<CloseButtonIcon className="close" />
+					<CloseButtonIcon className="close" onClick={onClickOkayCancel} />
 				</div>
 				<div className="content">{content}</div>
 				{isConfirm ? (
@@ -21,11 +22,13 @@ export default function Modal({ title, content, isOpen = false, isConfirm = fals
 						<div className="okay" onClick={onClickConfirm}>
 							확인
 						</div>
-						<div className="cancel">취소</div>
+						<div className="cancel" onClick={onClickOkayCancel}>
+							취소
+						</div>
 					</div>
 				) : (
 					<div className="actions">
-						<div className="okay" onClick={onClickConfirm}>
+						<div className="okay" onClick={onClickOkayCancel}>
 							확인
 						</div>
 					</div>

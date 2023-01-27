@@ -19,7 +19,6 @@ export const SectionInner = styled.div`
 	${Inner}
 	max-width: 800px;
 	@media screen and (max-width: 990px) {
-		max-width: fit-content;
 		padding: 0 20px;
 	}
 	@media screen and (max-width: 800px) {
@@ -227,7 +226,7 @@ export const ContentTextArea = styled.textarea`
 `;
 
 export const CommentRegButton = styled(Button)`
-	flex-basis: 20%;
+	flex-basis: 10%;
 	height: 100%;
 	padding: 15px 0;
 	background-color: var(--color-primary-dp4);
@@ -236,7 +235,7 @@ export const CommentRegButton = styled(Button)`
 	color: white;
 	position: relative;
 	@media screen and (max-width: 800px) {
-		flex-basis: 30%;
+		flex-basis: 20%;
 	}
 	@media screen and (max-width: 280px) {
 		width: 80%;
@@ -300,7 +299,13 @@ export const CommentContent = styled.p`
 	line-height: 1.3;
 	margin: 20px 0;
 `;
-export const CommentTextArea = styled.textarea`
+
+export const CommentEditContainer = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 10px;
+`;
+export const CommentEditTextArea = styled.textarea`
 	margin: 20px 0;
 	height: 100px;
 	width: 100%;
@@ -308,9 +313,19 @@ export const CommentTextArea = styled.textarea`
 	border-radius: 4px;
 	padding: 15px 10px;
 	font-size: var(--font-medium);
+	flex: 5;
 	&:focus {
 		background-color: var(--color-primary-dp1);
 	}
+`;
+
+export const CommentEditButtonContainer = styled.div`
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+
+	gap: 10px;
+	height: 100%;
 `;
 export const CommentReact = styled.div`
 	display: flex;
