@@ -7,7 +7,6 @@ const CommunityListItemNotExist = ({ prevText = '' }: ICommunityListItemNotExist
 
 	return (
 		<S.PostNotExist>
-			{/* 목록 없을 시  */}
 			<S.PostNotExistTop>
 				<p>{prevText}</p>
 			</S.PostNotExistTop>

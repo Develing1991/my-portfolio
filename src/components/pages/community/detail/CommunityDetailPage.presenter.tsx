@@ -1,31 +1,18 @@
-import { IBoard } from '@/src/commons/types/generated/types';
 import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
 import { checkImageFileExtension } from '@/src/commons/utils/validations/image';
 import DropDown from '@/src/components/commons/dropdowns/DropDown';
-import Modal from '@/src/components/commons/modals/Modal';
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import * as S from './CommunityDetailPage.styles';
 import { sanitize } from 'dompurify';
 import CommentList from './components.presenter/CommentList';
+import { ICommunityDetailPagePresenterProps } from './CommunityDetailPage.types';
 
-interface ICommunityDetailPagePresenterProps {
-	board: IBoard;
-	onClickLikeBoard: () => void;
-}
 export default function CommunityDetailPagePresenter({ board, onClickLikeBoard }: ICommunityDetailPagePresenterProps) {
-	const [showModal, setShowModal] = useState(false);
-	const onClickDeletePost = () => {
-		setShowModal(() => true);
-	};
-	const onClick2 = () => {
-		setShowModal(() => false);
-	};
 	const time = useMemo(() => {
 		return timeFromNow(board?.createdAt);
 	}, []);
 	return (
 		<section>
-			<Modal isOpen={showModal} onClickConfirm={onClick2} isConfirm title="제목입니당." content="내용입니당" />
 			<S.SectionInner>
 				{/* head */}
 				<S.PostHeaderContainer>
@@ -56,9 +43,9 @@ export default function CommunityDetailPagePresenter({ board, onClickLikeBoard }
 							<S.MoreActionWrapper>
 								<DropDown
 									data={[
-										{ title: '수정', eventName: onClickDeletePost },
-										{ title: '삭제', eventName: onClickDeletePost },
-										{ title: '신고', eventName: onClickDeletePost }
+										{ title: '수정', eventName: () => {} },
+										{ title: '삭제', eventName: () => {} },
+										{ title: '신고', eventName: () => {} }
 									]}
 								>
 									<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />

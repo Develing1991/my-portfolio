@@ -1,16 +1,14 @@
-import DropDown from '@/src/components/commons/dropdowns/DropDown';
-import * as S from '../CommunityDetailPage.styles';
 import { ChangeEvent, useState, useMemo } from 'react';
 import { IBoardComment, IMutation, IMutationDeleteBoardCommentArgs, IMutationUpdateBoardCommentArgs } from '@/src/commons/types/generated/types';
 import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
 import { Button } from '@/src/components/commons/buttons/Button';
 import { useMutation } from '@apollo/client';
 import { DELETE_BOARD_COMMENT, FETCH_BOARD_COMMENTS, UPDATE_BOARD_COMMENT } from '../CommunityDetailPage.queries';
-interface ICommentItemProps {
-	commentItem: IBoardComment;
-}
+import { ICommentItemProps } from '../CommunityDetailPage.types';
+import DropDown from '@/src/components/commons/dropdowns/DropDown';
+import * as S from '../CommunityDetailPage.styles';
+
 function CommentItem({ commentItem }: ICommentItemProps) {
-	const [, setShowModal] = useState(false);
 	const [isEdit, setIsEdit] = useState(false);
 	const [commentContents, setCommentContents] = useState(commentItem.contents);
 	const [updateBoardComment] = useMutation<Pick<IMutation, 'updateBoardComment'>, IMutationUpdateBoardCommentArgs>(UPDATE_BOARD_COMMENT);
@@ -19,10 +17,6 @@ function CommentItem({ commentItem }: ICommentItemProps) {
 	const time = useMemo(() => {
 		return timeFromNow(commentItem.createdAt);
 	}, []);
-
-	const onClickDeletePost = () => {
-		setShowModal(() => true);
-	};
 
 	const onClickEditAble = () => {
 		setIsEdit((prev) => !prev);
@@ -104,7 +98,7 @@ function CommentItem({ commentItem }: ICommentItemProps) {
 						data={[
 							{ title: '수정', eventName: onClickEditAble },
 							{ title: '삭제', eventName: deleteComment },
-							{ title: '신고', eventName: onClickDeletePost }
+							{ title: '신고', eventName: () => {} }
 						]}
 					>
 						<S.MoreActionIcon className="more-icon" titleAccess="더 보기 액션 아이콘" />
