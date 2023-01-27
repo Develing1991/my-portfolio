@@ -8,8 +8,9 @@ import * as S from './CommunityDetailPage.styles';
 import { sanitize } from 'dompurify';
 interface ICommunityDetailPagePresenterProps {
 	board: IBoard;
+	onClickLikeBoard: () => void;
 }
-export default function CommunityDetailPagePresenter({ board }: ICommunityDetailPagePresenterProps) {
+export default function CommunityDetailPagePresenter({ board, onClickLikeBoard }: ICommunityDetailPagePresenterProps) {
 	const [showModal, setShowModal] = useState(false);
 	const onClickDeletePost = () => {
 		setShowModal(() => true);
@@ -82,7 +83,7 @@ export default function CommunityDetailPagePresenter({ board }: ICommunityDetail
 					</S.ContentsHashArea>
 					<S.ContentsReactArea>
 						<div className="like">
-							<S.LikeIcon className="like-icon" /> {board.likeCount}
+							<S.LikeIcon className="like-icon" onClick={onClickLikeBoard} /> {board.likeCount}
 						</div>
 						<div className="count">
 							<S.CommentIcon className="comment-icon" /> 30
