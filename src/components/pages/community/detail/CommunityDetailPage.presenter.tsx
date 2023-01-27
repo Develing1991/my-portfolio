@@ -1,9 +1,14 @@
+import { IBoard } from '@/src/commons/types/generated/types';
+import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
+import { checkImageFileExtension } from '@/src/commons/utils/validations/image';
 import DropDown from '@/src/components/commons/dropdowns/DropDown';
 import Modal from '@/src/components/commons/modals/Modal';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import * as S from './CommunityDetailPage.styles';
-
-export default function CommunityDetailPagePresenter() {
+interface ICommunityDetailPagePresenterProps {
+	board: IBoard;
+}
+export default function CommunityDetailPagePresenter({ board }: ICommunityDetailPagePresenterProps) {
 	const [showModal, setShowModal] = useState(false);
 	const onClickDeletePost = () => {
 		setShowModal(() => true);
@@ -11,6 +16,9 @@ export default function CommunityDetailPagePresenter() {
 	const onClick2 = () => {
 		setShowModal(() => false);
 	};
+	const time = useMemo(() => {
+		return timeFromNow(board?.createdAt);
+	}, []);
 	return (
 		<section>
 			<Modal isOpen={showModal} onClickConfirm={onClick2} isConfirm title="제목입니당." content="내용입니당" />
@@ -33,9 +41,9 @@ export default function CommunityDetailPagePresenter() {
 							<img src="https://cdn4.buysellads.net/uu/1/127419/1670532177-Stock.jpg" alt="유저 프로필 이미지" />
 						</div>
 						<S.PostInfo>
-							<div className="info__name">김길동</div>
+							<div className="info__name">{board.writer}</div>
 							<div className="info__etc">
-								<div>15분 전</div>
+								<div>{time}</div>
 								<div>조회수 10</div>
 							</div>
 						</S.PostInfo>
@@ -57,11 +65,15 @@ export default function CommunityDetailPagePresenter() {
 				</S.PostHeaderContainer>
 				{/* body */}
 				<S.PostBodyContainer>
-					<S.Contents>내용스</S.Contents>
+					<S.Contents>{board.contents}</S.Contents>
 					<S.ContentsImageArea>
-						<div className="image__wrapper">
-							<img src="https://cdn4.buysellads.net/uu/1/127419/1670532177-Stock.jpg" alt="내용이미지" />
-						</div>
+						{board.images?.map((el, index) => {
+							return (
+								<div className="image__wrapper" key={index}>
+									{checkImageFileExtension(el) && <img src={`https://storage.googleapis.com/${el}`} />}
+								</div>
+							);
+						})}
 					</S.ContentsImageArea>
 					<S.ContentsHashArea>
 						<li>#태그1</li>
@@ -69,7 +81,7 @@ export default function CommunityDetailPagePresenter() {
 					</S.ContentsHashArea>
 					<S.ContentsReactArea>
 						<div className="like">
-							<S.LikeIcon className="like-icon" /> 20
+							<S.LikeIcon className="like-icon" /> {board.likeCount}
 						</div>
 						<div className="count">
 							<S.CommentIcon className="comment-icon" /> 30

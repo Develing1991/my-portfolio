@@ -3,6 +3,7 @@ import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
 import { ICommunityListItemProps } from '../CommunityListPage.types';
 import { useMemo, memo } from 'react';
 import { useRouter } from 'next/router';
+import { checkImageFileExtension } from '@/src/commons/utils/validations/image';
 
 const CommunityListItem = ({ el, onPrefetchBoard }: ICommunityListItemProps) => {
 	const { push } = useRouter();
@@ -29,9 +30,9 @@ const CommunityListItem = ({ el, onPrefetchBoard }: ICommunityListItemProps) => 
 				</S.CardLeftIconDiv>
 			</S.CardLeft>
 			<S.CardRight>
-				{el.images && el.images.length > 0 && el.images[0] && (
+				{el.images && el.images.length > 0 && checkImageFileExtension(el.images[0]) && (
 					<S.CardRightImageDiv>
-						<S.CardRightImage src={`https://storage.googleapis.com/${el.images[0]}`} />
+						<S.CardRightImage src={`https://storage.googleapis.com/${el.images[0]}`} alt="게시글 썸네일 이미지" />
 					</S.CardRightImageDiv>
 				)}
 				<S.CardRightTime>{time}</S.CardRightTime>

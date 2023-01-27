@@ -25,6 +25,7 @@ export const FETCH_BOARD = gql`
 			images
 			likeCount
 			createdAt
+			deletedAt
 		}
 	}
 `;
