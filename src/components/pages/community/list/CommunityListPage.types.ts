@@ -10,6 +10,8 @@ export interface ICommunityPagePresenterProps {
 	onChangeKeyword: (event: ChangeEvent<HTMLInputElement>) => void;
 	onPrefetchBoard: (id: string) => () => void;
 	onLoadMore: () => void;
+	currPage: number;
+	lastPage: number;
 }
 
 /* components.presenter/CommunityListItem */
@@ -19,3 +21,6 @@ export interface ICommunityListItemProps {
 }
 
 /* components.presenter/CommunityListItemNotExist */
+export interface ICommunityListItemNotExistProps {
+	prevText: string;
+}

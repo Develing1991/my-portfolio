@@ -14,6 +14,7 @@ const CommunityListItem = ({ el, onPrefetchBoard }: ICommunityListItemProps) => 
 		// console.log('10번이 한번 더 실행되서 메모이제이션함');
 		return timeFromNow(el.createdAt);
 	}, []);
+
 	const onClickMove = () => {
 		push(`/community/detail/${el._id}`);
 	};
@@ -41,3 +42,4 @@ const CommunityListItem = ({ el, onPrefetchBoard }: ICommunityListItemProps) => 
 	);
 };
 export default memo(CommunityListItem);
+// export default CommunityListItem;

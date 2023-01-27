@@ -8,7 +8,7 @@ import CommunityListItem from './components.presenter/CommunityListItem';
 import CommunityListItemNotExist from './components.presenter/CommunityListItemNotExist';
 import SideNavigation from './components.presenter/SideNavigation';
 
-export default function CommunityPagePresenter({ list, keyword, onChangeKeyword, onLoadMore, onPrefetchBoard }: ICommunityPagePresenterProps) {
+export default function CommunityPagePresenter({ list, keyword, onChangeKeyword, onLoadMore, onPrefetchBoard, currPage, lastPage }: ICommunityPagePresenterProps) {
 	return (
 		<>
 			<section>
@@ -31,13 +31,16 @@ export default function CommunityPagePresenter({ list, keyword, onChangeKeyword,
 					<SideNavigation />
 					<S.AreaContent>
 						{list.length > 0 ? (
-							<InfiniteScroll pageStart={0} loadMore={onLoadMore} hasMore={true} loader={<LoadingBar key={0} />}>
-								{list.map((el) => {
-									return <CommunityListItem el={el} key={el._id} onPrefetchBoard={onPrefetchBoard} />;
-								})}
-							</InfiniteScroll>
+							<>
+								<InfiniteScroll pageStart={0} loadMore={onLoadMore} hasMore={currPage < lastPage} loader={<LoadingBar key={0} />}>
+									{list.map((el) => {
+										return <CommunityListItem el={el} key={el._id} onPrefetchBoard={onPrefetchBoard} />;
+									})}
+								</InfiniteScroll>
+								{currPage === lastPage && <CommunityListItemNotExist prevText="게시글 목록의 끝입니다." />}
+							</>
 						) : (
-							<CommunityListItemNotExist />
+							<CommunityListItemNotExist prevText="게시글 목록이 없습니다." />
 						)}
 					</S.AreaContent>
 				</S.BottSectionInner>
