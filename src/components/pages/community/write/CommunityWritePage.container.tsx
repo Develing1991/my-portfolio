@@ -7,14 +7,14 @@ import { CREATE_BOARD, UPLOAD_FILE } from './CommunityWritePage.queries';
 import { IMutation, IMutationCreateBoardArgs, IMutationUploadFileArgs } from '@/src/commons/types/generated/types';
 import Modal from '@/src/components/commons/modals/Modal';
 import { useRouter } from 'next/router';
-import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from '../list/CommunityListPage.queries';
 
 export default function CommunityWritePageContainer() {
-	const { push } = useRouter();
+	const router = useRouter();
 	const [createBoard] = useMutation<Pick<IMutation, 'createBoard'>, IMutationCreateBoardArgs>(CREATE_BOARD);
 	const [uploadFile] = useMutation<Pick<IMutation, 'uploadFile'>, IMutationUploadFileArgs>(UPLOAD_FILE);
 	const [selectSubject, setSelectSubject] = useState('선택');
 	const [openModal, setOpenModal] = useState(false);
+	const [moveToBoardId, setMoveToBoardId] = useState('');
 	const [formData, setFormData] = useState({
 		title: '',
 		contents: ''
@@ -94,7 +94,7 @@ export default function CommunityWritePageContainer() {
 			rsltUrls = rslt.map((el) => (el.data?.uploadFile.url ? el.data?.uploadFile.url : ''));
 		}
 
-		await createBoard({
+		const { data } = await createBoard({
 			variables: {
 				createBoardInput: {
 					...formData,
@@ -102,13 +102,13 @@ export default function CommunityWritePageContainer() {
 					writer: '맹구스',
 					images: rsltUrls
 				}
-			},
-			refetchQueries: [
-				{ query: FETCH_BOARDS, variables: { page: 1, search: '' } },
-				{ query: FETCH_BOARDS_COUNT, variables: { search: '' } }
-			]
+			}
 		});
-		setOpenModal(() => true);
+
+		if (data?.createBoard._id) {
+			setOpenModal(() => true);
+			setMoveToBoardId(() => data?.createBoard._id);
+		}
 	};
 
 	return (
@@ -118,7 +118,8 @@ export default function CommunityWritePageContainer() {
 				content="게시글을 작성했습니다!"
 				isOpen={openModal}
 				onClickOkayCancel={() => {
-					push('/community');
+					setOpenModal(() => false);
+					router.push(`/community/detail/${moveToBoardId}`);
 				}}
 			></Modal>
 			<CommunityWritePagePresenter
