@@ -1,7 +1,16 @@
 import { SelectStyled, SelectOptionGroup, SelectOption } from './styles';
 import { SelectProps } from './types';
+import { useEffect } from 'react';
 
-export default function Select({ title = '선택', isShow, opts = [], onClickSelect, onClickSelectOption }: SelectProps) {
+export default function Select({ title = '선택', isShow, opts = [], hideSelect, onClickSelect, onClickSelectOption }: SelectProps) {
+	useEffect(() => {
+		window.addEventListener('click', function () {
+			hideSelect();
+		});
+		window.addEventListener('resize', () => {
+			hideSelect();
+		});
+	});
 	return (
 		<SelectStyled onClick={onClickSelect}>
 			{title}

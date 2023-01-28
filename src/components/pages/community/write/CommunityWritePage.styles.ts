@@ -55,25 +55,20 @@ export const UploadImageDiv = styled.div`
 	position: relative;
 `;
 
-export const UploadArea = styled(AddCircleOutlineIcon)`
+export const UploadArea = styled.div`
 	width: 100%;
 	height: 100%;
-	padding: 30px;
 	border-radius: 4px;
 	border: 2px dashed var(--color-primary-dp4);
-	position: relative;
 	color: var(--color-primary-dp4);
-	&:hover {
-		background-color: var(--color-primary-dp3);
-	}
 	@media screen and (max-width: 520px) {
 		padding: 30px 0;
 	}
 `;
 
 export const PlusIcon = styled(AddCircleOutlineIcon)`
-	height: 50%;
-	width: 50%;
+	width: 100%;
+	height: 80%;
 `;
 
 export const PrevImageDiv = styled.div`
