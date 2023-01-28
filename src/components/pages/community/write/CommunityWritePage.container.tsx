@@ -1,29 +1,48 @@
 import CommunityWritePagePresenter from './CommunityWritePage.presenter';
-import { useState, SyntheticEvent, MouseEvent } from 'react';
+import { useState, SyntheticEvent, MouseEvent, ChangeEvent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { FileUrls } from './CommunityWritePage.types';
+import { useMutation } from '@apollo/client';
+import { CREATE_BOARD, UPLOAD_FILE } from './CommunityWritePage.queries';
+import { IMutation, IMutationCreateBoardArgs, IMutationUploadFileArgs } from '@/src/commons/types/generated/types';
+import Modal from '@/src/components/commons/modals/Modal';
+import { useRouter } from 'next/router';
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from '../list/CommunityListPage.queries';
+
 export default function CommunityWritePageContainer() {
-	const onSubmitForm = (event: SyntheticEvent<HTMLFormElement>) => {
-		event.preventDefault();
-	};
-	const [title, setTitle] = useState('선택');
+	const { push } = useRouter();
+	const [createBoard] = useMutation<Pick<IMutation, 'createBoard'>, IMutationCreateBoardArgs>(CREATE_BOARD);
+	const [uploadFile] = useMutation<Pick<IMutation, 'uploadFile'>, IMutationUploadFileArgs>(UPLOAD_FILE);
+	const [selectSubject, setSelectSubject] = useState('선택');
+	const [openModal, setOpenModal] = useState(false);
+	const [formData, setFormData] = useState({
+		title: '',
+		contents: ''
+	});
+
 	const [show, setShow] = useState(false);
 	const onClickSelect = (event: MouseEvent<HTMLButtonElement>) => {
-		event?.stopPropagation();
+		event.preventDefault();
 		setShow(() => true);
 	};
 	const onClickSelectOption = (value: string) => (event: MouseEvent<HTMLLIElement>) => {
-		event?.stopPropagation();
+		event.preventDefault();
+		event.stopPropagation();
 		setShow(() => false);
-		setTitle(() => value);
+		setSelectSubject(() => value);
 	};
 
 	const hideSelect = () => {
 		setShow(() => false);
 	};
-	// const [imageUrls, setImageUrls] = useState([]);
+
+	const onChangeInput = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const { name, value } = event.target;
+		setFormData((prev) => ({ ...prev, [name]: value }));
+	};
 
 	const [previewImageUrls, setPreviewImageUrls] = useState<FileUrls[]>();
+
 	const prepareImageFiles = (files: File[]) => {
 		files.forEach((file) => {
 			const reader = new FileReader();
@@ -36,18 +55,19 @@ export default function CommunityWritePageContainer() {
 								...prev,
 								{
 									name: String(event.target?.result),
-									id: uuidv4()
+									id: uuidv4(),
+									file
 								}
 							];
 						}
 						return [
 							{
 								name: String(event.target?.result),
-								id: uuidv4()
+								id: uuidv4(),
+								file
 							}
 						];
 					});
-				// setFiles
 			};
 		});
 	};
@@ -56,20 +76,63 @@ export default function CommunityWritePageContainer() {
 		setPreviewImageUrls((prev) => {
 			return prev?.filter((img) => img.id !== id);
 		});
-		// setFiles remove
+	};
+
+	const onSubmitForm = async (event: SyntheticEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		let rsltUrls;
+		if (previewImageUrls && previewImageUrls.length > 0) {
+			/* eslint-disable */
+			const rsltUploadAPI = previewImageUrls.map((image) => {
+				return uploadFile({
+					variables: {
+						file: image.file
+					}
+				});
+			});
+			const rslt = await Promise.all(rsltUploadAPI);
+			rsltUrls = rslt.map((el) => (el.data?.uploadFile.url ? el.data?.uploadFile.url : ''));
+		}
+
+		await createBoard({
+			variables: {
+				createBoardInput: {
+					...formData,
+					password: '1234',
+					writer: '맹구스',
+					images: rsltUrls
+				}
+			},
+			refetchQueries: [
+				{ query: FETCH_BOARDS, variables: { page: 1, search: '' } },
+				{ query: FETCH_BOARDS_COUNT, variables: { search: '' } }
+			]
+		});
+		setOpenModal(() => true);
 	};
 
 	return (
-		<CommunityWritePagePresenter
-			title={title}
-			show={show}
-			onClickSelect={onClickSelect}
-			onClickSelectOption={onClickSelectOption}
-			hideSelect={hideSelect}
-			onSubmitForm={onSubmitForm}
-			prepareImageFiles={prepareImageFiles}
-			previewImageUrls={previewImageUrls}
-			removeImageFiles={removeImageFiles}
-		/>
+		<>
+			<Modal
+				title=""
+				content="게시글을 작성했습니다!"
+				isOpen={openModal}
+				onClickOkayCancel={() => {
+					push('/community');
+				}}
+			></Modal>
+			<CommunityWritePagePresenter
+				subject={selectSubject}
+				show={show}
+				onClickSelect={onClickSelect}
+				onClickSelectOption={onClickSelectOption}
+				hideSelect={hideSelect}
+				onSubmitForm={onSubmitForm}
+				prepareImageFiles={prepareImageFiles}
+				previewImageUrls={previewImageUrls}
+				removeImageFiles={removeImageFiles}
+				onChangeInput={onChangeInput}
+			/>
+		</>
 	);
 }

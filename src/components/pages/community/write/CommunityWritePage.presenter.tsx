@@ -1,24 +1,25 @@
 import * as S from '@/src/components/pages/community/write/CommunityWritePage.styles';
 import Select from '@/src/components/commons/selects/Select';
 import { Input } from '@/src/components/commons/inputs/Input';
-import { SyntheticEvent, MouseEvent } from 'react';
+import { SyntheticEvent, MouseEvent, ChangeEvent } from 'react';
 import Dropzone from '@/src/components/commons/dragdrop/Dropzone';
 import { FileUrls } from './CommunityWritePage.types';
 
 interface ICommunityWritePagePresenter {
-	title: string;
+	subject: string;
 	show: boolean;
 	onClickSelect: (event: MouseEvent<HTMLButtonElement>) => void;
 	onClickSelectOption: (value: string) => (event: MouseEvent<HTMLLIElement>) => void;
-	onSubmitForm: (event: SyntheticEvent<HTMLFormElement>) => void;
+	onSubmitForm: (event: SyntheticEvent<HTMLButtonElement>) => void;
 	hideSelect: () => void;
 	prepareImageFiles: (files: File[]) => void;
 	previewImageUrls: FileUrls[] | undefined;
 	removeImageFiles: (id: string) => () => void;
+	onChangeInput: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 export default function CommunityWritePagePresenter({
-	title,
+	subject,
 	show,
 	onClickSelect,
 	onClickSelectOption,
@@ -26,20 +27,21 @@ export default function CommunityWritePagePresenter({
 	onSubmitForm,
 	prepareImageFiles,
 	previewImageUrls,
-	removeImageFiles
+	removeImageFiles,
+	onChangeInput
 }: ICommunityWritePagePresenter) {
 	return (
 		<section>
 			<S.InnerForm>
-				<S.BoardForm onSubmit={onSubmitForm}>
+				<S.BoardForm onSubmit={() => false}>
 					<S.SubjectDiv>
-						<Select title={title} onClickSelectOption={onClickSelectOption} onClickSelect={onClickSelect} hideSelect={hideSelect} isShow={show} opts={['궁금해요', '자유주제', '프로젝트', '기타']} />
+						<Select title={subject} onClickSelectOption={onClickSelectOption} onClickSelect={onClickSelect} hideSelect={hideSelect} isShow={show} opts={['궁금해요', '자유주제', '프로젝트', '기타']} />
 					</S.SubjectDiv>
 					<S.TitleDiv>
-						<Input placeholder="제목을 입력해주세요." />
+						<Input placeholder="제목을 입력해주세요." name="title" onChange={onChangeInput} />
 					</S.TitleDiv>
 					<S.ContentDiv>
-						<S.ContentTextArea />
+						<S.ContentTextArea name="contents" onChange={onChangeInput} />
 					</S.ContentDiv>
 
 					<S.UploadImageDiv title="여기에 사진을 올려주세요">
@@ -66,7 +68,9 @@ export default function CommunityWritePagePresenter({
 					)}
 
 					<S.ButtonGroupDiv>
-						<S.RegisterButton reverse>등록</S.RegisterButton>
+						<S.RegisterButton reverse onClick={onSubmitForm}>
+							등록
+						</S.RegisterButton>
 					</S.ButtonGroupDiv>
 				</S.BoardForm>
 			</S.InnerForm>
