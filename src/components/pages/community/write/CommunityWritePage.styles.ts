@@ -75,17 +75,26 @@ export const PrevImageDiv = styled.div`
 	border: 1px solid var(--color-primary-dp4);
 	border-radius: 4px;
 	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	@media screen and (max-width: 530px) {
+		justify-content: center;
+	}
 `;
 
 export const PrevImageItem = styled.div`
-	width: 50px;
-	height: 50px;
+	width: 70px;
+	height: 70px;
 	border-radius: 4px;
 	background-color: black;
 	position: relative;
 `;
 
 export const CloseBadge = styled(CancelIcon)`
+	background-color: white;
+	border-radius: 50%;
+	color: red;
 	width: 20px;
 	height: 20px;
 	position: absolute;
