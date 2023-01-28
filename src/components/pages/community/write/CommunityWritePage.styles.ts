@@ -87,12 +87,12 @@ export const PrevImageItem = styled.div`
 	width: 70px;
 	height: 70px;
 	border-radius: 4px;
-	background-color: black;
+	background-color: var(--color-white);
 	position: relative;
 `;
 
 export const CloseBadge = styled(CancelIcon)`
-	background-color: white;
+	background-color: var(--color-white);
 	border-radius: 50%;
 	color: red;
 	width: 20px;
