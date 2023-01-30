@@ -11,7 +11,7 @@ const SignInPagePresenter = () => {
 				<form>
 					<div className="email">
 						<label htmlFor="email" />
-						<Input placeholder="이메일을 입력해주세요." type="email" tabIndex={1} />
+						<Input placeholder="이메일을 입력해주세요." type="email" tabIndex={1} autoFocus />
 					</div>
 					<div className="password">
 						<label htmlFor="password" />

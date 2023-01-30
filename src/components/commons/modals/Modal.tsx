@@ -4,17 +4,18 @@ interface IModal {
 	title: string;
 	content: string;
 	isOpen?: boolean;
+	isClose?: boolean;
 	isConfirm?: boolean;
 	onClickConfirm?: () => void;
 	onClickOkayCancel?: () => void;
 }
-export default function Modal({ title, content, isOpen = false, isConfirm = false, onClickConfirm, onClickOkayCancel }: IModal) {
+export default function Modal({ title, content, isOpen = false, isClose = false, isConfirm = false, onClickConfirm, onClickOkayCancel }: IModal) {
 	return (
 		<ModalContainer className={'modal__wrapper' && isOpen ? 'open' : ''}>
 			<div className="modal">
 				<div className="header">
 					<div className="title">{title}</div>
-					<CloseButtonIcon className="close" onClick={onClickOkayCancel} />
+					{isClose && <CloseButtonIcon className="close" onClick={onClickOkayCancel} />}
 				</div>
 				<div className="content">{content}</div>
 				{isConfirm ? (

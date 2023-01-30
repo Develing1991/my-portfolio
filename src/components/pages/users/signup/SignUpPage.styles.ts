@@ -52,6 +52,12 @@ export const SignIn = styled.div`
 		margin-top: 10px;
 	}
 
+	p {
+		color: var(--color-red);
+		margin-top: 8px;
+		font-size: var(--font-small);
+	}
+
 	.email-btn {
 		margin: 20px 0;
 		padding: 10px;
@@ -96,6 +102,17 @@ export const SignIn = styled.div`
 				display: flex;
 				gap: 10px;
 				align-items: center;
+
+				.term__text {
+					line-height: 1.5;
+					span {
+						font-weight: 700;
+						color: var(--color-primary-dp3);
+					}
+					span.required {
+						color: var(--color-primary-dp4);
+					}
+				}
 			}
 		}
 	}
