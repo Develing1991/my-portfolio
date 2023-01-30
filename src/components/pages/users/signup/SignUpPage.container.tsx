@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Modal from '@/src/components/commons/modals/Modal';
 import { useRouter } from 'next/router';
 import { useMutation } from '@apollo/client';
-import { CREATE_USER } from './SignUpPage..queries';
+import { CREATE_USER } from './SignUpPage.queries';
 import { IMutation, IMutationCreateUserArgs } from '@/src/commons/types/generated/types';
 import { SignUpPageYupSchema } from '@/src/commons/utils/validations/yup';
 
@@ -77,7 +77,8 @@ const SignUpPageContainer = () => {
 				content={modalText.content}
 				isOpen={openModal}
 				onClickOkayCancel={() => {
-					setOpenModal(false);
+					setOpenModal(() => false);
+					setIsComplete(() => false);
 					if (isComplete) push('/users/signin');
 				}}
 			/>

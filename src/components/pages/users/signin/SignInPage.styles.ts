@@ -40,6 +40,12 @@ export const SignIn = styled.div`
 		width: 100%;
 	}
 
+	.error {
+		color: var(--color-red);
+		margin-top: 8px;
+		font-size: var(--font-small);
+	}
+
 	.signin-btn {
 		padding: 10px;
 		font-size: var(--font-large);

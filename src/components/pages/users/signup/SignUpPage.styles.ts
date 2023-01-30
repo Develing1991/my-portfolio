@@ -52,7 +52,7 @@ export const SignIn = styled.div`
 		margin-top: 10px;
 	}
 
-	p {
+	.error {
 		color: var(--color-red);
 		margin-top: 8px;
 		font-size: var(--font-small);

@@ -13,7 +13,7 @@ const SignUpPagePresenter = ({ register, handleSubmit, termsCheck, onClickCheckT
 					<div>
 						<label htmlFor="email">이메일</label>
 						<Input placeholder="이메일" type="email" tabIndex={1} {...register('email')} autoFocus />
-						<p>{errors.email?.message}</p>
+						<p className="error">{errors.email?.message}</p>
 						<Button reverse className="email-btn">
 							이메일 인증하기
 						</Button>
@@ -21,17 +21,17 @@ const SignUpPagePresenter = ({ register, handleSubmit, termsCheck, onClickCheckT
 					<div>
 						<label htmlFor="nickName">닉네임</label>
 						<Input placeholder="닉네임" type="text" id="nickName" tabIndex={2} {...register('name')} />
-						<p>{errors.name?.message}</p>
+						<p className="error">{errors.name?.message}</p>
 					</div>
 					<div>
 						<label htmlFor="password">비밀번호</label>
 						<Input placeholder="비밀번호" type="password" id="password" autoComplete="off" tabIndex={3} {...register('password')} />
-						<p>{errors.password?.message}</p>
+						<p className="error">{errors.password?.message}</p>
 					</div>
 					<div>
 						<label htmlFor="password-confrim">비밀번호 확인</label>
 						<Input placeholder="비밀번호 확인" type="password" id="password-confrim" autoComplete="off" tabIndex={4} {...register('passwordConfirm')} />
-						<p>{errors.passwordConfirm?.message}</p>
+						<p className="error">{errors.passwordConfirm?.message}</p>
 					</div>
 
 					<div className="terms">
