@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import * as S from './DefaultHeader.styles';
 
@@ -21,17 +22,17 @@ export default function DefaultHeader() {
 							<S.LogoImage src="/logo.png" alt="로고 이미지" />
 						</S.LogoDiv>
 						<S.Menu className={hide ? 'hide' : ''}>
-							<S.MenuItem>
-								<S.MenuItemText className="active">커뮤니티</S.MenuItemText>
+							<S.MenuItem className="active">
+								<Link href={'/community'}>커뮤니티</Link>
 							</S.MenuItem>
 							<S.MenuItem>
-								<S.MenuItemText>결제</S.MenuItemText>
+								<Link href={'/community'}>결제</Link>
 							</S.MenuItem>
 							<S.MenuItem>
-								<S.MenuItemText>회사소개</S.MenuItemText>
+								<Link href={'/community'}>회사소개</Link>
 							</S.MenuItem>
 							<S.MenuItem>
-								<S.MenuItemText>프로필</S.MenuItemText>
+								<Link href={'/community'}>프로필</Link>
 							</S.MenuItem>
 						</S.Menu>
 					</S.HeaderLeft>

@@ -12,7 +12,7 @@ export const TopSectionInner = styled.div`
 	display: flex;
 	padding-top: 100px;
 	align-items: center;
-	max-width: 1000px;
+	max-width: 900px;
 	@media screen and (max-width: 800px) {
 		padding: 100px 10px 0 10px;
 	}

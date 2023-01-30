@@ -72,8 +72,8 @@ export const Menu = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-	padding: 25px 5px;
-	margin-right: 5px;
+	padding: 20px 0px;
+	margin-right: 10px;
 	font-size: var(--font-large);
 	font-weight: 700;
 	color: var(--color-primary-dp4);
@@ -81,7 +81,19 @@ export const MenuItem = styled.li`
 	&:last-child {
 		margin-right: 0;
 	}
+
+	& a {
+		padding: 8px;
+		border-radius: 4px;
+		border: 2px solid transparent;
+		color: var(--color-primary-dp4);
+	}
 	&:hover a {
+		color: var(--color-white);
+		border: 2px solid var(--color-white);
+	}
+
+	&.active a {
 		color: var(--color-white);
 		border: 2px solid var(--color-white);
 	}
@@ -98,25 +110,12 @@ export const MenuItem = styled.li`
 	}
 `;
 
-export const MenuItemText = styled.a`
-	padding: 8px;
-	border-radius: 4px;
-	border: 2px solid transparent;
-	&.active {
-		color: var(--color-white);
-		border: 2px solid var(--color-white);
-	}
-	@media screen and (max-width: 800px) {
-		display: block;
-	}
-`;
-
 // right
 export const HeaderRight = styled.div`
 	display: flex;
 	align-items: center;
 	padding: 0 25px;
-	gap: 25px;
+	gap: 15px;
 	@media screen and (max-width: 800px) {
 		border-top: 2px dashed var(--color-white);
 		flex-direction: column;
