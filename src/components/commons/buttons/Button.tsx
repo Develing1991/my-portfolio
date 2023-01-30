@@ -9,15 +9,11 @@ export const Button = styled.button`
 	color: ${({ reverse }: IButtonProps) => (reverse ? `var(--color-primary-dp1)` : `var(--color-primary-dp4)`)};
 	font-size: ${({ fontSize = '' }) => (fontSize ? `${fontSize}px` : `var(--font-medium)`)};
 	font-weight: 700;
-
-	cursor: ${({ disabled }: IButtonProps) => (disabled ? `default` : `pointer`)};
-	color: ${({ disabled }: IButtonProps) => (disabled ? `var(--color-primary-dp3)` : `var(--color-primary-dp1)`)};
-	background-color: ${({ disabled }: IButtonProps) => (disabled ? `var(--color-primary-dp1)` : `var(--color-primary-dp4)`)};
 `;
 
 interface ButtonProps {
 	reverse: boolean;
-	disabled: boolean;
+	disabled?: boolean;
 	hide: boolean;
 	fontSize: string;
 }

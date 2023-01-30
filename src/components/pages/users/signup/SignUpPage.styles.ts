@@ -3,6 +3,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { css } from '@emotion/react';
+import { Button } from '@/src/components/commons/buttons/Button';
 export const SignIn = styled.div`
 	/* background-color: var(--color-primary-dp1); */
 	height: 100%;
@@ -137,4 +138,10 @@ export const CheckboxFillIcon = styled(CheckBoxIcon)`
 export const MoreRightIcon = styled(ChevronRightIcon)`
 	${IconColor}
 	cursor: pointer;
+`;
+
+export const SignUpButton = styled(Button)`
+	cursor: ${({ disabled }: { disabled: boolean }) => (disabled ? `default` : `pointer`)};
+	color: ${({ disabled }: { disabled: boolean }) => (disabled ? `var(--color-primary-dp3)` : `var(--color-primary-dp1)`)};
+	background-color: ${({ disabled }: { disabled: boolean }) => (disabled ? `var(--color-primary-dp1)` : `var(--color-primary-dp4)`)};
 `;

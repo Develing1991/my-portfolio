@@ -1,7 +1,7 @@
 import { Button } from '@/src/components/commons/buttons/Button';
 import { Input } from '@/src/components/commons/inputs/Input';
 import React from 'react';
-import { SignIn, CheckboxBlankIcon, CheckboxFillIcon, MoreRightIcon } from './SignUpPage.styles';
+import { SignIn, CheckboxBlankIcon, CheckboxFillIcon, MoreRightIcon, SignUpButton } from './SignUpPage.styles';
 import { ISignUpPagePresenterProps } from './SignUpPage.types';
 
 const SignUpPagePresenter = ({ register, handleSubmit, termsCheck, onClickCheckTerms, formState: { errors, isValid }, onSubmitCreateUser }: ISignUpPagePresenterProps) => {
@@ -84,9 +84,9 @@ const SignUpPagePresenter = ({ register, handleSubmit, termsCheck, onClickCheckT
 							<MoreRightIcon />
 						</div>
 					</div>
-					<Button className="signup-btn" reverse disabled={!isValid}>
+					<SignUpButton className="signup-btn" reverse disabled={!isValid}>
 						회원가입
-					</Button>
+					</SignUpButton>
 				</form>
 			</div>
 		</SignIn>

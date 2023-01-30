@@ -78,13 +78,15 @@ export const MenuItem = styled.li`
 	font-weight: 700;
 	color: var(--color-primary-dp4);
 	cursor: pointer;
+
+	border: 2px solid transparent;
+	border-radius: 4px;
 	&:last-child {
 		margin-right: 0;
 	}
 
 	& a {
 		padding: 8px;
-		border-radius: 4px;
 		color: var(--color-primary-dp4);
 	}
 	&:hover a {
@@ -95,14 +97,17 @@ export const MenuItem = styled.li`
 		color: var(--color-white);
 	}
 	@media screen and (max-width: 800px) {
-		padding: 0px;
+		padding: 10px 0;
 		text-align: center;
-		margin: 0 0 5px 0;
+		margin: 0 0 10px 0;
+		&:hover {
+			border: 2px solid var(--color-white);
+		}
 		&:first-of-type {
-			margin-top: 5px;
+			margin-top: 10px;
 		}
 		&:last-child {
-			margin: 0 0 15px 0;
+			margin: 0 0 10px 0;
 		}
 	}
 `;
@@ -120,7 +125,8 @@ export const HeaderRight = styled.div`
 		width: 100%;
 		padding: 0;
 		padding-top: 5px;
-		gap: 10px;
+
+		gap: 0px;
 		&.hide {
 			display: none;
 		}
@@ -160,7 +166,14 @@ export const CustomButton = styled(HoverButton)`
 	@media screen and (max-width: 800px) {
 		width: 100%;
 		display: block;
-		margin: 10px 0;
+		margin: 8px 0;
+
+		&:first-of-type {
+			margin-top: 10px;
+		}
+		&:last-of-type {
+			margin-bottom: 15px;
+		}
 	}
 `;
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as S from './DefaultHeader.styles';
 
 export default function DefaultHeader() {
@@ -9,11 +9,6 @@ export default function DefaultHeader() {
 	const toggle = () => {
 		setHide((prev) => !prev);
 	};
-	useEffect(() => {
-		window.addEventListener('resize', function () {
-			setHide(() => true);
-		});
-	});
 
 	const onClickMoveTo = (path: string) => () => {
 		push(path);
