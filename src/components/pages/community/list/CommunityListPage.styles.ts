@@ -80,7 +80,7 @@ export const BottSectionInner = styled.div`
 	display: flex;
 	padding-top: 50px;
 	align-items: flex-start;
-	max-width: 1000px;
+	max-width: 900px;
 	@media screen and (max-width: 800px) {
 		flex-direction: column;
 		padding: 50px 10px 0 10px;

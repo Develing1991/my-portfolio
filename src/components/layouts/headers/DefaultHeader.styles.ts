@@ -85,17 +85,14 @@ export const MenuItem = styled.li`
 	& a {
 		padding: 8px;
 		border-radius: 4px;
-		border: 2px solid transparent;
 		color: var(--color-primary-dp4);
 	}
 	&:hover a {
 		color: var(--color-white);
-		border: 2px solid var(--color-white);
 	}
 
 	&.active a {
 		color: var(--color-white);
-		border: 2px solid var(--color-white);
 	}
 	@media screen and (max-width: 800px) {
 		padding: 0px;

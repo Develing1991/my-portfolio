@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import * as S from './DefaultHeader.styles';
 
 export default function DefaultHeader() {
+	const { push } = useRouter();
 	const [hide, setHide] = useState(true);
 	const toggle = () => {
 		setHide((prev) => !prev);
@@ -12,6 +14,10 @@ export default function DefaultHeader() {
 			setHide(() => true);
 		});
 	});
+
+	const onClickMoveTo = (path: string) => () => {
+		push(path);
+	};
 
 	return (
 		<>
@@ -37,8 +43,10 @@ export default function DefaultHeader() {
 						</S.Menu>
 					</S.HeaderLeft>
 					<S.HeaderRight className={hide ? 'hide' : ''}>
-						<S.CustomButton reverse>로그인</S.CustomButton>
-						<S.CustomButton>회원가입</S.CustomButton>
+						<S.CustomButton reverse onClick={onClickMoveTo('/users/signin')}>
+							로그인
+						</S.CustomButton>
+						<S.CustomButton onClick={onClickMoveTo('/users/signup')}>회원가입</S.CustomButton>
 						<S.CustomButton reverse hide>
 							장바구니
 						</S.CustomButton>

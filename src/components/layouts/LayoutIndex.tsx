@@ -14,16 +14,16 @@ interface IPathConfig {
 
 const pathConfig = [
 	{ path: 'users', header: () => <></>, footer: () => <></> },
-	{ path: 'community', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> }
+	{ path: 'community', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
 	// { path: 'community', header: dynamic(async () => await import('./headers/DefaultHeader')), footer: dynamic(async () => await import('./footers/DefaultFooter')) },
 	// { path: 'product', header: dynamic(async () => await import('./headers/DefaultHeader')), footer: dynamic(async () => await import('./footers/DefaultFooter')) }
+	{ path: 'default', header: () => <></>, footer: () => <></> }
 ];
 
 export default function LayoutIndex({ children }: { children: JSX.Element }) {
 	const router = useRouter();
-	const layouts = pathConfig.find((el) => el.path === router.pathname.split('/')[1]);
+	const layouts = pathConfig.find((el) => el.path === router.pathname.split('/')[1]) ?? pathConfig[pathConfig.length - 1];
 	const { header: DynamicHeader, footer: DynamicFooter } = layouts as IPathConfig;
-
 	return (
 		<>
 			{/* head 영역 */}
