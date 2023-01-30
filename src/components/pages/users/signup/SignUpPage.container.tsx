@@ -2,22 +2,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import SignUpPagePresenter from './SignUpPage.presenter';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import Modal from '@/src/components/commons/modals/Modal';
 import { useRouter } from 'next/router';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from './SignUpPage..queries';
 import { IMutation, IMutationCreateUserArgs } from '@/src/commons/types/generated/types';
-
-const schema = yup.object({
-	email: yup.string().email('이메일 형식이 올바르지 않습니다').required('이메일을 입력해주세요'),
-	name: yup.string().required('닉네임을 입력해주세요'),
-	password: yup
-		.string()
-		.required('비밀번호를 입력해주세요')
-		.matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{10,20}$/, { message: '영문, 숫자, 특수문자를 조합한 10자리 이상 20자리 이하 비밀번호를 입력해 주세요. ' }),
-	passwordConfirm: yup.string().oneOf([yup.ref('password'), null], '비밀번호가 일치하지 않습니다.')
-});
+import { SignUpPageYupSchema } from '@/src/commons/utils/validations/yup';
 
 const SignUpPageContainer = () => {
 	const [termsCheck, setTermsCheck] = useState(new Array(6).fill(false));
@@ -28,7 +18,7 @@ const SignUpPageContainer = () => {
 	const [createUser] = useMutation<Pick<IMutation, 'createUser'>, IMutationCreateUserArgs>(CREATE_USER);
 
 	const { register, handleSubmit, formState } = useForm({
-		resolver: yupResolver(schema),
+		resolver: yupResolver(SignUpPageYupSchema),
 		mode: 'onChange'
 	});
 	// trigger, setValue
