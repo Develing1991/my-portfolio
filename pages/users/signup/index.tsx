@@ -1,7 +1,7 @@
-import React from 'react';
+import SignUpPageContainer from '@/src/components/pages/users/signup/SignUpPage.container';
 
 const SignUpPage = () => {
-	return <div>이메일 비밀번호 비밀번호 확인 닉네임</div>;
+	return <SignUpPageContainer />;
 };
 
 export default SignUpPage;

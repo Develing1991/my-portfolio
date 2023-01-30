@@ -7,17 +7,17 @@ const SignInPagePresenter = () => {
 	return (
 		<SignIn>
 			<div className="inner">
-				<div className="login">로그인</div>
+				<div className="signin">로그인</div>
 				<form>
 					<div className="email">
 						<label htmlFor="email" />
-						<Input placeholder="이메일을 입력해주세요." type="email" />
+						<Input placeholder="이메일을 입력해주세요." type="email" tabIndex={1} />
 					</div>
 					<div className="password">
 						<label htmlFor="password" />
-						<Input placeholder="비밀번호를 입력해주세요." id="password" name="password" type="password" autoComplete="off" />
+						<Input placeholder="비밀번호를 입력해주세요." id="password" name="password" type="password" autoComplete="off" tabIndex={2} />
 					</div>
-					<Button className="login-btn" reverse>
+					<Button className="signin-btn" reverse tabIndex={3}>
 						로그인
 					</Button>
 					<ul>

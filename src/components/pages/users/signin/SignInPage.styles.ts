@@ -17,12 +17,17 @@ export const SignIn = styled.div`
 		flex-direction: column;
 		justify-content: center;
 		gap: 50px;
+		@media screen and (max-width: 650px) {
+			max-width: none;
+			padding: 0 30px;
+		}
 		@media screen and (max-width: 360px) {
-			padding: 0 10px;
+			height: auto;
+			padding: 50px 20px;
 		}
 	}
 
-	.login {
+	.signin {
 		text-align: center;
 		font-size: var(--font-xxlarge);
 		font-weight: 700;
@@ -35,7 +40,7 @@ export const SignIn = styled.div`
 		width: 100%;
 	}
 
-	.login-btn {
+	.signin-btn {
 		padding: 10px;
 		font-size: var(--font-large);
 	}
