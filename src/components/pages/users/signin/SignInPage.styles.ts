@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const SignIn = styled.div`
-	background-color: var(--color-primary-dp2);
+	/* background-color: var(--color-primary-dp2); */
 	height: 100vh;
 	width: 100vw;
 	display: flex;

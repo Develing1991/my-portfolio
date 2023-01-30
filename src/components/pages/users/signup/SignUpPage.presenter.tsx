@@ -10,12 +10,15 @@ const SignUpPagePresenter = () => {
 				<div className="signup">회원가입</div>
 				<form>
 					<div>
-						<label htmlFor="nick">닉네임</label>
-						<Input placeholder="닉네임" type="nick" tabIndex={1} />
-					</div>
-					<div>
 						<label htmlFor="email">이메일</label>
 						<Input placeholder="이메일" type="email" tabIndex={2} />
+						<Button reverse className="email-btn">
+							이메일 인증하기
+						</Button>
+					</div>
+					<div>
+						<label htmlFor="nickName">닉네임</label>
+						<Input placeholder="닉네임" type="text" id="nickName" tabIndex={1} />
 					</div>
 					<div>
 						<label htmlFor="password">비밀번호</label>

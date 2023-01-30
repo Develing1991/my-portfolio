@@ -4,22 +4,23 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { css } from '@emotion/react';
 export const SignIn = styled.div`
-	background-color: var(--color-primary-dp2);
-	height: 100vh;
+	/* background-color: var(--color-primary-dp1); */
+	height: 100%;
+	padding: 120px 0;
 	/* width: 100vw; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
 	.inner {
-		max-width: 400px;
+		max-width: 350px;
 		margin: auto;
 		width: 100%;
 
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		gap: 30px;
+		gap: 50px;
 		@media screen and (max-width: 800px) {
 			max-width: none;
 			padding: 0 30px;
@@ -51,6 +52,12 @@ export const SignIn = styled.div`
 		margin-top: 10px;
 	}
 
+	.email-btn {
+		margin: 20px 0;
+		padding: 10px;
+		width: 100%;
+	}
+
 	.signup-btn {
 		margin-top: 10px;
 		padding: 10px;
@@ -74,7 +81,6 @@ export const SignIn = styled.div`
 			display: flex;
 			align-items: center;
 			gap: 10px;
-			cursor: pointer;
 		}
 		.term {
 			margin: 5px 0;
@@ -82,7 +88,6 @@ export const SignIn = styled.div`
 			align-items: center;
 			justify-content: space-between;
 			gap: 10px;
-			cursor: pointer;
 			@media screen and (max-width: 230px) {
 				flex-direction: column;
 			}
@@ -106,10 +111,13 @@ const IconColor = css`
 
 export const CheckboxBlankIcon = styled(CheckBoxOutlineBlankIcon)`
 	${IconColor}
+	cursor: pointer;
 `;
 export const CheckboxFillIcon = styled(CheckBoxIcon)`
 	${IconColor}
+	cursor: pointer;
 `;
 export const MoreRightIcon = styled(ChevronRightIcon)`
 	${IconColor}
+	cursor: pointer;
 `;
