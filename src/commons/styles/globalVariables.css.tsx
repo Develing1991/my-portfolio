@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 export const globalVariables = css`
 	/* color */
-	* {
+	:root {
 		--color-red: red;
 		--color-white: #ffffff;
 		--color-black: #000000;
