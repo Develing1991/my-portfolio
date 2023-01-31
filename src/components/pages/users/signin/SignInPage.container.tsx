@@ -9,7 +9,7 @@ import { IMutation, IMutationLoginUserArgs } from '@/src/commons/types/generated
 import Modal from '@/src/components/commons/modals/Modal';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
-import { accessTokenState } from '@/src/commons/store';
+import { accessTokenState, isLoggedState } from '@/src/commons/store';
 
 const SignInPageContainer = () => {
 	const [openModal, setOpenModal] = useState(false);
@@ -17,6 +17,7 @@ const SignInPageContainer = () => {
 	const [isComplete, setIsComplete] = useState(false);
 	const { push } = useRouter();
 	const [, setAccessTokenState] = useRecoilState(accessTokenState);
+	const [, setIsLogged] = useRecoilState(isLoggedState);
 	const { register, handleSubmit, formState } = useForm({
 		resolver: yupResolver(SignInPageYupSchema),
 		mode: 'onChange'
@@ -25,7 +26,6 @@ const SignInPageContainer = () => {
 	const [loginUser] = useMutation<Pick<IMutation, 'loginUser'>, IMutationLoginUserArgs>(LOGIN_USER);
 
 	const onSubmitLoginUser = async (data: Record<string, string>) => {
-		console.log('123');
 		const { email, password } = data;
 		try {
 			const { data } = await loginUser({
@@ -37,12 +37,11 @@ const SignInPageContainer = () => {
 
 			if (data?.loginUser.accessToken) {
 				setAccessTokenState(data?.loginUser.accessToken);
-				localStorage.setItem('isLogged', JSON.stringify(true));
-
 				setModalText(() => ({
 					title: '로그인 성공',
 					content: '로그인 되었습니다. 메인 페이지로 이동합니다.'
 				}));
+				setIsLogged(() => true);
 				setOpenModal(() => true);
 				setIsComplete(() => true);
 			}

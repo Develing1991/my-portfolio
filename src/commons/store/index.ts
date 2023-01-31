@@ -1,4 +1,6 @@
 import { atom } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
+const { persistAtom } = recoilPersist();
 
 export const keywordState = atom({
 	key: 'keywordState',
@@ -12,5 +14,6 @@ export const accessTokenState = atom({
 
 export const isLoggedState = atom({
 	key: 'isLoggedState',
-	default: false
+	default: false,
+	effects_UNSTABLE: [persistAtom]
 });

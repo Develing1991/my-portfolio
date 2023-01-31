@@ -1,7 +1,7 @@
 import * as S from './DefaultHeader.styles';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { accessTokenState, isLoggedState } from '@/src/commons/store';
 import { useMutation } from '@apollo/client';
@@ -15,9 +15,17 @@ export default function DefaultHeader() {
 	const [, setAccessToken] = useRecoilState(accessTokenState);
 	const [logoutUser] = useMutation(LOGOUT_USER);
 	const [openModal, setOpenModal] = useState(false);
-	//
+
+	const [btnWord, setBtnWord] = useState('');
+	const [showBtn, setShowBtn] = useState(false);
+
+	// 프리렌더 이슈 해결
+	useEffect(() => {
+		isLogged ? setBtnWord('로그아웃') : setBtnWord('로그인');
+		setShowBtn(() => true);
+	}, [showBtn, isLogged]);
+
 	const onClickLogout = () => {
-		localStorage.removeItem('isLogged');
 		setOpenModal(() => true);
 		setIsLogged(() => false);
 		setAccessToken(() => '');
@@ -64,18 +72,21 @@ export default function DefaultHeader() {
 							</S.MenuItem>
 						</S.Menu>
 					</S.HeaderLeft>
+
 					<S.HeaderRight className={hide ? 'hide' : ''}>
 						{!isLogged ? (
 							<>
 								<S.CustomButton reverse onClick={onClickMoveTo('/users/signin')}>
-									로그인
+									{btnWord}
 								</S.CustomButton>
-								<S.CustomButton onClick={onClickMoveTo('/users/signup')}>회원가입</S.CustomButton>
+								{showBtn && <S.CustomButton onClick={onClickMoveTo('/users/signup')}>회원가입</S.CustomButton>}
 							</>
 						) : (
-							<S.CustomButton reverse onClick={onClickLogout}>
-								로그아웃
-							</S.CustomButton>
+							<>
+								<S.CustomButton reverse onClick={onClickLogout}>
+									{btnWord}
+								</S.CustomButton>
+							</>
 						)}
 						<S.CustomButton reverse hide>
 							장바구니

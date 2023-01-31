@@ -3,16 +3,23 @@ import { onError } from '@apollo/client/link/error';
 import { createUploadLink } from 'apollo-upload-client';
 import { getAccessToken } from './libs/getAccessToken';
 import { useRecoilState } from 'recoil';
-import { accessTokenState, isLoggedState } from '@/src/commons/store';
+import { accessTokenState } from '@/src/commons/store';
 import { useEffect } from 'react';
 const globalApolloState = new InMemoryCache();
 
 export default function ApolloSettings({ children }: { children: JSX.Element }) {
 	const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-	const [isLogged] = useRecoilState(isLoggedState);
+
 	useEffect(() => {
 		// 로그드 true면 유지
-		if (isLogged) {
+		const getRecoilPersist = localStorage.getItem('recoil-persist');
+		let logged = false;
+		if (getRecoilPersist) {
+			const getRecoilPersistObj = JSON.parse(getRecoilPersist);
+			logged = getRecoilPersistObj.isLoggedState;
+		}
+
+		if (logged) {
 			getAccessToken().then((newAccessToken) => {
 				if (typeof newAccessToken !== 'string') return;
 				setAccessToken(newAccessToken);

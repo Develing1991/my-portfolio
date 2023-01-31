@@ -1,7 +1,5 @@
 // import dynamic from 'next/dynamic';
-import useIsLogged from '@/src/commons/hooks/useIsLogged';
 import { useRouter } from 'next/router';
-
 import HeadIndex from '../head/HeadIndex';
 import DefaultFooter from './footers/DefaultFooter';
 import DefaultHeader from './headers/DefaultHeader';
@@ -27,7 +25,6 @@ export default function LayoutIndex({ children }: { children: JSX.Element }) {
 	const layouts = pathConfig.find((el) => el.path === router.pathname.split('/')[1]) ?? pathConfig[pathConfig.length - 1];
 	const { header: DynamicHeader, footer: DynamicFooter } = layouts as IPathConfig;
 
-	useIsLogged();
 	return (
 		<>
 			{/* head 영역 */}
