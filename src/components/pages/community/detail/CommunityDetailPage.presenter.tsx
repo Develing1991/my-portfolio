@@ -1,10 +1,10 @@
+import * as S from './CommunityDetailPage.styles';
+import DropDown from '@/src/components/commons/dropdowns/DropDown';
+import CommentList from './components.presenter/CommentList';
 import { timeFromNow } from '@/src/commons/utils/dayjs/dayjs';
 import { checkImageFileExtension } from '@/src/commons/utils/validations/image';
-import DropDown from '@/src/components/commons/dropdowns/DropDown';
 import { useMemo } from 'react';
-import * as S from './CommunityDetailPage.styles';
 import { sanitize } from 'dompurify';
-import CommentList from './components.presenter/CommentList';
 import { ICommunityDetailPagePresenterProps } from './CommunityDetailPage.types';
 
 export default function CommunityDetailPagePresenter({ board, onClickLikeBoard }: ICommunityDetailPagePresenterProps) {

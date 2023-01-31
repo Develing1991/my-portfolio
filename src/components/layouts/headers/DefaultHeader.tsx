@@ -63,9 +63,11 @@ export default function DefaultHeader() {
 							</S.MenuItem>
 							<S.MenuItem>
 								<Link href={'/community'}>결제</Link>
+								{/* <Link href={'/paments'}>결제</Link> */}
 							</S.MenuItem>
 							<S.MenuItem>
 								<Link href={'/community'}>회사소개</Link>
+								{/* <Link href={'/introduce'}>회사소개</Link> */}
 							</S.MenuItem>
 							<S.MenuItem>
 								<Link href={'/users/profile'}>프로필</Link>
