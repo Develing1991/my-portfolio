@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import CloseIcon from '@mui/icons-material/Close';
+import { useEffect, useRef } from 'react';
 interface IModal {
 	title: string;
 	content: string;
@@ -10,6 +11,11 @@ interface IModal {
 	onClickOkayCancel?: () => void;
 }
 export default function Modal({ title, content, isOpen = false, isClose = false, isConfirm = false, onClickConfirm, onClickOkayCancel }: IModal) {
+	const refOkayBtn = useRef<HTMLDivElement>(null);
+	useEffect(() => {
+		refOkayBtn.current?.focus();
+	});
+
 	return (
 		<ModalContainer className={'modal__wrapper' && isOpen ? 'open' : ''}>
 			<div className="modal">
@@ -29,7 +35,17 @@ export default function Modal({ title, content, isOpen = false, isClose = false,
 					</div>
 				) : (
 					<div className="actions">
-						<div className="okay" onClick={onClickOkayCancel}>
+						<div
+							className="okay"
+							onClick={onClickOkayCancel}
+							ref={refOkayBtn}
+							tabIndex={1}
+							onKeyPress={(event) => {
+								if (event.code === 'Enter' && onClickOkayCancel) {
+									onClickOkayCancel();
+								}
+							}}
+						>
 							확인
 						</div>
 					</div>
@@ -97,6 +113,7 @@ const ModalContainer = styled.div`
 		background-color: var(--color-primary-dp4);
 		color: var(--color-white);
 		border-radius: 4px;
+		outline: none;
 		cursor: pointer;
 	}
 	.modal .actions .cancel {

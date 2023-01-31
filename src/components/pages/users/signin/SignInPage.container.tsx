@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import SignInPagePresenter from './SignInPage.presenter';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER_EXAMPLE } from './SignInPage.queries';
-import { IMutation, IMutationLoginUserExampleArgs } from '@/src/commons/types/generated/types';
+import { LOGIN_USER } from './SignInPage.queries';
+import { IMutation, IMutationLoginUserArgs } from '@/src/commons/types/generated/types';
 import Modal from '@/src/components/commons/modals/Modal';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
@@ -22,21 +22,21 @@ const SignInPageContainer = () => {
 		mode: 'onChange'
 	});
 
-	const [loginUserExample] = useMutation<Pick<IMutation, 'loginUserExample'>, IMutationLoginUserExampleArgs>(LOGIN_USER_EXAMPLE);
+	const [loginUser] = useMutation<Pick<IMutation, 'loginUser'>, IMutationLoginUserArgs>(LOGIN_USER);
 
 	const onSubmitLoginUser = async (data: Record<string, string>) => {
 		console.log('123');
 		const { email, password } = data;
 		try {
-			const { data } = await loginUserExample({
+			const { data } = await loginUser({
 				variables: {
 					email,
 					password
 				}
 			});
 
-			if (data?.loginUserExample.accessToken) {
-				setAccessTokenState(data?.loginUserExample.accessToken);
+			if (data?.loginUser.accessToken) {
+				setAccessTokenState(data?.loginUser.accessToken);
 				localStorage.setItem('isLogged', JSON.stringify(true));
 
 				setModalText(() => ({
@@ -64,7 +64,7 @@ const SignInPageContainer = () => {
 					setOpenModal(() => false);
 					if (isComplete) {
 						setIsComplete(() => false);
-						push('/');
+						push('/community');
 					}
 				}}
 			/>
