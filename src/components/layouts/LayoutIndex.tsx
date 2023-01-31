@@ -1,25 +1,29 @@
 // import dynamic from 'next/dynamic';
+
 import { useRouter } from 'next/router';
 import HeadIndex from '../head/HeadIndex';
 import DefaultFooter from './footers/DefaultFooter';
 import DefaultHeader from './headers/DefaultHeader';
 import DefaultMain from './mains/DefaultMain';
+import { useRecoilState } from 'recoil';
+import { isLoggedState } from '@/src/commons/store';
+import NavigationGuard from '../commons/guard/NavigationGuard';
 
 interface IPathConfig {
 	path: string;
-	hasProps: boolean;
+	auth: boolean;
 	header: () => JSX.Element;
 	footer: () => JSX.Element;
 }
 
 const pathConfig = [
-	{ path: 'users/signin', header: () => <></>, footer: () => <></> },
-	{ path: 'users/signup', header: () => <></>, footer: () => <></> },
-	{ path: 'users/profile', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
-	{ path: 'community', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
-	{ path: 'community/write', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
-	{ path: 'community/write/[id]', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
-	{ path: 'community/detail/[id]', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
+	{ path: 'users/signin', header: () => <></>, footer: () => <></>, auth: false },
+	{ path: 'users/signup', header: () => <></>, footer: () => <></>, auth: false },
+	{ path: 'users/profile', header: () => <DefaultHeader />, footer: () => <DefaultFooter />, auth: true },
+	{ path: 'community', header: () => <DefaultHeader />, footer: () => <DefaultFooter />, auth: false },
+	{ path: 'community/write', header: () => <DefaultHeader />, footer: () => <DefaultFooter />, auth: true },
+	{ path: 'community/write/[id]', header: () => <DefaultHeader />, footer: () => <DefaultFooter />, auth: true },
+	{ path: 'community/detail/[id]', header: () => <DefaultHeader />, footer: () => <DefaultFooter />, auth: false },
 	// { path: 'community', header: dynamic(async () => await import('./headers/DefaultHeader')), footer: dynamic(async () => await import('./footers/DefaultFooter')) },
 	// { path: 'product', header: dynamic(async () => await import('./headers/DefaultHeader')), footer: dynamic(async () => await import('./footers/DefaultFooter')) }
 	{ path: 'default', header: () => <></>, footer: () => <></> }
@@ -27,13 +31,14 @@ const pathConfig = [
 
 export default function LayoutIndex({ children }: { children: JSX.Element }) {
 	const router = useRouter();
-
+	const [isLogged] = useRecoilState(isLoggedState);
 	const [, ...lastPathNames] = router.pathname.split('/');
 	const layouts = pathConfig.find((el) => el.path === lastPathNames.join('/')) ?? pathConfig[pathConfig.length - 1];
-	const { header: DynamicHeader, footer: DynamicFooter } = layouts as IPathConfig;
+	const { header: DynamicHeader, footer: DynamicFooter, auth } = layouts as IPathConfig;
 
 	return (
 		<>
+			{auth && !isLogged && <NavigationGuard />}
 			{/* head 영역 */}
 			<>
 				<HeadIndex />
