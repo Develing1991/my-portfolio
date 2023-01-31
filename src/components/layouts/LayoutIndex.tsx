@@ -7,8 +7,8 @@ import DefaultHeader from './headers/DefaultHeader';
 import DefaultMain from './mains/DefaultMain';
 import { useRecoilState } from 'recoil';
 import { isLoggedState } from '@/src/commons/store';
-import NavigationGuard from '../commons/guard/NavigationGuard';
-
+import NavigationGuard from '../commons/guards/NavigationGuard';
+import { useEffect } from 'react';
 interface IPathConfig {
 	path: string;
 	auth: boolean;
@@ -35,6 +35,13 @@ export default function LayoutIndex({ children }: { children: JSX.Element }) {
 	const [, ...lastPathNames] = router.pathname.split('/');
 	const layouts = pathConfig.find((el) => el.path === lastPathNames.join('/')) ?? pathConfig[pathConfig.length - 1];
 	const { header: DynamicHeader, footer: DynamicFooter, auth } = layouts as IPathConfig;
+
+	// 임시로 추가 - 메인페이지 작업 이후 삭제
+	useEffect(() => {
+		if (router.pathname === '/') {
+			router.push('/community');
+		}
+	});
 
 	return (
 		<>

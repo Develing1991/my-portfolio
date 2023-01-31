@@ -1,6 +1,7 @@
 export default function Home() {
 	return (
 		<>
+			{/* 현재 작업중 */}
 			{/* banner */}
 			<section className="banner">
 				<div className="inner">

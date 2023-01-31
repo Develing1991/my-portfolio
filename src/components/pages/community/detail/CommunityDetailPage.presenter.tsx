@@ -56,7 +56,7 @@ export default function CommunityDetailPagePresenter({ board, onClickLikeBoard }
 				</S.PostHeaderContainer>
 				{/* contents */}
 				<S.PostBodyContainer>
-					<S.Contents dangerouslySetInnerHTML={{ __html: sanitize(board.contents) }} />
+					{typeof window !== 'undefined' ? <S.Contents dangerouslySetInnerHTML={{ __html: sanitize(board.contents) }} /> : <S.Contents dangerouslySetInnerHTML={{ __html: board.contents }} />}
 					<S.ContentsImageArea>
 						{board.images?.map((el, index) => {
 							return (

@@ -1,6 +1,13 @@
-import { IBoard, IBoardComment } from '@/src/commons/types/generated/types';
+import { IBoard, IBoardComment, IMutation, IMutationLikeBoardArgs } from '@/src/commons/types/generated/types';
+import { ApolloCache, DefaultContext, MutationTuple } from '@apollo/client';
+import { ParsedUrlQueryInput } from 'querystring';
 
 /* Container */
+export interface ICommunityDetailPageContainerProps {
+	fetchBoard: IBoard | undefined;
+	LikeBoardGQL: MutationTuple<Pick<IMutation, 'likeBoard'>, IMutationLikeBoardArgs, DefaultContext, ApolloCache<any>>;
+	query: ParsedUrlQueryInput;
+}
 
 /* Presenter */
 export interface ICommunityDetailPagePresenterProps {

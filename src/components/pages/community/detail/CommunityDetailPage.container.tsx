@@ -1,22 +1,16 @@
-import { IMutation, IMutationLikeBoardArgs, IQuery, IQueryFetchBoardArgs } from '@/src/commons/types/generated/types';
-import { useMutation, useQuery } from '@apollo/client';
-import { useRouter } from 'next/router';
-import { FETCH_BOARD, FETCH_BOARD_LIKECOUNT, LIKE_BOARD } from './CommunityDetailPage.queries';
+import { FETCH_BOARD_LIKECOUNT } from './CommunityDetailPage.queries';
 import CommunityDetailPagePresenter from './CommunityDetailPage.presenter';
+import { ICommunityDetailPageContainerProps } from './CommunityDetailPage.types';
 
-export default function CommunityDetailPageContainer() {
-	const { query } = useRouter();
-	const { data } = useQuery<Pick<IQuery, 'fetchBoard'>, IQueryFetchBoardArgs>(FETCH_BOARD, { variables: { boardId: String(query.id) } });
-	// console.log(data?.fetchBoard);
-
-	const [likeBoard] = useMutation<Pick<IMutation, 'likeBoard'>, IMutationLikeBoardArgs>(LIKE_BOARD);
+export default function CommunityDetailPageContainer({ fetchBoard, LikeBoardGQL, query }: ICommunityDetailPageContainerProps) {
+	const [likeBoard] = LikeBoardGQL;
 	const onClickLikeBoard = () => {
 		likeBoard({
 			variables: {
 				boardId: String(query.id)
 			},
 			optimisticResponse: {
-				likeBoard: (data?.fetchBoard.likeCount ?? 0) + 1
+				likeBoard: (fetchBoard?.likeCount ?? 0) + 1
 			},
 			update(cache, { data }) {
 				cache.writeQuery({
@@ -33,5 +27,5 @@ export default function CommunityDetailPageContainer() {
 			}
 		});
 	};
-	return <>{data?.fetchBoard && <CommunityDetailPagePresenter board={data?.fetchBoard} onClickLikeBoard={onClickLikeBoard} />}</>;
+	return <>{fetchBoard && <CommunityDetailPagePresenter board={fetchBoard} onClickLikeBoard={onClickLikeBoard} />}</>;
 }

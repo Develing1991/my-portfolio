@@ -3,7 +3,6 @@ import { Global } from '@emotion/react';
 import { globalReset } from '@/src/commons/styles/globalReset.css';
 import { globalVariables } from '@/src/commons/styles/globalVariables.css';
 import ApolloSettings from '@/src/components/utils/apollo';
-
 import LayoutIndex from '@/src/components/layouts/LayoutIndex';
 import { RecoilRoot } from 'recoil';
 
