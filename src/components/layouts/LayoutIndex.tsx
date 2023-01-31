@@ -13,8 +13,13 @@ interface IPathConfig {
 }
 
 const pathConfig = [
-	{ path: 'users', header: () => <></>, footer: () => <></> },
+	{ path: 'users/signin', header: () => <></>, footer: () => <></> },
+	{ path: 'users/signup', header: () => <></>, footer: () => <></> },
+	{ path: 'users/profile', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
 	{ path: 'community', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
+	{ path: 'community/write', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
+	{ path: 'community/write/[id]', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
+	{ path: 'community/detail/[id]', header: () => <DefaultHeader />, footer: () => <DefaultFooter /> },
 	// { path: 'community', header: dynamic(async () => await import('./headers/DefaultHeader')), footer: dynamic(async () => await import('./footers/DefaultFooter')) },
 	// { path: 'product', header: dynamic(async () => await import('./headers/DefaultHeader')), footer: dynamic(async () => await import('./footers/DefaultFooter')) }
 	{ path: 'default', header: () => <></>, footer: () => <></> }
@@ -22,7 +27,9 @@ const pathConfig = [
 
 export default function LayoutIndex({ children }: { children: JSX.Element }) {
 	const router = useRouter();
-	const layouts = pathConfig.find((el) => el.path === router.pathname.split('/')[1]) ?? pathConfig[pathConfig.length - 1];
+
+	const [, ...lastPathNames] = router.pathname.split('/');
+	const layouts = pathConfig.find((el) => el.path === lastPathNames.join('/')) ?? pathConfig[pathConfig.length - 1];
 	const { header: DynamicHeader, footer: DynamicFooter } = layouts as IPathConfig;
 
 	return (
