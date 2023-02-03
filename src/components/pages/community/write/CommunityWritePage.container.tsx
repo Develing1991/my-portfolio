@@ -1,12 +1,12 @@
 import CommunityWritePagePresenter from './CommunityWritePage.presenter';
+import Modal from '@/src/components/commons/modals/Modal';
 import { useState, SyntheticEvent, MouseEvent, ChangeEvent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { FileUrls } from './CommunityWritePage.types';
+import { useRouter } from 'next/router';
 import { useMutation } from '@apollo/client';
+import { FileUrls } from './CommunityWritePage.types';
 import { CREATE_BOARD, UPLOAD_FILE } from './CommunityWritePage.queries';
 import { IMutation, IMutationCreateBoardArgs, IMutationUploadFileArgs } from '@/src/commons/types/generated/types';
-import Modal from '@/src/components/commons/modals/Modal';
-import { useRouter } from 'next/router';
 
 export default function CommunityWritePageContainer() {
 	const router = useRouter();

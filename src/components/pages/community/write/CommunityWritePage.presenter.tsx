@@ -29,17 +29,14 @@ export default function CommunityWritePagePresenter({
 					<S.ContentDiv>
 						<S.ContentTextArea name="contents" onChange={onChangeInput} />
 					</S.ContentDiv>
-
 					<S.UploadImageDiv title="여기에 사진을 올려주세요">
 						<S.UploadArea>
 							<Dropzone prepareImageFiles={prepareImageFiles}>
 								<S.PlusIcon />
 							</Dropzone>
 						</S.UploadArea>
-
 						{/* <S.PlusIcon /> */}
 					</S.UploadImageDiv>
-
 					{previewImageUrls && previewImageUrls.length > 0 && (
 						<S.PrevImageDiv>
 							{previewImageUrls.map((el) => {
@@ -52,7 +49,6 @@ export default function CommunityWritePagePresenter({
 							})}
 						</S.PrevImageDiv>
 					)}
-
 					<S.ButtonGroupDiv>
 						<S.RegisterButton reverse onClick={onSubmitForm}>
 							등록

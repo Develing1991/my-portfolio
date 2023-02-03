@@ -1,13 +1,13 @@
 // import dynamic from 'next/dynamic';
 
-import { useRouter } from 'next/router';
 import HeadIndex from '../head/HeadIndex';
 import DefaultFooter from './footers/DefaultFooter';
 import DefaultHeader from './headers/DefaultHeader';
 import DefaultMain from './mains/DefaultMain';
+import NavigationGuard from '../commons/guards/NavigationGuard';
+import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { isLoggedState } from '@/src/commons/store';
-import NavigationGuard from '../commons/guards/NavigationGuard';
 import { useEffect } from 'react';
 interface IPathConfig {
 	path: string;
@@ -43,10 +43,14 @@ export default function LayoutIndex({ children }: { children: JSX.Element }) {
 		}
 	});
 
+	if (auth && !isLogged) {
+		return <NavigationGuard />;
+	}
 	return (
 		<>
-			{auth && !isLogged && <NavigationGuard />}
+			{/* {auth && !isLogged && <NavigationGuard />} */}
 			{/* head 영역 */}
+
 			<>
 				<HeadIndex />
 			</>

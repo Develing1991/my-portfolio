@@ -10,7 +10,9 @@ export default function CommunityDetailPage({ fetchBoard }: { fetchBoard: IBoard
 	return (
 		<>
 			<Head>
-				<meta property="og:title" content={fetchBoard.writer ?? ''} />
+				<meta property="og:kewords" content={fetchBoard.title} />
+				<meta property="og:writer" content={fetchBoard.writer ?? ''} />
+				<meta property="og:title" content={fetchBoard.title} />
 				<meta property="og:url" content={`http://localhost:3000/community/detail/${fetchBoard._id}`} />
 				<meta property="og:image" content={fetchBoard.images?.[0]} />
 				<meta property="og:description" content={fetchBoard.contents} />

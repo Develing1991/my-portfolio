@@ -15,8 +15,11 @@ export default function DefaultHeader() {
 	const [, setAccessToken] = useRecoilState(accessTokenState);
 	const [logoutUser] = useMutation(LOGOUT_USER);
 	const [openModal, setOpenModal] = useState(false);
+	const [titleModal, setTitleModal] = useState('');
+	const [conentModal, setContentModal] = useState('');
 
 	const [btnWord, setBtnWord] = useState('');
+
 	const [showBtn, setShowBtn] = useState(false);
 
 	// 프리렌더 이슈 해결
@@ -29,6 +32,8 @@ export default function DefaultHeader() {
 		setOpenModal(() => true);
 		setIsLogged(() => false);
 		setAccessToken(() => '');
+		setTitleModal(() => '알림');
+		setContentModal(() => '로그아웃 되었습니다.');
 		logoutUser();
 	};
 
@@ -43,11 +48,13 @@ export default function DefaultHeader() {
 	return (
 		<>
 			<Modal
-				title="알림"
-				content="로그아웃 되었습니다."
+				title={titleModal}
+				content={conentModal}
 				isOpen={openModal}
 				onClickOkayCancel={() => {
 					setOpenModal(() => false);
+					setTitleModal(() => '');
+					setContentModal(() => '');
 					push('/community');
 				}}
 			/>
@@ -74,7 +81,6 @@ export default function DefaultHeader() {
 							</S.MenuItem>
 						</S.Menu>
 					</S.HeaderLeft>
-
 					<S.HeaderRight className={hide ? 'hide' : ''}>
 						{!isLogged ? (
 							<>
