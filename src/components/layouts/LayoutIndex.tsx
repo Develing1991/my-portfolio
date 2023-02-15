@@ -44,20 +44,21 @@ export default function LayoutIndex({ children }: { children: JSX.Element }) {
 	});
 
 	if (auth && !isLogged) {
-		return <NavigationGuard />;
+		return <NavigationGuard />; // 네비게이션 라우터 가드
 	}
 	return (
 		<>
-			{/* {auth && !isLogged && <NavigationGuard />} */}
 			{/* head 영역 */}
-
 			<>
 				<HeadIndex />
 			</>
 			{/* body layout 영역 */}
 			<>
+				{/* 헤더 */}
 				<DynamicHeader />
+				{/* 뷰 */}
 				<DefaultMain>{children}</DefaultMain>
+				{/* 푸터 */}
 				<DynamicFooter />
 			</>
 		</>
